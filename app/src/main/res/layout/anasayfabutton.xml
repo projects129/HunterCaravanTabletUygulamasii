@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/anasayfa"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/rectangle">
+
+
+        <ImageView
+            android:id="@+id/imageView6"
+
+            android:layout_width="wrap_content"
+            android:layout_height="84dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/anasayfa" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppinsmedium"
+        android:gravity="center"
+        android:text="Ana Sayfa"
+        android:textColor="@color/white"
+        android:textSize="16sp">
+
+    </TextView>
+</LinearLayout>
+
+
