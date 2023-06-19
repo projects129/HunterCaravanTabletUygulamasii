@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/acikbuttonyesil"
+            android:background="@drawable/acikbtngri"
             android:fontFamily="@font/poppinsbold"
             android:text="AÇIK"
             android:textColor="@color/white"
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:background="@drawable/kapalibutton"
+            android:background="@drawable/kapalikirmizibtn"
             android:fontFamily="@font/poppinsbold"
             android:text="KAPALI"
             android:textColor="@color/white"

@@ -22,5 +22,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="@+id/imageView12"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/akurectangle" />
+        app:srcCompat="@drawable/akurectanglekirmizi0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

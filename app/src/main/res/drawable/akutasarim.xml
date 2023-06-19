@@ -9,7 +9,7 @@
 
     </item>
 
-    <item  android:drawable="@drawable/akurectangle" android:width="240dp" android:height="12dp" android:bottom="31dp"
+    <item  android:drawable="@drawable/akurectanglekirmizi0" android:width="240dp" android:height="12dp" android:bottom="31dp"
       >
 
 
