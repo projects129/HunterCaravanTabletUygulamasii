@@ -24,6 +24,7 @@
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsbold"
         android:text="KULLANICI UYGULAMA AYARLARI"
         android:textColor="@color/white"
@@ -300,5 +301,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button8"
         app:srcCompat="@drawable/huntercunter" />
+
+    <ImageView
+        android:id="@+id/backbutton1"
+        android:layout_width="119dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

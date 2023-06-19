@@ -17,7 +17,7 @@ public class DiagnostikMenu extends AppCompatActivity {
         setContentView(R.layout.activity_diagnostik_menu);
 
 
-        backbutton = findViewById(R.id.backbutton);
+        backbutton = findViewById(R.id.backbutton1);
 
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override

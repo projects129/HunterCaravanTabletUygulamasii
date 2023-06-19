@@ -1,18 +1,33 @@
 package com.caravan.huntercaravantabletuygulamasii.fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import com.caravan.huntercaravantabletuygulamasii.R;
 
 public class GelismisUygulamaAyarlari extends AppCompatActivity {
-ImageView diagnostikbtn;
-ImageView backbutton;
+    ImageView diagnostikbtn;
+    ImageView backbutton;
+    BluetoothAdapter myBluetoothAdapter;
+    Intent btEnablingIntent;
+    int requestCodeForeEnable;
+    BluetoothDevice[] btArray;
+    private Switch switchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,20 +35,74 @@ ImageView backbutton;
 
         diagnostikbtn = findViewById(R.id.diagnostikbtn);
         backbutton = findViewById(R.id.backbtn);
+        switchView = findViewById(R.id.bluetooth);
+
+        myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        btEnablingIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+        requestCodeForeEnable = 1;
         diagnostikbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GelismisUygulamaAyarlari.this,DiagnostikMenu.class);
+                Intent intent = new Intent(GelismisUygulamaAyarlari.this, DiagnostikMenu.class);
                 startActivity(intent);
             }
         });
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GelismisUygulamaAyarlari.this,KullaniciUygulamaAyarlari.class);
+                Intent intent = new Intent(GelismisUygulamaAyarlari.this, KullaniciUygulamaAyarlari.class);
                 startActivity(intent);
             }
         });
 
+        switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // on below line we are checking
+                // if switch is checked or not.
+                if (isChecked) {
+                    // on below line we are setting text
+                    // if switch is checked.
+                    if (myBluetoothAdapter == null) {
+                        Toast.makeText(getApplicationContext(), "Bluetooth does not support", Toast.LENGTH_LONG).show();
+
+
+                    } else {
+
+                        if (!myBluetoothAdapter.isEnabled()) {
+
+                            startActivityForResult(btEnablingIntent, requestCodeForeEnable);
+
+                        }
+
+                    }
+                } else {
+
+
+                    if (ActivityCompat.checkSelfPermission(GelismisUygulamaAyarlari.this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                     myBluetoothAdapter.disable();
+
+                        return;
+                    }
+
+                    Toast.makeText(getApplicationContext(), "kapat", Toast.LENGTH_LONG).show();
+
+
+
+
+                    // on below line we are setting text
+                    // if switch is unchecked.
+
+                }
+            }
+        });
     }
-}
+
+    }

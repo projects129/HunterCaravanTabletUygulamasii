@@ -630,7 +630,7 @@
         app:srcCompat="@drawable/huntercunter" />
 
     <ImageView
-        android:id="@+id/backbutton"
+        android:id="@+id/backbutton1"
         android:layout_width="56dp"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
