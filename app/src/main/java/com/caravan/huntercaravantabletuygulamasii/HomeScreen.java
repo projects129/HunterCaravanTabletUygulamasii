@@ -98,19 +98,5 @@ private DashboardPagerAdapter  adapter;
     }
 
 
-    void success_blue() {
-        if (myBluetoothAdapter == null) {
-            Toast.makeText(getApplicationContext(), "Bluetooth does not support", Toast.LENGTH_LONG).show();
 
-
-        } else {
-
-            if (!myBluetoothAdapter.isEnabled()) {
-
-                startActivityForResult(btEnablingIntent, requestCodeForeEnable);
-
-            }
-
-        }
-    }
 }
