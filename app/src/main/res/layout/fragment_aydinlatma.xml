@@ -28,7 +28,7 @@
             android:textSize="16sp" />
 
         <Switch
-            android:id="@+id/yatakodasiisik"
+            android:id="@+id/yatakodasiisik2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -61,7 +61,7 @@
             android:textSize="16sp" />
 
         <Switch
-            android:id="@+id/oturmaisik"
+            android:id="@+id/oturmaalanisiklari"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -159,7 +159,7 @@
             android:textSize="16sp" />
 
         <Switch
-            android:id="@+id/yatakodaisik"
+            android:id="@+id/oturmaalanisikM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -263,7 +263,7 @@
             android:textSize="16sp" />
 
         <Switch
-            android:id="@+id/disisiklari"
+            android:id="@+id/disisiklarisol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 

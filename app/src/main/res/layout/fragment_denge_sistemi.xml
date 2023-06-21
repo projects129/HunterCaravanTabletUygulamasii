@@ -131,7 +131,7 @@
             android:textSize="16sp" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/kompresor"
             android:layout_width="46dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
