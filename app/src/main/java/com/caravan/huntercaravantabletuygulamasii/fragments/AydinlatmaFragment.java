@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,13 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.caravan.huntercaravantabletuygulamasii.MainActivity;
 import com.caravan.huntercaravantabletuygulamasii.R;
 
 
 public class AydinlatmaFragment extends Fragment {
 
-
+    Switch OUTPUT_VIEWS[] = new Switch[12];
     Switch mutfakisiklari;
     Switch oturmaalanisiklariM;
     Switch yatakodasiisiklari1;
@@ -59,8 +61,22 @@ public class AydinlatmaFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        OUTPUT_VIEWS[0] = view.findViewById(R.id.mutfakisiklari);
+        OUTPUT_VIEWS[1] = view.findViewById(R.id.oturmaalanisikM);
+        OUTPUT_VIEWS[2] = view.findViewById(R.id.yatakodaisik1);
+        OUTPUT_VIEWS[3] = view.findViewById(R.id.mutfaktavanisik);
+        OUTPUT_VIEWS[4] = view.findViewById(R.id.oturmaalanisiklari);
+        OUTPUT_VIEWS[5] = view.findViewById(R.id.yatakodasiisik2);
+        OUTPUT_VIEWS[6] = view.findViewById(R.id.disisiklarisol);
+        OUTPUT_VIEWS[7] = view.findViewById(R.id.disisiklaron);
+        OUTPUT_VIEWS[8] = view.findViewById(R.id.parkisiklarisag);
+        OUTPUT_VIEWS[9] = view.findViewById(R.id.disisiklarsag);
+        OUTPUT_VIEWS[10] =view.findViewById(R.id.disisiklararka);
+        OUTPUT_VIEWS[11] =view.findViewById(R.id.parkisiklarisol);
+
         mutfakisiklari = view.findViewById(R.id.mutfakisiklari);
-        oturmaalanisiklariM=view.findViewById(R.id.oturmaalanisiklari);
+        oturmaalanisiklariM=view.findViewById(R.id.oturmaalanisikM);
         yatakodasiisiklari1 = view.findViewById(R.id.yatakodaisik1);
         mutfaktavanisiklari= view.findViewById(R.id.mutfaktavanisik);
         oturmaalaniisiklari = view.findViewById(R.id.oturmaalanisiklari);
@@ -74,178 +90,19 @@ public class AydinlatmaFragment extends Fragment {
         disisiklararka= view.findViewById(R.id.disisiklararka);
         parkisiklarisol= view.findViewById(R.id.parkisiklarisol);
 
-        mutfakisiklari.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), "Mutfak Işıkları açıldı", Toast.LENGTH_SHORT).show();
 
-                }else{
-                    Toast.makeText(requireContext(), "Mutfak ışıkları kapandı", Toast.LENGTH_SHORT).show();
+        for (int i = 0; i < OUTPUT_VIEWS.length; i++) {
+            int finalI = i;
+            OUTPUT_VIEWS[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
 
+                    if (isChecked) MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data | (1 << finalI))));
+                    else MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data & (~(1 << finalI)))));
+                    MainActivity.output_update=true;
+                    Log.d("TAG", "Outputs data:" + Integer.toHexString(MainActivity.outputs_data));
                 }
-
-            }
-        });
-        oturmaalanisiklariM.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), "OturmaIşıklarıM Işıkları açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), "OturmaIşıklarıM kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        yatakodasiisiklari1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), "YatakOdası1 Işıkları açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), "YatakOdası1 kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        mutfaktavanisiklari.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), " Mutfaktavan Işıkları açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), " Mutfaktavan Isiklari kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        oturmaalaniisiklari.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), " oturmaalani  Işıkları açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), " oturmaalani Isiklari kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        yatakodasiisiklari2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), " Yatak Odası2 Işıkları açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), " Yatak Odası2 Isiklari kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-
-
-        disisiklarsol.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), " Dış Işıkları Sol açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), " Dış  Isiklari Sol kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-
-        disisiklaron.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), " Dış Işıkları Ön açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), " Dış  Isiklari Ön kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-
-        parkisiklarisag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), " Park Işıkları sağ açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), " Park Isiklari sağ kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-
-        disisiklarisag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), " Dış Işıkları Sağ açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), " Dış  Isiklari Sağ kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        disisiklararka.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), " Dış Işıkları Arka açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), " Dış  Isiklari Arka kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-
-        parkisiklarisol.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked){
-                    Toast.makeText(requireContext(), " Park Işıkları Sol açıldı", Toast.LENGTH_SHORT).show();
-
-                }else{
-                    Toast.makeText(requireContext(), " Park  Isiklari Sol kapandı", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
+            });
+        }
 
 
     }

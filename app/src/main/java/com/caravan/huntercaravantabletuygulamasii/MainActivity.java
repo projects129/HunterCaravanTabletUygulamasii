@@ -30,17 +30,19 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
+    public static char outputs_data;
+    public static boolean output_update;
     AnimationDrawable drawableAnimation;
     private static final int SPLASH_SCREEN_TIME_OUT = 4600; // After completion of 2000 ms, the next activity will get started.
     Context context = this;
     private SimpleBluetoothDeviceInterface deviceInterface;
     BluetoothManager bluetoothManager = BluetoothManager.getInstance();
     String my_device_mac;
-    char outputs_data = 0x0000;
+    //char outputs_data = 0x0000;
     char[] ouput_update_buf={0x55,0x74,0x00,0x00};
     char[] input_read_buf={0x55,0x41,0x00,0x00};
     boolean my_device_exist=false;
-    boolean output_update=false;
+    //boolean output_update=false;
     Timer timer;
 
     @SuppressLint("MissingPermission")
@@ -160,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onMessageSent(String message) {
-        
+
     }
 
     private void onMessageReceived(String message) {
