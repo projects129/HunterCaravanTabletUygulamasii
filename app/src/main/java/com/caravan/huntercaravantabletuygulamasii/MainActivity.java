@@ -9,6 +9,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -54,7 +55,26 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView = (ImageView) findViewById(R.id.maske);
         imageView.setBackgroundResource(R.drawable.tasarim);
         drawableAnimation = (AnimationDrawable) imageView.getBackground();
-        if (bluetoothManager == null) {
+
+        int currentApiVersion = Build.VERSION.SDK_INT;
+
+        final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        if (currentApiVersion >= Build.VERSION_CODES.KITKAT) {
+            getWindow().getDecorView().setSystemUiVisibility(flags);
+            final View decorView = getWindow().getDecorView();
+            decorView.setOnSystemUiVisibilityChangeListener(visibility -> {
+                if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                    decorView.setSystemUiVisibility(flags);
+                }
+            });
+        }
+
+       if (bluetoothManager == null) {
             // Bluetooth unavailable on this device :( tell the user
             Toast.makeText(context, "Bluetooth not available.", Toast.LENGTH_LONG).show(); // Replace context with your context instance.
             finish();
@@ -76,13 +96,7 @@ public class MainActivity extends AppCompatActivity {
         {
             Toast.makeText(context, "Menar IO Module not found.", Toast.LENGTH_LONG).show();
         }
-        Runnable beklemeSuresi = new Runnable() {
-            @Override
-            public void run() {
-                nextActivity();
 
-            }
-        };
         Runnable bekleme = new Runnable() {
             @Override
             public void run() {
@@ -128,13 +142,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
+    protected void onStart() {
+        super.onStart();
         drawableAnimation.start();
-
     }
+
     private void connectDevice(String mac) {
         bluetoothManager.openSerialDevice(mac)
                 .subscribeOn(Schedulers.io())
