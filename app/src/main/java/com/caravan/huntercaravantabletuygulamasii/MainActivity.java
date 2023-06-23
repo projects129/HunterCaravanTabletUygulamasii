@@ -9,6 +9,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ClipDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     boolean output_update=false;
     Timer timer;
     AnimationDrawable drawableAnimation;
-    private static final int SPLASH_SCREEN_TIME_OUT = 4600; // After completion of 2000 ms, the next activity will get started.
+    private static final int SPLASH_SCREEN_TIME_OUT = 6600; // After completion of 2000 ms, the next activity will get started.
 
 
     @SuppressLint("MissingPermission")
@@ -52,9 +53,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView imageView = (ImageView) findViewById(R.id.maske);
-        imageView.setBackgroundResource(R.drawable.tasarim);
-        drawableAnimation = (AnimationDrawable) imageView.getBackground();
+        ImageView image = (ImageView) findViewById(R.id.progressBar);
+        ClipDrawable drawable = (ClipDrawable) image.getDrawable();
+        drawable.setLevel(0);
+
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                MainActivity.this.runOnUiThread(new Runnable(){
+                    @Override
+                    public void run() {
+                        drawable.setLevel(drawable.getLevel()+500);
+
+                    }
+                });
+            }
+        }, 10,200);
 
         int currentApiVersion = Build.VERSION.SDK_INT;
 
@@ -106,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         Handler isleyici = new Handler();
-        isleyici.postDelayed(bekleme,3000);
+        isleyici.postDelayed(bekleme,4700);
 
 
         new Handler().postDelayed(new Runnable() {
@@ -126,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void nextActivity(){
         ImageView imageView = (ImageView) findViewById(R.id.maske);
-
+          ImageView image = findViewById(R.id.progressBar);
         ImageView Glass1=findViewById(R.id.mask);
         ImageView hunter = findViewById(R.id.hunter);
 
@@ -136,17 +152,14 @@ public class MainActivity extends AppCompatActivity {
 
         Glass1.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.INVISIBLE);
+        image.setVisibility(View.INVISIBLE);
         hunter.setVisibility(View.VISIBLE);
 
 
     }
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        drawableAnimation.start();
-    }
+
 
     private void connectDevice(String mac) {
         bluetoothManager.openSerialDevice(mac)
