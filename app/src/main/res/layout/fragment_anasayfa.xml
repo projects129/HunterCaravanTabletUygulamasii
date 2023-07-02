@@ -12,13 +12,13 @@
         android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginStart="96dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppinsbold"
         android:text="AKÜ"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView32"
+        app:layout_constraintStart_toStartOf="@+id/imageView32"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -26,12 +26,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="96dp"
         android:fontFamily="@font/poppinsbold"
         android:text="TEMİZ SU"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView44"
+        app:layout_constraintStart_toStartOf="@+id/imageView44"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -43,8 +43,8 @@
         android:text="27 MAYIS 2023"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView43"
-        app:layout_constraintStart_toEndOf="@+id/textView42"
+        app:layout_constraintEnd_toEndOf="@+id/textView45"
+        app:layout_constraintStart_toStartOf="@+id/textView45"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -134,9 +134,10 @@
         android:id="@+id/imageView45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="73dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/termometre"
         app:layout_constraintEnd_toEndOf="@+id/textView46"
+        app:layout_constraintStart_toStartOf="@+id/textView46"
         app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
     <TextView
@@ -173,8 +174,8 @@
         android:id="@+id/imageView46"
         android:layout_width="481dp"
         android:layout_height="81dp"
-        android:layout_marginTop="8dp"
         android:src="@drawable/huntercunter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView45" />
@@ -185,15 +186,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppinsbold"
         android:text="20"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView46"
         app:layout_constraintStart_toStartOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/textView49"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
     <TextView
         android:id="@+id/textView52"

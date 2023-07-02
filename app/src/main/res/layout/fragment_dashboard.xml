@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@android:drawable/divider_horizontal_bright"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

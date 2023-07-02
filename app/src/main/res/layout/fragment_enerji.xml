@@ -17,8 +17,8 @@
         android:text="AKÜ"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView16"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -30,8 +30,8 @@
         android:text="GÜNEŞ PANELİ"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView16"
+        app:layout_constraintEnd_toEndOf="@+id/imageView19"
+        app:layout_constraintStart_toStartOf="@+id/imageView19"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -115,7 +115,7 @@
             android:gravity="center"
             android:text="125"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView19"
@@ -126,15 +126,15 @@
             android:gravity="center"
             android:text="V"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="24sp" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView21"
         android:layout_width="481dp"
         android:layout_height="82dp"
-        android:layout_marginTop="8dp"
         android:src="@drawable/huntercunter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView16" />
