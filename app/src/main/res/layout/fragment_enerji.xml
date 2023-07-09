@@ -197,8 +197,8 @@
 
     <TextView
         android:id="@+id/textView59"
-        android:layout_width="41dp"
-        android:layout_height="58dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="4dp"
         android:fontFamily="@font/poppinsextralight"
@@ -210,10 +210,10 @@
 
     <TextView
         android:id="@+id/textView65"
-        android:layout_width="49dp"
-        android:layout_height="57dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="72dp"
         android:fontFamily="@font/poppinsextralight"
         android:text="%"
         android:textSize="54sp"

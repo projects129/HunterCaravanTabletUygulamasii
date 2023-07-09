@@ -24,7 +24,7 @@
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/poppinsbold"
         android:gravity="center"
         android:text="DİAGNOSTİK MENÜ"
@@ -46,11 +46,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout10"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="32dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toStartOf="@+id/imageView34"
         app:layout_constraintStart_toStartOf="parent"
@@ -350,7 +350,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout9"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="50dp"
@@ -630,8 +630,8 @@
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
+        android:layout_width="148dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
@@ -656,7 +656,7 @@
         android:id="@+id/backbutton1"
         android:layout_width="56dp"
         android:layout_height="35dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toStartOf="@+id/textView29"
         app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
