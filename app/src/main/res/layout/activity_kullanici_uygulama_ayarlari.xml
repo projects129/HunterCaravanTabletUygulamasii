@@ -24,20 +24,20 @@
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/poppinsbold"
         android:text="KULLANICI UYGULAMA AYARLARI"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30"
@@ -45,9 +45,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout13"
-        android:layout_width="361dp"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="64dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/imageView36"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,13 +62,13 @@
             android:gravity="center"
             android:text="TARİH"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:layout_marginStart="109dp"
+            android:layout_marginStart="90dp"
             android:gravity="center|start"
             android:text="29 MAYIS CUMARTESİ"
             android:textColor="@color/white"
@@ -82,9 +83,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout14"
-        android:layout_width="361dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="64dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/imageView36"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,13 +100,13 @@
             android:gravity="center"
             android:text="SİSTEM SAATİ"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView34"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="166dp"
+            android:layout_marginStart="135dp"
             android:fontFamily="@font/poppinsregular"
             android:gravity="center|start"
             android:text="22:38"
@@ -120,12 +122,14 @@
 
     <LinearLayout
         android:id="@+id/linearLayout15"
-        android:layout_width="361dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="64dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/imageView36"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout14">
 
         <TextView
@@ -137,13 +141,13 @@
             android:gravity="center"
             android:text="ARAYÜZ DİLİ"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/imageView38"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="60dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/turkiye" />
 
@@ -168,11 +172,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout16"
-        android:layout_width="0dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="144dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView36"
@@ -187,13 +190,13 @@
             android:gravity="center|start"
             android:text="UYKU MODUNU AYARLA"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView38"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_marginStart="9dp"
             android:fontFamily="@font/poppinsregular"
             android:gravity="center|end"
             android:text="10 DAKİKA"
@@ -203,20 +206,19 @@
         <ImageView
             android:id="@+id/imageView40"
             android:layout_width="49dp"
-            android:layout_height="37dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             app:srcCompat="@drawable/bluetooth" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout17"
-        android:layout_width="0dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="144dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toEndOf="@+id/imageView36"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout16">
 
@@ -229,12 +231,13 @@
             android:gravity="center|start"
             android:text="NEM SETİNİ AYARLA"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView40"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginStart="60dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="98%"
@@ -244,19 +247,18 @@
         <ImageView
             android:id="@+id/imageView41"
             android:layout_width="49dp"
-            android:layout_height="37dp"
-            android:layout_marginEnd="19dp"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/bluetooth" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/linearLayout22"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="144dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toEndOf="@+id/imageView36"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout17">
 
@@ -269,44 +271,43 @@
             android:gravity="center|start"
             android:text="GELİŞMİŞ AYARLAR"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/gelismisayarlar"
             android:layout_width="49dp"
-            android:layout_height="37dp"
-            android:layout_weight="1"
-            android:translationX="35dp"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/kirmiziayar" />
     </LinearLayout>
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/ayargirisbtn"
         android:text="KAYDET"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView43"
+        app:layout_constraintEnd_toEndOf="@+id/imageView36"
+        app:layout_constraintStart_toStartOf="@+id/imageView36"
         app:layout_constraintTop_toBottomOf="@+id/imageView36" />
 
     <ImageView
         android:id="@+id/imageView43"
-        android:layout_width="481dp"
-        android:layout_height="81dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="448dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8"
         app:srcCompat="@drawable/huntercunter" />
 
     <ImageView
         android:id="@+id/backbutton1"
-        android:layout_width="119dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="108dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView30"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />

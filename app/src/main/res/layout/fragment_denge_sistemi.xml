@@ -8,18 +8,18 @@
 
     <ImageView
         android:id="@+id/imageView15"
-        android:layout_width="340dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="368dp"
+        android:layout_height="337dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="80dp"
         android:src="@drawable/gostergeler"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView23"
-        android:layout_width="240dp"
-        android:layout_height="200dp"
+        android:layout_width="253dp"
+        android:layout_height="235dp"
         android:src="@drawable/gostergeler2"
         app:layout_constraintBottom_toBottomOf="@+id/imageView15"
         app:layout_constraintEnd_toEndOf="@+id/imageView15"
@@ -29,18 +29,18 @@
 
     <ImageView
         android:id="@+id/imageView24"
-        android:layout_width="340dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="350dp"
+        android:layout_height="337dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="200dp"
         android:src="@drawable/gostergeler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView25"
-        android:layout_width="240dp"
-        android:layout_height="200dp"
+        android:layout_width="322dp"
+        android:layout_height="318dp"
         android:src="@drawable/gostergeler3"
         app:layout_constraintBottom_toBottomOf="@+id/imageView24"
         app:layout_constraintEnd_toEndOf="@+id/imageView24"
@@ -50,23 +50,26 @@
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginBottom="7dp"
         android:background="@drawable/otomatik"
-        app:layout_constraintEnd_toStartOf="@+id/imageView24"
-        app:layout_constraintStart_toEndOf="@+id/imageView15"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView23"
+        app:layout_constraintEnd_toEndOf="@+id/imageView24"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="@+id/imageView15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout6"
         app:layout_constraintStart_toEndOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/button2">
+        app:layout_constraintTop_toBottomOf="@+id/textView70">
 
         <Button
             android:id="@+id/button4"
@@ -85,14 +88,14 @@
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="24dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout7"
         app:layout_constraintEnd_toStartOf="@+id/imageView24"
         app:layout_constraintStart_toEndOf="@+id/linearLayout7"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout7">
+        app:layout_constraintTop_toBottomOf="@+id/textView69">
 
         <Button
             android:id="@+id/button5"
@@ -112,11 +115,11 @@
         android:id="@+id/linearLayout8"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/kompresorrectangle"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/imageView24"
-        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintEnd_toEndOf="@+id/imageView24"
+        app:layout_constraintStart_toStartOf="@+id/imageView15"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
         <TextView
@@ -132,23 +135,53 @@
 
         <Switch
             android:id="@+id/kompresor"
-            android:layout_width="46dp"
+            android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:layout_gravity="center"
+            android:layout_marginEnd="18dp"
             android:layout_weight="1"
-            android:thumb="@drawable/ellipse"
+            android:gravity="center|left"
+            android:thumb="@drawable/ellipse1"
             android:track="@drawable/kompresorswitch" />
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView14"
-        android:layout_width="481dp"
-        android:layout_height="82dp"
+        android:layout_width="448dp"
+        android:layout_height="120dp"
         android:src="@drawable/huntercunter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView69"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppinsblack"
+        android:gravity="center"
+        android:text="SAĞ"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout6"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <TextView
+        android:id="@+id/textView70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppinsblack"
+        android:text="SOL"
+        android:textColor="#FDFDFD"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout7"
+        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout7"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
