@@ -199,7 +199,7 @@
         <ImageView
             android:id="@+id/imageView49"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/simsek" />
 
@@ -240,7 +240,8 @@
         <ImageView
             android:id="@+id/imageView51"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="top"
             android:layout_weight="1"
             android:src="@drawable/sudamlasi" />
 
