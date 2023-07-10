@@ -12,7 +12,7 @@
         android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/poppinsbold"
         android:text="AKÜ"
         android:textColor="@color/white"
@@ -25,7 +25,7 @@
         android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/poppinsbold"
         android:text="TEMİZ SU"
         android:textColor="@color/white"
@@ -39,7 +39,7 @@
         android:id="@+id/textView44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/poppinsmedium"
         android:text="27 MAYIS 2023"
         android:textColor="@color/white"
@@ -65,7 +65,7 @@
         android:id="@+id/imageView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="224dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/akuicon"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="160dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="224dp"
+        android:layout_marginEnd="100dp"
         android:src="@drawable/akuicon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
@@ -100,7 +100,6 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView45"
-        app:layout_constraintHorizontal_bias="0.379"
         app:layout_constraintStart_toStartOf="@+id/textView45"
         app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
@@ -108,7 +107,7 @@
         android:id="@+id/textView47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="65dp"
         android:fontFamily="@font/poppinsbold"
         android:text="AKÜ GERİLİMİ"
         android:textColor="@color/white"
@@ -121,7 +120,7 @@
         android:id="@+id/textView48"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="65dp"
         android:fontFamily="@font/poppinsbold"
         android:text="ATIK SU"
         android:textColor="@color/white"
@@ -175,6 +174,7 @@
         android:src="@drawable/huntercunter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

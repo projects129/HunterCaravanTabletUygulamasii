@@ -12,7 +12,7 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="133dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/ayariconn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
