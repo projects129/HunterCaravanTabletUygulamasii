@@ -67,7 +67,7 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GelismisUygulamaAyarlari.this, KullaniciUygulamaAyarlari.class);
+                Intent intent = new Intent(GelismisUygulamaAyarlari.this, AyarlarFragment.class);
                 startActivity(intent);
             }
         });

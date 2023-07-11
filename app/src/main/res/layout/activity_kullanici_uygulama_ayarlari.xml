@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -24,7 +25,7 @@
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsbold"
         android:text="KULLANICI UYGULAMA AYARLARI"
         android:textColor="@color/white"
@@ -37,7 +38,7 @@
         android:id="@+id/imageView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30"
@@ -45,12 +46,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayout13"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
         android:layout_marginTop="44dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/imageView36"
+        app:layout_constraintEnd_toStartOf="@+id/dateText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30">
 
@@ -64,71 +65,39 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:layout_marginStart="90dp"
-            android:gravity="center|start"
-            android:text="29 MAYIS CUMARTESİ"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/imageView35"
-            android:layout_width="49dp"
-            android:layout_height="37dp"
-            app:srcCompat="@drawable/bluetooth" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout14"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
         android:layout_marginTop="64dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/imageView36"
+        app:layout_constraintEnd_toStartOf="@+id/timeText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
 
         <TextView
             android:id="@+id/textView33"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
-            android:gravity="center"
+            android:gravity="center|start"
             android:text="SİSTEM SAATİ"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView34"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="135dp"
-            android:fontFamily="@font/poppinsregular"
-            android:gravity="center|start"
-            android:text="22:38"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/imageView37"
-            android:layout_width="49dp"
-            android:layout_height="37dp"
-            app:srcCompat="@drawable/bluetooth" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout15"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
         android:layout_marginTop="64dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/imageView36"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintEnd_toStartOf="@+id/imageView38"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout14">
 
@@ -138,36 +107,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
-            android:gravity="center"
+            android:gravity="center|start"
             android:text="ARAYÜZ DİLİ"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/imageView38"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="30dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/turkiye" />
-
-        <TextView
-            android:id="@+id/textView36"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="@font/poppinsregular"
-            android:gravity="center|start"
-            android:text="TÜRKÇE"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/imageView39"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/bluetooth" />
     </LinearLayout>
 
     <LinearLayout
@@ -284,7 +228,7 @@
         android:id="@+id/button8"
         android:layout_width="148dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/ayargirisbtn"
         android:text="KAYDET"
         android:textColor="@color/white"
@@ -295,21 +239,89 @@
     <ImageView
         android:id="@+id/imageView43"
         android:layout_width="448dp"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/huntercunter" />
 
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center|start"
+        android:text="29 MAYIS CUMARTESİ"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/datepicker"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
     <ImageView
-        android:id="@+id/backbutton1"
-        android:layout_width="108dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView30"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        android:id="@+id/datepicker"
+        android:layout_width="49dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView36"
+        app:layout_constraintTop_toBottomOf="@+id/textView30"
+        app:srcCompat="@drawable/bluetooth" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center|start"
+        android:text="22:38"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/timepicker"
+        app:layout_constraintTop_toBottomOf="@+id/dateText" />
+
+    <ImageView
+        android:id="@+id/timepicker"
+        android:layout_width="49dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView36"
+        app:layout_constraintTop_toBottomOf="@+id/datepicker"
+        app:srcCompat="@drawable/bluetooth" />
+
+    <ImageView
+        android:id="@+id/imageView38"
+        android:layout_width="49dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toStartOf="@+id/textView36"
+        app:layout_constraintTop_toBottomOf="@+id/timeText"
+        app:srcCompat="@drawable/turkiye" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center|start"
+        android:text="TÜRKÇE"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView39"
+        app:layout_constraintTop_toBottomOf="@+id/timeText" />
+
+    <ImageView
+        android:id="@+id/imageView39"
+        android:layout_width="49dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="64dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toStartOf="@+id/imageView36"
+        app:layout_constraintTop_toBottomOf="@+id/timepicker"
+        app:srcCompat="@drawable/bluetooth" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

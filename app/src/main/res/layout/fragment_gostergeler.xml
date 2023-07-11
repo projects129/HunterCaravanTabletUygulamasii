@@ -36,8 +36,8 @@
 
     <ImageView
         android:id="@+id/imageView48"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="260dp"
         android:layout_marginStart="40dp"
         android:src="@drawable/rectanglegosterge"
         app:layout_constraintEnd_toStartOf="@+id/imageView50"
@@ -46,8 +46,8 @@
 
     <ImageView
         android:id="@+id/imageView50"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="260dp"
         android:src="@drawable/rectanglegosterge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.471"
@@ -55,24 +55,22 @@
         app:layout_constraintTop_toBottomOf="@+id/textView56" />
 
     <ImageView
-        android:id="@+id/imageView53"
-        android:layout_width="201dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/gostergerectanglemavi75"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView48"
-        app:layout_constraintEnd_toEndOf="@+id/imageView48"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView48" />
-
-    <ImageView
-        android:id="@+id/imageView54"
+        android:id="@+id/temizsudolum1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/rectanglegri"
+        android:src="@drawable/emptytemizsugostergevector"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView48"
+        app:layout_constraintEnd_toEndOf="@+id/imageView48"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="@+id/imageView48" />
+
+    <ImageView
+        android:id="@+id/atiksudolum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/emptyatiksugostergevector"
         app:layout_constraintBottom_toBottomOf="@+id/imageView50"
         app:layout_constraintEnd_toEndOf="@+id/imageView50"
         app:layout_constraintStart_toStartOf="@+id/imageView50" />
@@ -96,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/termometre"
         app:layout_constraintStart_toEndOf="@+id/linearLayout18"
         app:layout_constraintTop_toBottomOf="@+id/textView60" />
@@ -110,7 +108,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout18"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout18"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/linearLayout18" />
 
     <TextView
@@ -129,7 +127,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView55"
         app:layout_constraintStart_toEndOf="@+id/imageView50"
         app:layout_constraintTop_toTopOf="@+id/imageView55">
 
@@ -160,7 +160,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView55"
         app:layout_constraintStart_toEndOf="@+id/imageView55"
         app:layout_constraintTop_toTopOf="@+id/imageView55">
 
@@ -259,13 +261,13 @@
         android:text="%"
         android:textColor="@color/white"
         android:textSize="54sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView54"
+        app:layout_constraintBottom_toBottomOf="@+id/atiksudolum"
         app:layout_constraintEnd_toEndOf="@+id/imageView50" />
 
     <ImageView
         android:id="@+id/imageView57"
         android:layout_width="448dp"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:src="@drawable/huntercunter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

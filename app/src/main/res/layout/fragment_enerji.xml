@@ -38,7 +38,7 @@
         android:id="@+id/imageView16"
         android:layout_width="wrap_content"
         android:layout_height="240dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="108dp"
         android:src="@drawable/line"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,11 +57,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <ImageView
-        android:id="@+id/imageView18"
+        android:id="@+id/akudolum3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:src="@drawable/akurectanglekirmizi0"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/emptyakuvector"
         app:layout_constraintBottom_toBottomOf="@+id/imageView17"
         app:layout_constraintEnd_toEndOf="@+id/imageView17"
         app:layout_constraintStart_toStartOf="@+id/imageView17" />
@@ -134,7 +134,7 @@
     <ImageView
         android:id="@+id/imageView21"
         android:layout_width="448dp"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:src="@drawable/huntercunter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -199,26 +199,28 @@
         android:id="@+id/textView59"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginStart="68dp"
         android:fontFamily="@font/poppinsextralight"
         android:gravity="center"
         android:text="7"
         android:textSize="54dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView65"
-        app:layout_constraintTop_toTopOf="@+id/imageView17" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintStart_toStartOf="@+id/akudolum3"
+        app:layout_constraintTop_toTopOf="@+id/akudolum3"
+        app:layout_constraintVertical_bias="0.411" />
 
     <TextView
         android:id="@+id/textView65"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="72dp"
         android:fontFamily="@font/poppinsextralight"
         android:text="%"
         android:textSize="54sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView18"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
         app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toEndOf="@+id/textView59"
         app:layout_constraintTop_toTopOf="@+id/imageView17"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.589" />
 </androidx.constraintlayout.widget.ConstraintLayout>
