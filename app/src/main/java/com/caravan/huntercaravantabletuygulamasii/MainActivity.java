@@ -2,11 +2,15 @@ package com.caravan.huntercaravantabletuygulamasii;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ClipDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -30,10 +34,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
+
     public static char outputs_data;
     public static boolean output_update;
     AnimationDrawable drawableAnimation;
     private static final int SPLASH_SCREEN_TIME_OUT = 4600; // After completion of 2000 ms, the next activity will get started.
+
     Context context = this;
     private SimpleBluetoothDeviceInterface deviceInterface;
     BluetoothManager bluetoothManager = BluetoothManager.getInstance();
@@ -44,16 +50,53 @@ public class MainActivity extends AppCompatActivity {
     boolean my_device_exist=false;
     //boolean output_update=false;
     Timer timer;
+    AnimationDrawable drawableAnimation;
+    private static final int SPLASH_SCREEN_TIME_OUT = 6600; // After completion of 2000 ms, the next activity will get started.
+
 
     @SuppressLint("MissingPermission")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView imageView = (ImageView) findViewById(R.id.msk);
-        imageView.setBackgroundResource(R.drawable.tasarim);
-        drawableAnimation = (AnimationDrawable) imageView.getBackground();
-        if (bluetoothManager == null) {
+        ImageView image = (ImageView) findViewById(R.id.progressBar);
+        ClipDrawable drawable = (ClipDrawable) image.getDrawable();
+        drawable.setLevel(0);
+
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                MainActivity.this.runOnUiThread(new Runnable(){
+                    @Override
+                    public void run() {
+                        drawable.setLevel(drawable.getLevel()+500);
+
+                    }
+                });
+            }
+        }, 10,200);
+
+        int currentApiVersion = Build.VERSION.SDK_INT;
+
+        final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        if (currentApiVersion >= Build.VERSION_CODES.KITKAT) {
+            getWindow().getDecorView().setSystemUiVisibility(flags);
+            final View decorView = getWindow().getDecorView();
+            decorView.setOnSystemUiVisibilityChangeListener(visibility -> {
+                if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                    decorView.setSystemUiVisibility(flags);
+                }
+            });
+        }
+
+       if (bluetoothManager == null) {
             // Bluetooth unavailable on this device :( tell the user
             Toast.makeText(context, "Bluetooth not available.", Toast.LENGTH_LONG).show(); // Replace context with your context instance.
             finish();
@@ -75,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
         {
             Toast.makeText(context, "Menar IO Module not found.", Toast.LENGTH_LONG).show();
         }
-        Runnable beklemeSuresi = new Runnable() {
+
+        Runnable bekleme = new Runnable() {
             @Override
             public void run() {
                 nextActivity();
@@ -84,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         Handler isleyici = new Handler();
-        isleyici.postDelayed(beklemeSuresi,3000);
+        isleyici.postDelayed(bekleme,4700);
 
 
         new Handler().postDelayed(new Runnable() {
@@ -103,8 +147,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void nextActivity(){
-        ImageView imageView = (ImageView) findViewById(R.id.msk);
-
+        ImageView imageView = (ImageView) findViewById(R.id.maske);
+          ImageView image = findViewById(R.id.progressBar);
         ImageView Glass1=findViewById(R.id.mask);
         ImageView hunter = findViewById(R.id.hunter);
 
@@ -114,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
         Glass1.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.INVISIBLE);
+        image.setVisibility(View.INVISIBLE);
         hunter.setVisibility(View.VISIBLE);
 
 
@@ -121,12 +166,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        drawableAnimation.start();
-
-    }
 
     private void connectDevice(String mac) {
         bluetoothManager.openSerialDevice(mac)
@@ -191,4 +230,5 @@ public class MainActivity extends AppCompatActivity {
     private void onError(Throwable error) {
         // Handle the error
     }
+
 }

@@ -12,81 +12,81 @@
         android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsbold"
         android:text="AKÜ"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView32"
+        app:layout_constraintStart_toStartOf="@+id/imageView32"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsbold"
         android:text="TEMİZ SU"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView44"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toStartOf="@+id/imageView44"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppinsbold"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppinsmedium"
         android:text="27 MAYIS 2023"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView43"
-        app:layout_constraintStart_toEndOf="@+id/textView42"
+        app:layout_constraintEnd_toEndOf="@+id/textView45"
+        app:layout_constraintStart_toStartOf="@+id/textView45"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppinsthin"
         android:gravity="center"
         android:text="22:38"
         android:textColor="@color/white"
-        android:textSize="80dp"
+        android:textSize="100dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView44"
         app:layout_constraintStart_toEndOf="@+id/imageView32"
         app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
     <ImageView
         android:id="@+id/imageView32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="220dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/akuicon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
     <ImageView
-        android:id="@+id/imageView42"
+        android:id="@+id/akudolum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/akurectangleyesil50"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/emptyakuvector"
         app:layout_constraintBottom_toBottomOf="@+id/imageView32"
         app:layout_constraintEnd_toEndOf="@+id/imageView32"
         app:layout_constraintStart_toStartOf="@+id/imageView32" />
 
     <ImageView
         android:id="@+id/imageView44"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="220dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
         android:src="@drawable/akuicon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
@@ -100,7 +100,6 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView45"
-        app:layout_constraintHorizontal_bias="0.379"
         app:layout_constraintStart_toStartOf="@+id/textView45"
         app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
@@ -108,7 +107,7 @@
         android:id="@+id/textView47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppinsbold"
         android:text="AKÜ GERİLİMİ"
         android:textColor="@color/white"
@@ -121,7 +120,7 @@
         android:id="@+id/textView48"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppinsbold"
         android:text="ATIK SU"
         android:textColor="@color/white"
@@ -134,116 +133,61 @@
         android:id="@+id/imageView45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="73dp"
+        android:layout_marginTop="14dp"
         android:src="@drawable/termometre"
         app:layout_constraintEnd_toEndOf="@+id/textView46"
+        app:layout_constraintStart_toStartOf="@+id/textView46"
         app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
     <TextView
         android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="264dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsbold"
         android:gravity="center|end"
         android:text="İÇ SICAKLIK"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView45"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
     <TextView
         android:id="@+id/textView50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="248dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppinsbold"
         android:gravity="center|start"
         android:text="DIŞ SICAKLIK"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView45"
         app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
     <ImageView
         android:id="@+id/imageView46"
-        android:layout_width="481dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="448dp"
+        android:layout_height="100dp"
         android:src="@drawable/huntercunter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView45" />
-
-    <TextView
-        android:id="@+id/textView51"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppinsbold"
-        android:text="20"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView46"
-        app:layout_constraintStart_toStartOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/textView49"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <TextView
-        android:id="@+id/textView52"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppinsbold"
-        android:text="24 "
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView46"
-        app:layout_constraintStart_toStartOf="@+id/textView50"
-        app:layout_constraintTop_toBottomOf="@+id/textView50"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView47"
+        android:id="@+id/temizsudolum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/temizsumavirectangle50"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/emptytemizsuvector"
         app:layout_constraintBottom_toBottomOf="@+id/imageView44"
         app:layout_constraintEnd_toEndOf="@+id/imageView44"
         app:layout_constraintStart_toStartOf="@+id/imageView44" />
-
-    <TextView
-        android:id="@+id/textView53"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppinsbold"
-        android:text="°C"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView51"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
-
-    <TextView
-        android:id="@+id/textView54"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppinsbold"
-        android:text="°C"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView52"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -257,7 +201,7 @@
         <ImageView
             android:id="@+id/imageView49"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/simsek" />
 
@@ -265,6 +209,8 @@
             android:id="@+id/textView57"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppinsextralight"
             android:gravity="center|end"
@@ -296,7 +242,8 @@
         <ImageView
             android:id="@+id/imageView51"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="top"
             android:layout_weight="1"
             android:src="@drawable/sudamlasi" />
 
@@ -304,7 +251,7 @@
             android:id="@+id/textView63"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="9dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppinsextralight"
             android:gravity="center"
@@ -325,39 +272,44 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/textView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/poppinsextralight"
         android:text="63"
         android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView42"
+        android:textSize="54sp"
+
         app:layout_constraintStart_toStartOf="@+id/imageView32"
         app:layout_constraintTop_toBottomOf="@+id/textView42"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintVertical_bias="0.739" />
 
     <TextView
         android:id="@+id/textView66"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="88dp"
+        android:layout_marginEnd="56dp"
+        android:fontFamily="@font/poppinsextralight"
         android:text="%"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="54sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView32"
         app:layout_constraintEnd_toEndOf="@+id/imageView32"
         app:layout_constraintTop_toBottomOf="@+id/textView42"
-        app:layout_constraintVertical_bias="0.382" />
+        app:layout_constraintVertical_bias="0.565" />
 
     <TextView
         android:id="@+id/textView67"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/poppinsextralight"
         android:text="86"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="54sp"
         app:layout_constraintStart_toStartOf="@+id/imageView44"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
@@ -365,12 +317,68 @@
         android:id="@+id/textView68"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="92dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="60dp"
+        android:fontFamily="@font/poppinsextralight"
         android:text="%"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="54sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView44"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/imageView45"
+        app:layout_constraintStart_toStartOf="@+id/textView49"
+        app:layout_constraintTop_toBottomOf="@+id/textView49">
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsextralight"
+            android:text="20"
+            android:textColor="@color/white"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/textView53"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsextralight"
+            android:text="°C"
+            android:textColor="@color/white"
+            android:textSize="34sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/textView50"
+        app:layout_constraintStart_toEndOf="@+id/imageView45"
+        app:layout_constraintTop_toBottomOf="@+id/textView50">
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsextralight"
+            android:text="24 "
+            android:textColor="@color/white"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsextralight"
+            android:text="°C"
+            android:textColor="@color/white"
+            android:textSize="34sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,12 +6,13 @@
         <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="SERIAL_NUMBER" />
-            <value value="192.168.1.6:5555" />
+
+            <type value="VIRTUAL_DEVICE_PATH" />
+            <value value="C:\Users\Sedanur\.android\avd\Automotive_1024p_landscape_Edited_API_33.avd" />
           </Key>
         </deviceKey>
       </Target>
-    </runningDeviceTargetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2023-06-21T21:36:11.015267600Z" />
+    </targetSelectedWithDropDown>
+    <timeTargetWasSelectedWithDropDown value="2023-07-11T10:13:36.191230200Z" />
   </component>
 </project>
