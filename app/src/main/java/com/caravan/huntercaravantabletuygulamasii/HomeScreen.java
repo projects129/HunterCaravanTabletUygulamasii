@@ -92,7 +92,7 @@ private DashboardPagerAdapter  adapter;
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager2.setCurrentItem(tab.getPosition());
+                viewPager2.setCurrentItem(tab.getPosition(),false);
             }
 
             @Override
@@ -102,6 +102,7 @@ private DashboardPagerAdapter  adapter;
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+
 
             }
         });

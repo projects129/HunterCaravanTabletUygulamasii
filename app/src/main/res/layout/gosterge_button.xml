@@ -9,8 +9,8 @@
 
 <LinearLayout
     android:id="@+id/gosterge"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
     android:layout_gravity="center"
 
     android:background="@drawable/rectangle2">

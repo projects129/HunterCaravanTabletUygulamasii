@@ -15,7 +15,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -37,7 +37,7 @@
     <ImageView
         android:id="@+id/imageView36"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="210dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,9 +47,9 @@
     <LinearLayout
         android:id="@+id/linearLayout13"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="37dp"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/dateText"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,9 +70,9 @@
     <LinearLayout
         android:id="@+id/linearLayout14"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="37dp"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/timeText"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,9 +93,9 @@
     <LinearLayout
         android:id="@+id/linearLayout15"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="37dp"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/imageView38"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -117,11 +117,10 @@
     <LinearLayout
         android:id="@+id/linearLayout16"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="144dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView36"
         app:layout_constraintTop_toBottomOf="@+id/textView30">
 
@@ -136,33 +135,15 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView38"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="9dp"
-            android:fontFamily="@font/poppinsregular"
-            android:gravity="center|end"
-            android:text="10 DAKİKA"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/imageView40"
-            android:layout_width="49dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/bluetooth" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout17"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="144dp"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toEndOf="@+id/imageView36"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout16">
 
@@ -177,32 +158,15 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView40"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="60dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="98%"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/imageView41"
-            android:layout_width="49dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/bluetooth" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout22"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="144dp"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toEndOf="@+id/imageView36"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout17">
 
@@ -217,11 +181,6 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/gelismisayarlar"
-            android:layout_width="49dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/kirmiziayar" />
     </LinearLayout>
 
     <Button
@@ -248,8 +207,10 @@
     <TextView
         android:id="@+id/dateText"
         android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_marginTop="44dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
         android:gravity="center|start"
         android:text="29 MAYIS CUMARTESİ"
         android:textColor="@color/white"
@@ -261,7 +222,8 @@
         android:id="@+id/datepicker"
         android:layout_width="49dp"
         android:layout_height="37dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView36"
         app:layout_constraintTop_toBottomOf="@+id/textView30"
         app:srcCompat="@drawable/bluetooth" />
@@ -269,13 +231,14 @@
     <TextView
         android:id="@+id/timeText"
         android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_marginTop="64dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center|start"
         android:text="22:38"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/timepicker"
         app:layout_constraintTop_toBottomOf="@+id/dateText" />
 
@@ -283,7 +246,8 @@
         android:id="@+id/timepicker"
         android:layout_width="49dp"
         android:layout_height="37dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView36"
         app:layout_constraintTop_toBottomOf="@+id/datepicker"
         app:srcCompat="@drawable/bluetooth" />
@@ -292,7 +256,7 @@
         android:id="@+id/imageView38"
         android:layout_width="49dp"
         android:layout_height="37dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
         app:layout_constraintEnd_toStartOf="@+id/textView36"
@@ -303,7 +267,7 @@
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
         android:fontFamily="@font/poppinsregular"
@@ -318,10 +282,71 @@
         android:id="@+id/imageView39"
         android:layout_width="49dp"
         android:layout_height="37dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
         app:layout_constraintEnd_toStartOf="@+id/imageView36"
         app:layout_constraintTop_toBottomOf="@+id/timepicker"
         app:srcCompat="@drawable/bluetooth" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center|end"
+        android:text="10 DAKİKA"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout16"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <ImageView
+        android:id="@+id/imageView40"
+        android:layout_width="49dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/textView38"
+        app:layout_constraintTop_toBottomOf="@+id/textView30"
+        app:srcCompat="@drawable/bluetooth" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:text="98%"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout17"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <ImageView
+        android:id="@+id/imageView41"
+        android:layout_width="49dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/imageView40"
+        app:srcCompat="@drawable/bluetooth" />
+
+    <ImageView
+        android:id="@+id/gelismisayarlar"
+        android:layout_width="49dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout22"
+        app:layout_constraintTop_toBottomOf="@+id/imageView41"
+        app:srcCompat="@drawable/kirmiziayar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
