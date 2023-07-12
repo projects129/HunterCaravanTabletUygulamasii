@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public static char outputs_data;
     public static boolean output_update;
     AnimationDrawable drawableAnimation;
-    private static final int SPLASH_SCREEN_TIME_OUT = 4600; // After completion of 2000 ms, the next activity will get started.
+ // After completion of 2000 ms, the next activity will get started.
 
     Context context = this;
     private SimpleBluetoothDeviceInterface deviceInterface;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     boolean my_device_exist=false;
     //boolean output_update=false;
     Timer timer;
-    AnimationDrawable drawableAnimation;
+
     private static final int SPLASH_SCREEN_TIME_OUT = 6600; // After completion of 2000 ms, the next activity will get started.
 
 
