@@ -36,30 +36,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView44"
+        android:id="@+id/gun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/poppinsmedium"
-        android:text="27 MAYIS 2023"
+        android:text="27 "
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView45"
-        app:layout_constraintStart_toStartOf="@+id/textView45"
+        app:layout_constraintEnd_toStartOf="@+id/ay"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView45"
+        android:id="@+id/saat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/poppinsthin"
         android:gravity="center"
-        android:text="22:38"
+        android:text="22"
         android:textColor="@color/white"
         android:textSize="100dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView44"
-        app:layout_constraintStart_toEndOf="@+id/imageView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+        app:layout_constraintEnd_toStartOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/gun" />
 
     <ImageView
         android:id="@+id/imageView32"
@@ -99,9 +99,9 @@
         android:text="CUMARTESİ"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView45"
-        app:layout_constraintStart_toStartOf="@+id/textView45"
-        app:layout_constraintTop_toBottomOf="@+id/textView45" />
+        app:layout_constraintEnd_toEndOf="@+id/dk"
+        app:layout_constraintStart_toStartOf="@+id/saat"
+        app:layout_constraintTop_toBottomOf="@+id/saat" />
 
     <TextView
         android:id="@+id/textView47"
@@ -380,5 +380,60 @@
             android:textColor="@color/white"
             android:textSize="34sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="11dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsthin"
+        android:text=":"
+        android:textColor="@color/white"
+        android:textSize="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/saat"
+        app:layout_constraintEnd_toStartOf="@+id/imageView44"
+        app:layout_constraintStart_toEndOf="@+id/imageView32"
+        app:layout_constraintTop_toBottomOf="@+id/gun" />
+
+    <TextView
+        android:id="@+id/dk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/poppinsthin"
+        android:gravity="center"
+        android:text="59"
+        android:textColor="@color/white"
+        android:textSize="100dp"
+        app:layout_constraintStart_toEndOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/gun" />
+
+    <TextView
+        android:id="@+id/ay"
+        android:layout_width="71dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:text="Mayıs"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView34"
+        app:layout_constraintEnd_toEndOf="@+id/dk"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/saat"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/yil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppinsmedium"
+        android:text="2023"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/ay"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

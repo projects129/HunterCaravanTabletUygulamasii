@@ -184,7 +184,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/kaydetbtn"
         android:layout_width="148dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
