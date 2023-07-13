@@ -114,9 +114,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
                 editor.putString("gun",Gun);
                 editor.putString("yil",Yil);
                 editor.putString("ay",Ay);
-                editor.putString("dayname",dayss);
                 editor.apply();
-                Toast.makeText(requireContext(),""+dayss,Toast.LENGTH_SHORT).show();
             }
 
 
