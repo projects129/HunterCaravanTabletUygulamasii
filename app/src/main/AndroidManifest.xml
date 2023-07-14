@@ -18,10 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
-        <activity
-            android:name=".fragments.KullaniciUygulamaAyarlari"
-            android:exported="false"
-            android:screenOrientation="landscape"/>
+
         <activity
             android:name=".fragments.DiagnostikMenu"
             android:exported="false"
@@ -30,6 +27,7 @@
             android:name=".fragments.GelismisUygulamaAyarlari"
             android:exported="false"
             android:screenOrientation="landscape" />
+
         <activity
             android:name=".HomeScreen"
             android:exported="false"
