@@ -81,7 +81,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         gelismisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(requireContext(),GelismisUygulamaAyarlari.class);
+                Intent intent = new Intent(requireContext(),AyarlarFragment.class);
                 startActivity(intent);
             }
         });

@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsbold"
-        android:text="GELİŞMİŞ UYGULAMA AYARLARI"
+        android:text="@string/gel_m_uygulama_ayarlari"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
         android:layout_marginTop="32dp"
         android:checked="false"
         android:fontFamily="@font/poppinsbold"
-        android:text="CİHAZI ETKİNLEŞTİR"
+        android:text="@string/cihazi_etkinlestir"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:thumb="@drawable/ellipse1"
@@ -68,7 +68,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppinsbold"
-        android:text="KİRLİ SU GÖSTERGESİ"
+        android:text="@string/kirlisugostergesi"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:thumb="@drawable/ellipse1"
@@ -84,7 +84,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppinsbold"
-        android:text="DENGE SİSTEMİ"
+        android:text="@string/denge_sistemi"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:thumb="@drawable/ellipse1"
@@ -100,7 +100,7 @@
         android:layout_marginTop="4dp"
         android:background="@drawable/ayargirisbtn"
         android:fontFamily="@font/poppinsbold"
-        android:text="KAYDET"
+        android:text="@string/kaydett"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView28"
@@ -133,7 +133,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
-            android:text="BLUETOOTH EŞLEŞTİRME"
+            android:text="@string/bluetootheslestirme"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -156,7 +156,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
-            android:text="DİAGNOSTİK MENÜ"
+            android:text="@string/diagnostikmenuu"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -179,7 +179,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
-            android:text="KONTROL AKIMI KARTI"
+            android:text="@string/kontrol_akimi_karti"
             android:textColor="@color/white"
             android:textSize="20sp" />
 

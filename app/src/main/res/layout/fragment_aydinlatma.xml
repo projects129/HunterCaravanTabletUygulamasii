@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="YATAK ODASI IŞIKLARI (2)"
+            android:text="@string/yatak_odasi_isiklari_2"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="OTURMA ALANI IŞIKLARI L/R)"
+            android:text="@string/oturma_alani_isiklarilari"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="MUTFAK TAVAN IŞIKLARI"
+            android:text="@string/mutfak_tavan_isiklari"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="YATAK ODASI IŞIKLARI (1)"
+            android:text="@string/yatak_odasi_isiklari_1"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -154,7 +154,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="OTURMA ALANI IŞIKLARI (M)"
+            android:text="@string/oturma_alani_isiklari_m"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -178,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsbold"
-        android:text="İÇ AYDINLATMALAR"
+        android:text="@string/ic_aydinlatmalar"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
@@ -192,7 +192,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsbold"
-        android:text="DIŞ AYDINLATMALAR"
+        android:text="@string/dis_aydinlatmalar"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/oturmaalaniisik"
@@ -216,7 +216,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="MUTFAK IŞIKLARI"
+            android:text="@string/mutfak_isiklari"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -259,7 +259,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="DIŞ IŞIKLAR (SOL)"
+            android:text="@string/dis_isiklar_sol"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -290,7 +290,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
-            android:text="DIŞ IŞIKLARI (ÖN)"
+            android:text="@string/dis_isiklari_on"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -320,7 +320,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
-            android:text=" PARK IŞIKLARI (SAĞ)"
+            android:text="@string/park_isiklari_sag"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -352,7 +352,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="DIŞ IŞIKLAR (SAĞ)"
+            android:text="@string/dis_isiklar_sag"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -383,7 +383,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
-            android:text="DIŞ IŞIKLAR (ARKA)"
+            android:text="@string/dis_isiklar_arka"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -414,7 +414,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
-            android:text="PARK IŞIKLARI (SOL)"
+            android:text="@string/park_isiklari_sol"
             android:textColor="@color/white"
             android:textSize="16sp" />
 

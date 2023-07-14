@@ -32,7 +32,7 @@ android:layout_height="wrap_content"
 android:layout_gravity="center"
 android:fontFamily="@font/poppinsmedium"
 android:gravity="center"
-android:text="Denge Sistemi"
+android:text="@string/denge_sistemii"
 android:textColor="@color/white"
 android:textSize="16sp">
 

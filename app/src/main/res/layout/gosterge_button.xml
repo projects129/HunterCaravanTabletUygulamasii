@@ -32,7 +32,7 @@
     android:layout_gravity="center"
     android:fontFamily="@font/poppinsmedium"
     android:gravity="center"
-    android:text="Göstergeler"
+    android:text="@string/gostergeler"
     android:textColor="@color/white"
     android:textSize="16sp">
 

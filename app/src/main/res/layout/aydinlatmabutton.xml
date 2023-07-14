@@ -31,7 +31,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/poppinsmedium"
         android:gravity="center"
-        android:text="Aydınlatma"
+        android:text="@string/aydinlatma"
         android:textColor="@color/white"
         android:textSize="16sp">
 

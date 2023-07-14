@@ -32,7 +32,7 @@
     android:layout_gravity="center"
     android:fontFamily="@font/poppinsmedium"
     android:gravity="center"
-    android:text="Ayarlar"
+    android:text="@string/ayarlar"
     android:textColor="@color/white"
     android:textSize="16sp">
 
