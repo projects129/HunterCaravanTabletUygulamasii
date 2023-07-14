@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.caravan.huntercaravantabletuygulamasii.fragments.AydinlatmaFragment;
 import com.harrysoft.androidbluetoothserial.BluetoothManager;
 import com.harrysoft.androidbluetoothserial.BluetoothSerialDevice;
 import com.harrysoft.androidbluetoothserial.SimpleBluetoothDeviceInterface;
@@ -50,7 +51,17 @@ public class MainActivity extends AppCompatActivity {
     boolean my_device_exist=false;
     //boolean output_update=false;
     Timer timer;
+    public static char inputsdat,old_inputsdat;
 
+
+    public static int v_batt;
+    public static int v_solar;
+    public static int cl_water_lvl;
+    public static int dt_water_lvl;
+    public static int t_in;
+    public static int t_out;
+    public static int dht_temp;
+    public static int dht_humidty;
     private static final int SPLASH_SCREEN_TIME_OUT = 6600; // After completion of 2000 ms, the next activity will get started.
 
 
@@ -71,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.runOnUiThread(new Runnable(){
                     @Override
                     public void run() {
-                        drawable.setLevel(drawable.getLevel()+500);
+                        drawable.setLevel(drawable.getLevel()+100);
 
                     }
                 });
             }
-        }, 10,200);
+        }, 10,50);
 
         int currentApiVersion = Build.VERSION.SDK_INT;
 
@@ -197,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         deviceInterface.setListeners(this::onMessageReceived, this::onMessageSent, this::onError);
         Toast.makeText(context, "Menar IO Module Connected.", Toast.LENGTH_LONG).show();
         timer = new Timer();
-        timer.schedule(timerTask,200,200);
+        timer.schedule(timerTask,0,100);
     }
 
     private void onMessageSent(String message) {
@@ -206,26 +217,28 @@ public class MainActivity extends AppCompatActivity {
 
     private void onMessageReceived(String message) {
         char[] in_buf=message.toCharArray();
-        Log.d("BT",message);
-        Log.d("BT","Input buffer:"+(int)in_buf[0]+"-"+(int)in_buf[1]+"-"+(int)in_buf[2]+"-"+(int)in_buf[3]);
-        if(in_buf[0]==0x55)
+
+        if(in_buf[20]==0x55)
         {
-            if(in_buf[1]==0x42)
-            {
-                char inputsdat= (char) ((in_buf[3]<<8)|in_buf[2]);
-                set_input_views(inputsdat);
-                Log.d("BT","Inputs DATA:"+Integer.toHexString(inputsdat));
+            if(in_buf[21]==0x42)
+            {/*
+                Log.d("BT", "Input buffer length:"+in_buf.length);
+                Log.d("BT","Input buffer:"+(int)in_buf[0]+"-"+(int)in_buf[1]+"-"+(int)in_buf[2]+"-"+(int)in_buf[3]+"-"+(int)in_buf[4]+"-"+(int)in_buf[5]+"-"+(int)in_buf[6]+"-"+(int)in_buf[7]+
+                        "-"+(int)in_buf[8]+"-"+(int)in_buf[9]+"-"+(int)in_buf[10]+"-"+(int)in_buf[11]+"-"+(int)in_buf[12]+"-"+(int)in_buf[13]+"-"+(int)in_buf[14]+"-"+(int)in_buf[15]+
+                        "-"+(int)in_buf[16]+"-"+(int)in_buf[17]+"-"+(int)in_buf[18]+"-"+(int)in_buf[19]+"-"+(int)in_buf[20]+"-"+(int)in_buf[21]+"-"+(int)in_buf[22]+"-"+(int)in_buf[23]);*/
+                inputsdat= (char) ((in_buf[3]<<8)|in_buf[2]);
+                v_batt=(int)((in_buf[5]<<8)|in_buf[4]);
+                v_solar=(int)((in_buf[7]<<8)|in_buf[6]);
+                cl_water_lvl=(int)((in_buf[9]<<8)|in_buf[8]);
+                dt_water_lvl=(int)((in_buf[11]<<8)|in_buf[10]);
+                t_in=(int)((in_buf[13]<<8)|in_buf[12]);
+                t_out=(int)((in_buf[15]<<8)|in_buf[14]);
+                dht_temp=(int)((in_buf[17]<<8)|in_buf[16]);
+                dht_humidty=(int)((in_buf[19]<<8)|in_buf[18]);
+
+                Log.d("ANALOG","Vbatt:"+v_batt+" v_solar:"+v_solar+" cl_water_lvl:"+cl_water_lvl+" dt_water_lvl:"+dt_water_lvl+" t_in:"+t_in+" t_out:"+t_out+" dht_temp:"+dht_temp+" dht_humidty:"+dht_humidty);
             }
         }
-    }
-
-    public void set_input_views(char dat)
-    {/*
-        for(int j=0;j<16;j++)
-        {
-            if((dat&(1<<j))>0)INPUT_VIEWS[j].setChecked(false);
-            else INPUT_VIEWS[j].setChecked(true);
-        }*/
     }
     private void onError(Throwable error) {
         // Handle the error

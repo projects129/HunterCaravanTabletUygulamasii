@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +18,13 @@ import android.widget.Toast;
 import com.caravan.huntercaravantabletuygulamasii.MainActivity;
 import com.caravan.huntercaravantabletuygulamasii.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class AydinlatmaFragment extends Fragment {
-
-    Switch OUTPUT_VIEWS[] = new Switch[12];
+    private Handler handler = new Handler();
+    public static Switch OUTPUT_VIEWS[] = new Switch[12];
     Switch mutfakisiklari;
     Switch oturmaalanisiklariM;
     Switch yatakodasiisiklari1;
@@ -58,6 +62,28 @@ public class AydinlatmaFragment extends Fragment {
 
 
 
+    public void set_input_views(char dat)
+    {
+        handler.post(new Runnable() {
+            public void run() {
+                for(int j=0;j<12;j++)
+                {
+                    if((dat&(1<<j))>0) OUTPUT_VIEWS[j].setChecked(true);
+                    else OUTPUT_VIEWS[j].setChecked(false);
+                }
+            }
+        });
+    }
+
+    final TimerTask refresh_timerTask = new TimerTask() {
+        @Override
+        public void run() {
+            if(MainActivity.inputsdat!=MainActivity.old_inputsdat) {
+                MainActivity.old_inputsdat=MainActivity.inputsdat;
+                set_input_views(MainActivity.inputsdat);
+            }
+        }
+    };
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -99,11 +125,10 @@ public class AydinlatmaFragment extends Fragment {
                     if (isChecked) MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data | (1 << finalI))));
                     else MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data & (~(1 << finalI)))));
                     MainActivity.output_update=true;
-                    Log.d("TAG", "Outputs data:" + Integer.toHexString(MainActivity.outputs_data));
                 }
             });
         }
-
-
+        Timer timer = new Timer();
+        timer.schedule(refresh_timerTask,0,100);
     }
 }

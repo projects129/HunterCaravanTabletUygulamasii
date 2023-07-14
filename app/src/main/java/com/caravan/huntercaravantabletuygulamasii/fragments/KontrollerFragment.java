@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,12 @@ import android.widget.ToggleButton;
 import com.caravan.huntercaravantabletuygulamasii.MainActivity;
 import com.caravan.huntercaravantabletuygulamasii.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class KontrollerFragment extends Fragment {
-
+    private Handler handler = new Handler();
     Button acikbutton;
     Button kapalibutton;
     Button acikhidrofor;
@@ -55,8 +59,7 @@ public class KontrollerFragment extends Fragment {
                  kapalibutton.setBackgroundResource(R.drawable.kapalibutton);
                  acikbutton.setBackgroundResource(R.drawable.acikbuttonyesil);
                  MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data | (1 << 12))));
-                MainActivity.output_update=true;
-                Log.d("TAG", "Outputs data:" + Integer.toHexString(MainActivity.outputs_data));
+                 MainActivity.output_update=true;
             }
         });
 
@@ -68,7 +71,6 @@ public class KontrollerFragment extends Fragment {
                 kapalibutton.setBackgroundResource(R.drawable.kapalikirmizibtn);
                 MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data & (~(1 << 12)))));
                 MainActivity.output_update=true;
-                Log.d("TAG", "Outputs data:" + Integer.toHexString(MainActivity.outputs_data));
             }
         });
 
@@ -79,7 +81,6 @@ public class KontrollerFragment extends Fragment {
                 kapalihidrofor.setBackgroundResource(R.drawable.kapalibutton);
                 MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data | (1 << 13))));
                 MainActivity.output_update=true;
-                Log.d("TAG", "Outputs data:" + Integer.toHexString(MainActivity.outputs_data));
             }
         });
 
@@ -90,8 +91,47 @@ public class KontrollerFragment extends Fragment {
                 kapalihidrofor.setBackgroundResource(R.drawable.kapalikirmizibtn);
                 MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data & (~(1 << 13)))));
                 MainActivity.output_update=true;
-                Log.d("TAG", "Outputs data:" + Integer.toHexString(MainActivity.outputs_data));
+            }
+        });
+        Timer timer = new Timer();
+        timer.schedule(refresh_timerTask,0,100);
+    }
+    public void set_input_views(char dat)
+    {
+        handler.post(new Runnable() {
+            public void run() {
+                if((MainActivity.inputsdat&0x1000)>0)
+                {
+                    kapalibutton.setBackgroundResource(R.drawable.kapalibutton);
+                    acikbutton.setBackgroundResource(R.drawable.acikbuttonyesil);
+                }
+                else {
+
+                    acikbutton.setBackgroundResource(R.drawable.acikbtngri);
+                    kapalibutton.setBackgroundResource(R.drawable.kapalikirmizibtn);
+                }
+
+                if((MainActivity.inputsdat&0x2000)>0)
+                {
+                    acikhidrofor.setBackgroundResource(R.drawable.acikbuttonyesil);
+                    kapalihidrofor.setBackgroundResource(R.drawable.kapalibutton);
+                }
+                else {
+                    acikhidrofor.setBackgroundResource(R.drawable.acikbtngri);
+                    kapalihidrofor.setBackgroundResource(R.drawable.kapalikirmizibtn);
+                }
             }
         });
     }
+
+    final TimerTask refresh_timerTask = new TimerTask() {
+        @Override
+        public void run() {
+            if(MainActivity.inputsdat!=MainActivity.old_inputsdat) {
+                MainActivity.old_inputsdat=MainActivity.inputsdat;
+                set_input_views(MainActivity.inputsdat);
+            }
+        }
+    };
+
 }

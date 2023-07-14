@@ -42,7 +42,9 @@ internal class BluetoothSerialDeviceImpl constructor(
             while (!emitter.isCancelled && !closed.get()) {
                 synchronized(inputStream) {
                     try {
-                        val receivedString = reader.readLine()
+                        var str : CharArray = CharArray(22)
+                        reader.read(str,0,22)
+                        val receivedString=String(str)
                         if (!TextUtils.isEmpty(receivedString)) {
                             emitter.onNext(receivedString)
                         }
