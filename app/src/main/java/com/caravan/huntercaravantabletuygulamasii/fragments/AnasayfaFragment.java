@@ -1,5 +1,9 @@
 package com.caravan.huntercaravantabletuygulamasii.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Bundle;
 
@@ -7,7 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+<<<<<<< HEAD
 import android.os.Handler;
+=======
+import android.util.Log;
+>>>>>>> 48eca52ab25c449ad53d2732ccda19a14af183f3
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +35,18 @@ public class AnasayfaFragment extends Fragment {
     int akugelensayi= 15;
     int temizsugelensayi= 5;
 
+<<<<<<< HEAD
     ClipDrawable drawable1,drawable;
+=======
+  int akugelensayi= 15;
+  int temizsugelensayi= 5;
+    TextView saat;
+    TextView dakika;
+    TextView Gun;
+    TextView Ay;
+    TextView Yil;
+
+>>>>>>> 48eca52ab25c449ad53d2732ccda19a14af183f3
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,12 +62,40 @@ public class AnasayfaFragment extends Fragment {
 
     }
 
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences Timee = getActivity().getSharedPreferences("Time",MODE_PRIVATE);
+        String time = Timee.getString("time","00");
+        String dk = Timee.getString("dk","00");
+
+
+        String day = Timee.getString("gun","00");
+        String ay = Timee.getString("ay","00");
+        String yil = Timee.getString("yil","00");
+        saat.setText(time);
+        dakika.setText(dk);
+        Gun.setText(day);
+        Ay.setText(ay);
+        Yil.setText(yil);
+
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         ImageView akuimage =  view.findViewById(R.id.akudolum);
         ImageView temizsuimage = view.findViewById(R.id.temizsudolum);
+        saat = view.findViewById(R.id.saat);
+        dakika = view.findViewById(R.id.dk);
+        Gun = view.findViewById(R.id.gun);
+        Ay = view.findViewById(R.id.ay);
+        Yil = view.findViewById(R.id.yil);
+
+
 
         cl_water_txt=(TextView)view.findViewById(R.id.textView67);
         dt_water_txt=(TextView)view.findViewById(R.id.textView63);
@@ -68,6 +115,11 @@ public class AnasayfaFragment extends Fragment {
 
         Timer timer = new Timer();
         timer.schedule(refresh_timerTask,0,100);
+
+
+
+
+
 
     }
 
