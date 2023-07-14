@@ -22,6 +22,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.caravan.huntercaravantabletuygulamasii.HomeScreen;
 import com.caravan.huntercaravantabletuygulamasii.R;
@@ -29,6 +30,7 @@ import com.caravan.huntercaravantabletuygulamasii.R;
 public class GelismisUygulamaAyarlari extends AppCompatActivity {
     ImageView diagnostikbtn;
     ImageView backbutton;
+    Toolbar toolbar;
     BluetoothAdapter myBluetoothAdapter;
     Intent btEnablingIntent;
     int requestCodeForeEnable;
@@ -57,8 +59,12 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
             });
         }
         diagnostikbtn = findViewById(R.id.diagnostikbtn);
-        backbutton = findViewById(R.id.backbtn);
         switchView = findViewById(R.id.bluetooth);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         btEnablingIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -70,13 +76,8 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        backbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(GelismisUygulamaAyarlari.this, HomeScreen.class);
-                startActivity(intent);
-            }
-        });
+
+
 
         switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -126,6 +127,11 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }
