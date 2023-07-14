@@ -554,7 +554,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout11"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal"
@@ -563,9 +563,9 @@
 
         <Switch
             android:id="@+id/switch26"
-            android:layout_width="140dp"
+            android:layout_width="160dp"
             android:layout_height="60dp"
-            android:layout_marginStart="11dp"
+            android:layout_marginStart="14dp"
             android:fontFamily="@font/poppinsbold"
             android:text="LED 05"
             android:textColor="@color/white"
@@ -575,9 +575,9 @@
 
         <Switch
             android:id="@+id/switch27"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="6dp"
+            android:layout_marginLeft="7dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:text="LED 11"
@@ -590,7 +590,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout12"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:orientation="horizontal"
@@ -614,7 +614,7 @@
             android:id="@+id/switch24"
             android:layout_width="160dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="6dp"
+            android:layout_marginLeft="7dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:text="LED 12"
@@ -629,14 +629,12 @@
         android:id="@+id/button7"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
         android:background="@drawable/ayargirisbtn"
         android:text="KAYDET"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout9"
         app:layout_constraintStart_toEndOf="@+id/linearLayout12"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
 

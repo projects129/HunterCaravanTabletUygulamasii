@@ -41,6 +41,7 @@ public class DiagnostikMenu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DiagnostikMenu.this,GelismisUygulamaAyarlari.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

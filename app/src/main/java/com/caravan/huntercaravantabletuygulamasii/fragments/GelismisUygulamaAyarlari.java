@@ -74,6 +74,7 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(GelismisUygulamaAyarlari.this, DiagnostikMenu.class);
                 startActivity(intent);
+                finish();
             }
         });
 
