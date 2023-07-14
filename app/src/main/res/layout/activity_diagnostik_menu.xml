@@ -554,9 +554,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout11"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="@+id/linearLayout9"
@@ -564,10 +563,9 @@
 
         <Switch
             android:id="@+id/switch26"
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="60dp"
-            android:layout_marginStart="10dp"
-            android:layout_weight="1"
+            android:layout_marginStart="11dp"
             android:fontFamily="@font/poppinsbold"
             android:text="LED 05"
             android:textColor="@color/white"
@@ -577,9 +575,9 @@
 
         <Switch
             android:id="@+id/switch27"
-            android:layout_width="160dp"
+            android:layout_width="150dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="6dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:text="LED 11"
@@ -592,9 +590,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout12"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
         android:layout_marginTop="12dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="@+id/linearLayout9"
@@ -617,7 +614,7 @@
             android:id="@+id/switch24"
             android:layout_width="160dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="6dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:text="LED 12"
