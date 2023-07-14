@@ -11,11 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-<<<<<<< HEAD
+
 import android.os.Handler;
-=======
 import android.util.Log;
->>>>>>> 48eca52ab25c449ad53d2732ccda19a14af183f3
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,12 +30,9 @@ import java.util.TimerTask;
 public class AnasayfaFragment extends Fragment {
     private Handler handler = new Handler();
     TextView cl_water_txt,dt_water_txt,vbatt_txt,vbatt_perc_txt,tin_txt, tout_txt;
-    int akugelensayi= 15;
-    int temizsugelensayi= 5;
 
-<<<<<<< HEAD
     ClipDrawable drawable1,drawable;
-=======
+
   int akugelensayi= 15;
   int temizsugelensayi= 5;
     TextView saat;
@@ -45,9 +40,6 @@ public class AnasayfaFragment extends Fragment {
     TextView Gun;
     TextView Ay;
     TextView Yil;
-
->>>>>>> 48eca52ab25c449ad53d2732ccda19a14af183f3
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
