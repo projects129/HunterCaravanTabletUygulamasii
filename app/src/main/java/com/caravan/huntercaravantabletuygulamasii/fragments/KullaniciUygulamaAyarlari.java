@@ -91,14 +91,14 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                handleDateButton();
+                startActivity(new Intent(android.provider.Settings.ACTION_DATE_SETTINGS));
             }
         });
 
         timeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                handleTimeButton();
+                startActivity(new Intent(android.provider.Settings.ACTION_DATE_SETTINGS));
             }
         });
 
