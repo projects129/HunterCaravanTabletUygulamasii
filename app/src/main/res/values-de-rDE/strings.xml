@@ -49,11 +49,11 @@
     <string name="bluetootheslestirme">BLUETOOTH-PAIRING</string>
     <string name="diagnostikmenuu">DIAGNOSEMENÜ</string>
     <string name="kontrol_akimi_karti">STEUERSTROMKARTE</string>
-    <string name="ana_sayfa">HAUPTSEITE</string>
-    <string name="ayarlar">EINSTELLUNGEN</string>
-    <string name="aydinlatma">BELEUCHTUNG</string>
-    <string name="denge_sistemii">BALANCE-SYSTEM</string>
-    <string name="enerji">ENERGIE</string>
+    <string name="ana_sayfa">Hauptseıte</string>
+    <string name="ayarlar">Einstellungen</string>
+    <string name="aydinlatma">Beleuchtung</string>
+    <string name="denge_sistemii">Balance System</string>
+    <string name="enerji">Energie</string>
     <string name="aku">BATTERIE</string>
     <string name="temiz_su">FRISCHWASSER</string>
     <string name="gun">SAMSTAG</string>
@@ -74,7 +74,7 @@
     <string name="yatak_odasi_isiklari_1">SCHLAFZIMMERLEUCHTEN (1)</string>
     <string name="oturma_alani_isiklari_m">SITZBEREICHSLEUCHTEN (M)</string>
     <string name="ic_aydinlatmalar">INNENBELEUCHTUNG</string>
-    <string name="kontroller">REGLER</string>
+    <string name="kontroller">Regler</string>
     <string name="mutfak_isiklari">KÜCHENLEUCHTEN</string>
     <string name="dis_isiklar_sol">AUSSENLEUCHTEN (LINKS)</string>
     <string name="dis_isiklari_on">AUSSENLEUCHTEN (VORNE)</string>
@@ -99,7 +99,7 @@
     <string name="hidrofor">HYDROPHOR</string>
     <string name="acik">EIN</string>
     <string name="kapali">AUS</string>
-    <string name="gostergeler">INDIKATOREN</string>
+    <string name="gostergeler">Indikatoren</string>
     <string name="dis_aydinlatmalar">AUSSENLEUCHTEN</string>
     <string name="uyku_modunu_ayarla">RUHEMODUS EINSTELLEN</string>
     <string name="nem_set_n_ayarla">FEUCHTIGKEIT EINSTELLEN</string>
