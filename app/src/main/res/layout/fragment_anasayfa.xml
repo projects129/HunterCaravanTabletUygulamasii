@@ -276,7 +276,7 @@
         android:id="@+id/textView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/poppinsextralight"
         android:text="63"
@@ -284,13 +284,13 @@
         android:textSize="54sp"
 
         app:layout_constraintStart_toStartOf="@+id/imageView32"
-        app:layout_constraintTop_toBottomOf="@+id/textView42"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
     <TextView
         android:id="@+id/textView66"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="56dp"
         android:fontFamily="@font/poppinsextralight"
         android:text="%"
@@ -298,6 +298,7 @@
         android:textSize="54sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView32"
         app:layout_constraintEnd_toEndOf="@+id/imageView32"
+        app:layout_constraintStart_toEndOf="@+id/textView32"
         app:layout_constraintTop_toBottomOf="@+id/textView42"
         app:layout_constraintVertical_bias="0.565" />
 
@@ -306,7 +307,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="56dp"
         android:fontFamily="@font/poppinsextralight"
         android:text="86"
         android:textColor="@color/white"
@@ -318,13 +319,15 @@
         android:id="@+id/textView68"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="60dp"
         android:fontFamily="@font/poppinsextralight"
         android:text="%"
         android:textColor="@color/white"
         android:textSize="54sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView44"
+        app:layout_constraintStart_toEndOf="@+id/textView67"
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
     <LinearLayout
@@ -415,12 +418,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsmedium"
+        android:gravity="center"
         android:text="@string/ay"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView34"
         app:layout_constraintEnd_toEndOf="@+id/dk"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="@+id/saat"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />

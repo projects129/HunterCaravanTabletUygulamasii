@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
-            android:text="SİSTEM SAATİ"
+            android:text="@string/s_stem_saat"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -97,7 +97,7 @@
         android:layout_marginStart="144dp"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/imageView38"
+        app:layout_constraintEnd_toStartOf="@+id/dilimage"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout14">
 
@@ -108,7 +108,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
-            android:text="ARAYÜZ DİLİ"
+            android:text="@string/aray_z_d_l"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -131,7 +131,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
-            android:text="UYKU MODUNU AYARLA"
+            android:text="@string/uyku_modunu_ayarla"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -154,7 +154,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
-            android:text="NEM SETİNİ AYARLA"
+            android:text="@string/nem_set_n_ayarla"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -177,7 +177,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
-            android:text="GELİŞMİŞ AYARLAR"
+            android:text="@string/gel_m_ayarlar"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -189,7 +189,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/ayargirisbtn"
-        android:text="KAYDET"
+        android:text="@string/kaydettt"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/imageView36"
         app:layout_constraintStart_toStartOf="@+id/imageView36"
@@ -253,18 +253,18 @@
         app:srcCompat="@drawable/bluetooth" />
 
     <ImageView
-        android:id="@+id/imageView38"
+        android:id="@+id/dilimage"
         android:layout_width="49dp"
         android:layout_height="37dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
-        app:layout_constraintEnd_toStartOf="@+id/textView36"
+        app:layout_constraintEnd_toStartOf="@+id/diltext"
         app:layout_constraintTop_toBottomOf="@+id/timeText"
         app:srcCompat="@drawable/turkiye" />
 
     <TextView
-        android:id="@+id/textView36"
+        android:id="@+id/diltext"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginTop="32dp"
@@ -275,11 +275,11 @@
         android:text="TÜRKÇE"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView39"
+        app:layout_constraintEnd_toStartOf="@+id/dil"
         app:layout_constraintTop_toBottomOf="@+id/timeText" />
 
     <ImageView
-        android:id="@+id/imageView39"
+        android:id="@+id/dil"
         android:layout_width="49dp"
         android:layout_height="37dp"
         android:layout_marginTop="32dp"
@@ -293,24 +293,23 @@
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center|end"
         android:text="10 DAKİKA"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout16"
+        app:layout_constraintEnd_toStartOf="@+id/imageView40"
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <ImageView
         android:id="@+id/imageView40"
         android:layout_width="49dp"
         android:layout_height="37dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="100dp"
         android:layout_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/textView38"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30"
         app:srcCompat="@drawable/bluetooth" />
 
@@ -318,24 +317,24 @@
         android:id="@+id/textView40"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:layout_marginStart="108dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:layout_weight="1"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center"
         android:text="98%"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout17"
+        app:layout_constraintEnd_toStartOf="@+id/imageView41"
         app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
     <ImageView
         android:id="@+id/imageView41"
         android:layout_width="49dp"
         android:layout_height="37dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintStart_toEndOf="@+id/textView40"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView40"
         app:srcCompat="@drawable/bluetooth" />
 
@@ -343,9 +342,9 @@
         android:id="@+id/gelismisayarlar"
         android:layout_width="49dp"
         android:layout_height="37dp"
-        android:layout_marginStart="155dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout22"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView41"
         app:srcCompat="@drawable/kirmiziayar" />
 

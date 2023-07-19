@@ -5,13 +5,19 @@ import static android.content.Context.MODE_PRIVATE;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
 import androidx.fragment.app.Fragment;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.media.VolumeShaper;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,14 +36,16 @@ import com.caravan.huntercaravantabletuygulamasii.R;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.zip.DataFormatException;
 
 public class KullaniciUygulamaAyarlari extends Fragment {
     ImageView gelismisbtn;
-    ImageView backbutton;
-  TextView dateText,timeText;
-    ImageView dateButton, timeButton;
+    ImageView dilbuton;
+  TextView dateText,timeText,diltext;
+    ImageView dateButton, timeButton,dilimage;
 
     Button kaydetbtn;
 
@@ -65,9 +73,11 @@ public class KullaniciUygulamaAyarlari extends Fragment {
 
     }
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
 
         gelismisbtn = view.findViewById(R.id.gelismisayarlar);
@@ -76,6 +86,18 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         dateText = view.findViewById(R.id.dateText);
         timeText = view.findViewById(R.id.timeText);
         kaydetbtn = view.findViewById(R.id.kaydetbtn);
+        dilbuton = view.findViewById(R.id.dil);
+        diltext = view.findViewById(R.id.diltext);
+        dilimage = view.findViewById(R.id.dilimage);
+
+loadLocale();
+        dilbuton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                   showChangeLanguageDialog();
+
+            }
+        });
 
 
         gelismisbtn.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +143,76 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         });
 
     }
+
+    private void showChangeLanguageDialog() {
+        String list[] ={"English","Turkish","German" };
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(requireContext());
+            mBuilder.setTitle("Choose Language");
+            mBuilder.setSingleChoiceItems(list, -1, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    if(i==0){
+                        setLocale("en");
+                        getActivity().recreate();
+
+                    }
+                    else if(i==1){
+                        setLocale("tr");
+                        getActivity().recreate();
+
+                    }
+                    else {
+                        setLocale("de");
+                        getActivity().recreate();
+
+
+                    }
+
+dialogInterface.dismiss();
+
+                }
+            });
+AlertDialog  mDialog= mBuilder.create();
+mDialog.show();
+    }
+
+    private void setLocale(String s) {
+        Locale locale = new Locale(s);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        requireContext().getResources().updateConfiguration(config,requireContext().getResources().getDisplayMetrics());
+         SharedPreferences.Editor editor = requireContext().getSharedPreferences("setting",MODE_PRIVATE).edit();
+         editor.putString("my lang",s);
+         editor.putString("languagetext",s);
+        if(s.equals("en")){
+           editor.putString("image", String.valueOf(R.drawable.ingilizce));
+
+        }
+        else if(s.equals("tr")){
+            editor.putString("image", String.valueOf(R.drawable.turkiye));
+
+        }
+        else {
+
+            editor.putString("image", String.valueOf(R.drawable.almanca));
+
+
+        }
+         editor.apply();
+
+    }
+    private void loadLocale(){
+        SharedPreferences prefs = requireContext().getSharedPreferences("setting",MODE_PRIVATE);
+        String language = prefs.getString("my lang","");
+        String languagetext = prefs.getString("languagetext","");
+        String languageimage = prefs.getString("image","");
+        diltext.setText(languagetext);
+        dilimage.setImageResource(Integer.parseInt(languageimage));
+
+        setLocale(language);
+    }
+
 
     private void handleTimeButton() {
         Calendar calender = Calendar.getInstance();
@@ -188,4 +280,6 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         },DAY,MONTH,YEAR);
          datePickerDialog.show();
     }
+
+
 }
