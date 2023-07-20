@@ -4,6 +4,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Bundle;
 
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import com.caravan.huntercaravantabletuygulamasii.MainActivity;
 import com.caravan.huntercaravantabletuygulamasii.R;
 
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -30,6 +32,7 @@ import java.util.TimerTask;
 public class AnasayfaFragment extends Fragment {
     private Handler handler = new Handler();
     TextView cl_water_txt,dt_water_txt,vbatt_txt,vbatt_perc_txt,tin_txt, tout_txt;
+    KullaniciUygulamaAyarlari kullaniciUygulamaAyarlari;
 
     ClipDrawable drawable1,drawable;
 
@@ -89,6 +92,7 @@ public class AnasayfaFragment extends Fragment {
 
 
 
+
         cl_water_txt=(TextView)view.findViewById(R.id.textView67);
         dt_water_txt=(TextView)view.findViewById(R.id.textView63);
         vbatt_txt=(TextView)view.findViewById(R.id.textView57);
@@ -114,6 +118,7 @@ public class AnasayfaFragment extends Fragment {
 
 
     }
+
 
     final TimerTask refresh_timerTask = new TimerTask() {
         @Override

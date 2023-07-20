@@ -15,8 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
-        tools:targetApi="31"
-        android:localeConfig="@xml/locale_configs"
+        tools:targetApi="tiramisu"
+
         >
 
         <activity
@@ -48,5 +48,6 @@
         </activity>
 
     </application>
+
 
 </manifest>

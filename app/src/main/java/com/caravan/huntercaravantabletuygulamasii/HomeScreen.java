@@ -7,6 +7,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +18,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.caravan.huntercaravantabletuygulamasii.adapter.DashboardPagerAdapter;
+import com.caravan.huntercaravantabletuygulamasii.fragments.KullaniciUygulamaAyarlari;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 
@@ -28,6 +32,8 @@ private ViewPager2 viewPager2;
 private ImageView bluetooth;
     BluetoothAdapter myBluetoothAdapter;
     Intent btEnablingIntent;
+
+    KullaniciUygulamaAyarlari kullaniciUygulamaAyarlari;
     int requestCodeForeEnable;
 
     BluetoothDevice[] btArray;
@@ -82,6 +88,7 @@ private DashboardPagerAdapter  adapter;
         tabLayout.addTab(tabLayout.newTab().setCustomView(R.layout.kapatmabutton));
 
 
+        loadLocale();
 
 
 
@@ -114,9 +121,42 @@ private DashboardPagerAdapter  adapter;
             }
         });
 
-
     }
 
+    private void setLocale(String s) {
+        Locale locale = new Locale(s);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getResources().updateConfiguration(config,getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = getSharedPreferences("setting",MODE_PRIVATE).edit();
+        editor.putString("my lang",s);
+        editor.putString("languagetext",s);
+        if(s.equals("en")){
+            editor.putInt("image", R.drawable.ingilizce);
 
+        }
+        else if(s.equals("tr")){
+            editor.putInt("image", R.drawable.turkiye);
+
+        }
+        else {
+
+            editor.putInt("image", R.drawable.almanca);
+
+
+        }
+        editor.apply();
+
+    }
+    public void loadLocale(){
+        SharedPreferences prefs = getSharedPreferences("setting",MODE_PRIVATE);
+        String language = prefs.getString("my lang","");
+        setLocale(language);
+
+
+
+
+    }
 
 }

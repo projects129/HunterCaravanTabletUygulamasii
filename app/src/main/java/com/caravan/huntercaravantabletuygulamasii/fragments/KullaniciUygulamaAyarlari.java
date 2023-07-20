@@ -4,23 +4,16 @@ import static android.content.Context.MODE_PRIVATE;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.os.LocaleListCompat;
 import androidx.fragment.app.Fragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.media.VolumeShaper;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,22 +22,18 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
-import com.caravan.huntercaravantabletuygulamasii.HomeScreen;
 import com.caravan.huntercaravantabletuygulamasii.R;
 
 import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Locale;
-import java.util.zip.DataFormatException;
+import java.util.Objects;
 
 public class KullaniciUygulamaAyarlari extends Fragment {
     ImageView gelismisbtn;
     ImageView dilbuton;
-  TextView dateText,timeText,diltext;
+    TextView dateText,timeText,diltext;
     ImageView dateButton, timeButton,dilimage;
 
     Button kaydetbtn;
@@ -68,6 +57,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.activity_kullanici_uygulama_ayarlari, container, false);
 
 
@@ -76,6 +66,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
 
 
@@ -90,15 +81,15 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         diltext = view.findViewById(R.id.diltext);
         dilimage = view.findViewById(R.id.dilimage);
 
-loadLocale();
+
         dilbuton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                   showChangeLanguageDialog();
+                showChangeLanguageDialog();
 
             }
         });
-
+        loadLocale();
 
         gelismisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,34 +137,34 @@ loadLocale();
 
     private void showChangeLanguageDialog() {
         String list[] ={"English","Turkish","German" };
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(requireContext());
-            mBuilder.setTitle("Choose Language");
-            mBuilder.setSingleChoiceItems(list, -1, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    if(i==0){
-                        setLocale("en");
-                        getActivity().recreate();
-
-                    }
-                    else if(i==1){
-                        setLocale("tr");
-                        getActivity().recreate();
-
-                    }
-                    else {
-                        setLocale("de");
-                        getActivity().recreate();
-
-
-                    }
-
-dialogInterface.dismiss();
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(requireActivity());
+        mBuilder.setTitle("Choose Language");
+        mBuilder.setSingleChoiceItems(list, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(i == 0){
+                    setLocale("en");
+                   requireActivity().recreate();
 
                 }
-            });
-AlertDialog  mDialog= mBuilder.create();
-mDialog.show();
+                else if(i == 1){
+                    setLocale("tr");
+                    requireActivity().recreate();
+
+                }
+                else {
+                    setLocale("de");
+                    requireActivity().recreate();
+
+
+                }
+
+                dialogInterface.dismiss();
+
+            }
+        });
+        AlertDialog  mDialog= mBuilder.create();
+        mDialog.show();
     }
 
     private void setLocale(String s) {
@@ -181,36 +172,37 @@ mDialog.show();
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;
-        requireContext().getResources().updateConfiguration(config,requireContext().getResources().getDisplayMetrics());
-         SharedPreferences.Editor editor = requireContext().getSharedPreferences("setting",MODE_PRIVATE).edit();
-         editor.putString("my lang",s);
-         editor.putString("languagetext",s);
+        requireActivity().getResources().updateConfiguration(config,requireActivity().getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = requireActivity().getSharedPreferences("setting",MODE_PRIVATE).edit();
+        editor.putString("my lang",s);
+        editor.putString("languagetext",s);
         if(s.equals("en")){
-           editor.putString("image", String.valueOf(R.drawable.ingilizce));
+            editor.putInt("image", R.drawable.ingilizce);
 
         }
         else if(s.equals("tr")){
-            editor.putString("image", String.valueOf(R.drawable.turkiye));
+            editor.putInt("image", R.drawable.turkiye);
 
         }
         else {
 
-            editor.putString("image", String.valueOf(R.drawable.almanca));
+            editor.putInt("image", R.drawable.almanca);
 
 
         }
-         editor.apply();
+        editor.apply();
 
     }
-    private void loadLocale(){
-        SharedPreferences prefs = requireContext().getSharedPreferences("setting",MODE_PRIVATE);
+    public void loadLocale(){
+        SharedPreferences prefs = requireActivity().getSharedPreferences("setting",MODE_PRIVATE);
         String language = prefs.getString("my lang","");
-        String languagetext = prefs.getString("languagetext","");
-        String languageimage = prefs.getString("image","");
-        diltext.setText(languagetext);
-        dilimage.setImageResource(Integer.parseInt(languageimage));
-
         setLocale(language);
+        String languagetext = prefs.getString("languagetext","");
+        Integer languageimage = prefs.getInt("image",0);
+        diltext.setText(languagetext);
+        dilimage.setImageResource(languageimage);
+
+
     }
 
 
@@ -223,10 +215,10 @@ mDialog.show();
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute) {
 
-              timeText.setText(String.valueOf(hour) +": " + String.valueOf(minute));
+                timeText.setText(String.valueOf(hour) +": " + String.valueOf(minute));
 
-              Time = String.valueOf(hour);
-              Dk = String.valueOf(minute);
+                Time = String.valueOf(hour);
+                Dk = String.valueOf(minute);
             }
         },HOUR,MINUTE,true);
         timePickerDialog.show();
@@ -244,9 +236,9 @@ mDialog.show();
             public void onDateSet(DatePicker datePicker, int year, int month, int Day) {
 
 
-                   Gun = String.valueOf(Day);
+                Gun = String.valueOf(Day);
 
-                   Yil = String.valueOf(year);
+                Yil = String.valueOf(year);
                 String[] days = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
                 dayss = days[calender.get(Calendar.DAY_OF_WEEK) ];
 
@@ -268,17 +260,17 @@ mDialog.show();
 
                 Calendar calender1 = Calendar.getInstance();
 
-                 calender1.set(Calendar.YEAR,year);
+                calender1.set(Calendar.YEAR,year);
                 calender1.set(Calendar.MONTH,month);
 
 
                 calender1.set(Calendar.DATE,Day);
-               String dataCharSequence = DateFormat.getDateInstance(DateFormat.DEFAULT).format(calender1.getTime());
+                String dataCharSequence = DateFormat.getDateInstance(DateFormat.DEFAULT).format(calender1.getTime());
                 dateText.setText(dataCharSequence);
             }
 
         },DAY,MONTH,YEAR);
-         datePickerDialog.show();
+        datePickerDialog.show();
     }
 
 

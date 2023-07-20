@@ -8,6 +8,8 @@ import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Build;
@@ -28,6 +30,7 @@ import com.harrysoft.androidbluetoothserial.BluetoothSerialDevice;
 import com.harrysoft.androidbluetoothserial.SimpleBluetoothDeviceInterface;
 
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView image = (ImageView) findViewById(R.id.progressBar);
         ClipDrawable drawable = (ClipDrawable) image.getDrawable();
         drawable.setLevel(0);
-
+        loadLocale();
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -243,5 +246,39 @@ public class MainActivity extends AppCompatActivity {
     private void onError(Throwable error) {
         // Handle the error
     }
+    private void setLocale(String s) {
+        Locale locale = new Locale(s);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getResources().updateConfiguration(config,getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = getSharedPreferences("setting",MODE_PRIVATE).edit();
+        editor.putString("my lang",s);
+        editor.putString("languagetext",s);
+        if(s.equals("en")){
+            editor.putInt("image", R.drawable.ingilizce);
 
+        }
+        else if(s.equals("tr")){
+            editor.putInt("image", R.drawable.turkiye);
+
+        }
+        else {
+
+            editor.putInt("image", R.drawable.almanca);
+
+
+        }
+        editor.apply();
+
+    }
+    public void loadLocale(){
+        SharedPreferences prefs = getSharedPreferences("setting",MODE_PRIVATE);
+        String language = prefs.getString("my lang","");
+        setLocale(language);
+
+
+
+
+    }
 }
