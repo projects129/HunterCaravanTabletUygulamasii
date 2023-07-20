@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         drawable.setLevel(0);
         loadLocale();
 
+
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
