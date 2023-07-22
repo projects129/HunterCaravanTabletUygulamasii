@@ -60,7 +60,6 @@ public class EnerjiFragment extends Fragment {
     class refresh_Task implements Runnable {
         public void run() {
             while(true) {
-                Log.d("Refresh","Enerji");
                 set_input_views();
                 try {
                     Thread.sleep(100);

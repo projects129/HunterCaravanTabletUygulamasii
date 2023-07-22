@@ -62,7 +62,6 @@ public class GostergelerFragment extends Fragment {
     class refresh_Task implements Runnable {
         public void run() {
             while(true) {
-                Log.d("Refresh","Göstergeler");
                 set_input_views();
                 try {
                     Thread.sleep(100);

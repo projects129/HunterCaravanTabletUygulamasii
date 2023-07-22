@@ -78,7 +78,6 @@ public class AydinlatmaFragment extends Fragment {
     class refresh_Task implements Runnable {
         public void run() {
             while(true) {
-                Log.d("Refresh","Aydınlatma");
                 inputsdat= (char) (MainActivity.inputsdat&0xFFF);
                 if (inputsdat != old_inputsdat) {
                     old_inputsdat = inputsdat;

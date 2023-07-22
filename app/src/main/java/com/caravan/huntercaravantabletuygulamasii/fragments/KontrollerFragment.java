@@ -135,10 +135,8 @@ public class KontrollerFragment extends Fragment {
     class refresh_Task implements Runnable {
         public void run() {
             while(true) {
-                Log.d("Refresh","Kontroller");
                 inputsdat= (char) (MainActivity.inputsdat&0x3000);
                 if (inputsdat != old_inputsdat) {
-                    Log.d("Outputs_Changed",Integer.toHexString(old_inputsdat)+" >>> "+Integer.toHexString(inputsdat));
                     old_inputsdat = inputsdat;
                     set_input_views(inputsdat);
                 }

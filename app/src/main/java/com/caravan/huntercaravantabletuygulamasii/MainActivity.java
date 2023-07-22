@@ -15,6 +15,8 @@ import android.graphics.drawable.ClipDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -23,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.caravan.huntercaravantabletuygulamasii.fragments.AydinlatmaFragment;
 import com.harrysoft.androidbluetoothserial.BluetoothManager;
 import com.harrysoft.androidbluetoothserial.BluetoothSerialDevice;
 import com.harrysoft.androidbluetoothserial.SimpleBluetoothDeviceInterface;
@@ -50,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
     char[] input_read_buf={0x55,0x41,0x00,0x00};
     boolean my_device_exist=false;
     //boolean output_update=false;
-    Timer timer;
+    Thread Thread_Comm = null;
+    Boolean bluetooth_connected=false;
     public static char inputsdat,old_inputsdat;
 
 
@@ -74,10 +78,6 @@ public class MainActivity extends AppCompatActivity {
         ClipDrawable drawable = (ClipDrawable) image.getDrawable();
         drawable.setLevel(0);
         loadLocale();
-
-
-        bitSet(test,0);
-        Log.d("Bit_test:","Val: "+bitRead(test,0)+"("+Integer.toHexString(test)+")");
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -137,14 +137,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 nextActivity();
-
             }
         };
 
         Handler isleyici = new Handler();
         isleyici.postDelayed(bekleme,4700);
 
-
+        Thread_Comm = new Thread(new MainActivity.Comm_Task());
+        Thread_Comm.start();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -179,7 +179,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    class Comm_Task implements Runnable {
+        public void run() {
+            while(true) {
+                while(bluetooth_connected) {
+                    String message;
+                    if (output_update) {
+                        output_update = false;
+                        ouput_update_buf[3] = (char) ((outputs_data & 0xFF00) >> 8);
+                        ouput_update_buf[2] = (char) (outputs_data & 0x00FF);
+                        message = new String(ouput_update_buf);
+                    } else {
+                        message = new String(input_read_buf);
 
+                    }
+                    try {
+                        deviceInterface.sendMessage(message);
+                    } catch (Exception e) {
+                        bluetooth_connected=false;
+                    }
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
+    }
 
     private void connectDevice(String mac) {
         bluetoothManager.openSerialDevice(mac)
@@ -187,31 +214,11 @@ public class MainActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::onConnected, this::onError);
     }
-
-    final TimerTask timerTask = new TimerTask() {
-        @Override
-        public void run() {
-            if(output_update)
-            {
-                output_update=false;
-                ouput_update_buf[3]= (char) ((outputs_data&0xFF00)>>8);
-                ouput_update_buf[2]= (char) (outputs_data&0x00FF);
-                String message = new String(ouput_update_buf);
-                deviceInterface.sendMessage(message);
-            }
-            else
-            {
-                String message = new String(input_read_buf);
-                deviceInterface.sendMessage(message);
-            }
-        }
-    };
     private void onConnected(BluetoothSerialDevice connectedDevice) {
         deviceInterface = connectedDevice.toSimpleDeviceInterface();
         deviceInterface.setListeners(this::onMessageReceived, this::onMessageSent, this::onError);
         Toast.makeText(context, "Menar IO Module Connected.", Toast.LENGTH_LONG).show();
-        timer = new Timer();
-        timer.schedule(timerTask,0,100);
+        bluetooth_connected=true;
     }
 
     private void onMessageSent(String message) {
@@ -220,15 +227,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void onMessageReceived(String message) {
         char[] in_buf=message.toCharArray();
-
         if(in_buf[20]==0x55)
         {
             if(in_buf[21]==0x42)
-            {/*
-                Log.d("BT", "Input buffer length:"+in_buf.length);
-                Log.d("BT","Input buffer:"+(int)in_buf[0]+"-"+(int)in_buf[1]+"-"+(int)in_buf[2]+"-"+(int)in_buf[3]+"-"+(int)in_buf[4]+"-"+(int)in_buf[5]+"-"+(int)in_buf[6]+"-"+(int)in_buf[7]+
-                        "-"+(int)in_buf[8]+"-"+(int)in_buf[9]+"-"+(int)in_buf[10]+"-"+(int)in_buf[11]+"-"+(int)in_buf[12]+"-"+(int)in_buf[13]+"-"+(int)in_buf[14]+"-"+(int)in_buf[15]+
-                        "-"+(int)in_buf[16]+"-"+(int)in_buf[17]+"-"+(int)in_buf[18]+"-"+(int)in_buf[19]+"-"+(int)in_buf[20]+"-"+(int)in_buf[21]+"-"+(int)in_buf[22]+"-"+(int)in_buf[23]);*/
+            {
+                Log.d("BT_length", "Input buffer length:"+in_buf.length);
+                //Log.d("BT_buffer:",""+Integer.toHexString(in_buf[0])+"-"+Integer.toHexString(in_buf[1])+"-"+Integer.toHexString(in_buf[2])+"-"+Integer.toHexString(in_buf[3])+"-"+Integer.toHexString(in_buf[4])+"-"+Integer.toHexString(in_buf[5])+"-"+Integer.toHexString(in_buf[6])+"-"+Integer.toHexString(in_buf[7])+
+                //        "-"+Integer.toHexString(in_buf[8])+"-"+Integer.toHexString(in_buf[9])+"-"+Integer.toHexString(in_buf[10])+"-"+Integer.toHexString(in_buf[11])+"-"+Integer.toHexString(in_buf[12])+"-"+Integer.toHexString(in_buf[13])+"-"+Integer.toHexString(in_buf[14])+"-"+Integer.toHexString(in_buf[15])+
+                //        "-"+Integer.toHexString(in_buf[16])+"-"+Integer.toHexString(in_buf[17])+"-"+Integer.toHexString(in_buf[18])+"-"+Integer.toHexString(in_buf[19])+"-"+Integer.toHexString(in_buf[20])+"-"+Integer.toHexString(in_buf[21]));
+
+                //Log.d("BT", "Input buffer length:"+in_buf.length);
                 inputsdat= (char) ((in_buf[3]<<8)|in_buf[2]);
                 v_batt=(int)((in_buf[5]<<8)|in_buf[4]);
                 v_solar=(int)((in_buf[7]<<8)|in_buf[6]);
@@ -244,11 +252,22 @@ public class MainActivity extends AppCompatActivity {
                     old_inputsdat=inputsdat;
                 }
 
-                Log.d("Reading","Outputs:"+Integer.toHexString(inputsdat)+" Vbatt:"+v_batt+" v_solar:"+v_solar+" cl_water_lvl:"+cl_water_lvl+" dt_water_lvl:"+dt_water_lvl+" t_in:"+t_in+" t_out:"+t_out+" dht_temp:"+dht_temp+" dht_humidty:"+dht_humidty);
+                //Log.d("Reading","Outputs:"+Integer.toHexString(inputsdat)+" Vbatt:"+v_batt+" v_solar:"+v_solar+" cl_water_lvl:"+cl_water_lvl+" dt_water_lvl:"+dt_water_lvl+" t_in:"+t_in+" t_out:"+t_out+" dht_temp:"+dht_temp+" dht_humidty:"+dht_humidty);
             }
         }
     }
     private void onError(Throwable error) {
+        bluetoothManager.closeDevice(my_device_mac);
+        //Toast.makeText(context, "Menar IO Module Disonnected.", Toast.LENGTH_LONG).show();
+        if(my_device_exist)
+        {
+            connectDevice(my_device_mac);
+        }
+        else
+        {
+            Toast.makeText(context, "Menar IO Module not found.", Toast.LENGTH_LONG).show();
+        }
+        Log.d("BT_exception","Bağlantı kesildi yeniden bağlanılıyor",error);
         // Handle the error
     }
     private void setLocale(String s) {
