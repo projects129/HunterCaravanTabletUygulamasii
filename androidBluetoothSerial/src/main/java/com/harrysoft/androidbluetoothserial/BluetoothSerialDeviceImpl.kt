@@ -2,6 +2,7 @@ package com.harrysoft.androidbluetoothserial
 
 import android.bluetooth.BluetoothSocket
 import android.text.TextUtils
+import android.util.Log
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Completable
 import io.reactivex.Flowable
