@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import java.util.TimerTask;
 public class EnerjiFragment extends Fragment {
     ClipDrawable drawable;
     private Handler handler = new Handler();
+    Thread Thread_refresh = null;
     TextView vbatt_txt,vbatt_perc_txt,vsolar_txt;
 
 
@@ -52,16 +54,22 @@ public class EnerjiFragment extends Fragment {
 
         drawable = (ClipDrawable) akuimage.getDrawable();
         drawable.setLevel(0);
-        Timer timer = new Timer();
-        timer.schedule(refresh_timerTask,0,100);
+        Thread_refresh = new Thread(new EnerjiFragment.refresh_Task());
+        Thread_refresh.start();
     }
-
-    final TimerTask refresh_timerTask = new TimerTask() {
-        @Override
+    class refresh_Task implements Runnable {
         public void run() {
-            set_input_views();
+            while(true) {
+                Log.d("Refresh","Enerji");
+                set_input_views();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
-    };
+    }
     public void set_input_views()
     {
         handler.post(new Runnable() {

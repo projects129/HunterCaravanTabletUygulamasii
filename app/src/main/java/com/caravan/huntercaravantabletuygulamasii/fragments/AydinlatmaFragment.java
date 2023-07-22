@@ -25,13 +25,14 @@ import java.util.TimerTask;
 public class AydinlatmaFragment extends Fragment {
     private Handler handler = new Handler();
     public static Switch OUTPUT_VIEWS[] = new Switch[12];
+    public char inputsdat,old_inputsdat;
     Switch mutfakisiklari;
     Switch oturmaalanisiklariM;
     Switch yatakodasiisiklari1;
     Switch mutfaktavanisiklari;
     Switch oturmaalaniisiklari;
     Switch yatakodasiisiklari2;
-
+    Thread Thread_refresh = null;
     Switch disisiklarsol;
 
     Switch disisiklaron;
@@ -74,16 +75,24 @@ public class AydinlatmaFragment extends Fragment {
             }
         });
     }
-
-    final TimerTask refresh_timerTask = new TimerTask() {
-        @Override
+    class refresh_Task implements Runnable {
         public void run() {
-            if(MainActivity.inputsdat!=MainActivity.old_inputsdat) {
-                MainActivity.old_inputsdat=MainActivity.inputsdat;
-                set_input_views(MainActivity.inputsdat);
+            while(true) {
+                Log.d("Refresh","Aydınlatma");
+                inputsdat= (char) (MainActivity.inputsdat&0xFFF);
+                if (inputsdat != old_inputsdat) {
+                    old_inputsdat = inputsdat;
+                    set_input_views(inputsdat);
+                }
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
-    };
+    }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -128,7 +137,10 @@ public class AydinlatmaFragment extends Fragment {
                 }
             });
         }
-        Timer timer = new Timer();
-        timer.schedule(refresh_timerTask,0,100);
+        set_input_views(MainActivity.inputsdat);
+        Thread_refresh = new Thread(new AydinlatmaFragment.refresh_Task());
+        Thread_refresh.start();
+        //Timer timer = new Timer();
+        //timer.schedule(refresh_timerTask,0,100);
     }
 }

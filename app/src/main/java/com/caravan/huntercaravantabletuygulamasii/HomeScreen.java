@@ -153,10 +153,6 @@ private DashboardPagerAdapter  adapter;
         SharedPreferences prefs = getSharedPreferences("setting",MODE_PRIVATE);
         String language = prefs.getString("my lang","");
         setLocale(language);
-
-
-
-
     }
 
 }

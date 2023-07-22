@@ -23,10 +23,13 @@ import java.util.TimerTask;
 
 public class KontrollerFragment extends Fragment {
     private Handler handler = new Handler();
+    public char inputsdat,old_inputsdat;
     Button acikbutton;
     Button kapalibutton;
     Button acikhidrofor;
     Button kapalihidrofor;
+
+    Thread Thread_refresh = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,14 +96,15 @@ public class KontrollerFragment extends Fragment {
                 MainActivity.output_update=true;
             }
         });
-        Timer timer = new Timer();
-        timer.schedule(refresh_timerTask,0,100);
+        set_input_views(MainActivity.inputsdat);
+        Thread_refresh = new Thread(new KontrollerFragment.refresh_Task());
+        Thread_refresh.start();
     }
     public void set_input_views(char dat)
     {
         handler.post(new Runnable() {
             public void run() {
-                if((MainActivity.inputsdat&0x1000)>0)
+                if((dat&0x1000)>0)
                 {
                     kapalibutton.setBackgroundResource(R.drawable.kapalibutton);
                     acikbutton.setBackgroundResource(R.drawable.acikbuttonyesil);
@@ -110,10 +114,10 @@ public class KontrollerFragment extends Fragment {
 
                     acikbutton.setBackgroundResource(R.drawable.acikbtngri);
                     kapalibutton.setBackgroundResource(R.drawable.kapalikirmizibtn);
-                    MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data | (1 << 12))));
+                    MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data & (~(1 << 12)))));
                 }
 
-                if((MainActivity.inputsdat&0x2000)>0)
+                if((dat&0x2000)>0)
                 {
                     acikhidrofor.setBackgroundResource(R.drawable.acikbuttonyesil);
                     kapalihidrofor.setBackgroundResource(R.drawable.kapalibutton);
@@ -128,14 +132,24 @@ public class KontrollerFragment extends Fragment {
         });
     }
 
-    final TimerTask refresh_timerTask = new TimerTask() {
-        @Override
+    class refresh_Task implements Runnable {
         public void run() {
-            if(MainActivity.inputsdat!=MainActivity.old_inputsdat) {
-                MainActivity.old_inputsdat=MainActivity.inputsdat;
-                set_input_views(MainActivity.inputsdat);
+            while(true) {
+                Log.d("Refresh","Kontroller");
+                inputsdat= (char) (MainActivity.inputsdat&0x3000);
+                if (inputsdat != old_inputsdat) {
+                    Log.d("Outputs_Changed",Integer.toHexString(old_inputsdat)+" >>> "+Integer.toHexString(inputsdat));
+                    old_inputsdat = inputsdat;
+                    set_input_views(inputsdat);
+                }
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
-    };
+    }
 
 }

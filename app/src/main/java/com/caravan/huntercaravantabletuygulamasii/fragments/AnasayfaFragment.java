@@ -31,6 +31,7 @@ import java.util.TimerTask;
 
 public class AnasayfaFragment extends Fragment {
     private Handler handler = new Handler();
+    Thread Thread_refresh = null;
     TextView cl_water_txt,dt_water_txt,vbatt_txt,vbatt_perc_txt,tin_txt, tout_txt;
     KullaniciUygulamaAyarlari kullaniciUygulamaAyarlari;
 
@@ -109,23 +110,23 @@ public class AnasayfaFragment extends Fragment {
         drawable1 = (ClipDrawable) temizsuimage.getDrawable();
         drawable1.setLevel(0);
 
-        Timer timer = new Timer();
-        timer.schedule(refresh_timerTask,0,100);
-
-
-
-
-
-
+        Thread_refresh = new Thread(new AnasayfaFragment.refresh_Task());
+        Thread_refresh.start();
     }
 
-
-    final TimerTask refresh_timerTask = new TimerTask() {
-        @Override
+    class refresh_Task implements Runnable {
         public void run() {
+            while(true) {
+                Log.d("Refresh","Anasayfa");
                 set_input_views();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
-    };
+    }
     public void set_input_views()
     {
         handler.post(new Runnable() {

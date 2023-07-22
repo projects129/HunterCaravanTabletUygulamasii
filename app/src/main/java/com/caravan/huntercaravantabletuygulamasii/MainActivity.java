@@ -20,11 +20,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.caravan.huntercaravantabletuygulamasii.fragments.AydinlatmaFragment;
 import com.harrysoft.androidbluetoothserial.BluetoothManager;
 import com.harrysoft.androidbluetoothserial.BluetoothSerialDevice;
 import com.harrysoft.androidbluetoothserial.SimpleBluetoothDeviceInterface;
@@ -36,7 +34,6 @@ import java.util.TimerTask;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-
 public class MainActivity extends AppCompatActivity {
 
     public static char outputs_data;
@@ -79,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         loadLocale();
 
 
+        bitSet(test,0);
+        Log.d("Bit_test:","Val: "+bitRead(test,0)+"("+Integer.toHexString(test)+")");
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -239,8 +238,13 @@ public class MainActivity extends AppCompatActivity {
                 t_out=(int)((in_buf[15]<<8)|in_buf[14]);
                 dht_temp=(int)((in_buf[17]<<8)|in_buf[16]);
                 dht_humidty=(int)((in_buf[19]<<8)|in_buf[18]);
+                if(inputsdat!=old_inputsdat)
+                {
+                    outputs_data=inputsdat;
+                    old_inputsdat=inputsdat;
+                }
 
-                Log.d("ANALOG","Vbatt:"+v_batt+" v_solar:"+v_solar+" cl_water_lvl:"+cl_water_lvl+" dt_water_lvl:"+dt_water_lvl+" t_in:"+t_in+" t_out:"+t_out+" dht_temp:"+dht_temp+" dht_humidty:"+dht_humidty);
+                Log.d("Reading","Outputs:"+Integer.toHexString(inputsdat)+" Vbatt:"+v_batt+" v_solar:"+v_solar+" cl_water_lvl:"+cl_water_lvl+" dt_water_lvl:"+dt_water_lvl+" t_in:"+t_in+" t_out:"+t_out+" dht_temp:"+dht_temp+" dht_humidty:"+dht_humidty);
             }
         }
     }
