@@ -104,21 +104,25 @@ public class KontrollerFragment extends Fragment {
                 {
                     kapalibutton.setBackgroundResource(R.drawable.kapalibutton);
                     acikbutton.setBackgroundResource(R.drawable.acikbuttonyesil);
+                    MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data | (1 << 12))));
                 }
                 else {
 
                     acikbutton.setBackgroundResource(R.drawable.acikbtngri);
                     kapalibutton.setBackgroundResource(R.drawable.kapalikirmizibtn);
+                    MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data | (1 << 12))));
                 }
 
                 if((MainActivity.inputsdat&0x2000)>0)
                 {
                     acikhidrofor.setBackgroundResource(R.drawable.acikbuttonyesil);
                     kapalihidrofor.setBackgroundResource(R.drawable.kapalibutton);
+                    MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data | (1 << 13))));
                 }
                 else {
                     acikhidrofor.setBackgroundResource(R.drawable.acikbtngri);
                     kapalihidrofor.setBackgroundResource(R.drawable.kapalikirmizibtn);
+                    MainActivity.outputs_data = (char) ((char) ((MainActivity.outputs_data & (~(1 << 13)))));
                 }
             }
         });
