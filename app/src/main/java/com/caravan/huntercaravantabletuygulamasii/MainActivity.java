@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
         loadLocale();
 
 
-        bitSet(test,0);
-        Log.d("Bit_test:","Val: "+bitRead(test,0)+"("+Integer.toHexString(test)+")");
+       // bitSet(test,0);
+      //  Log.d("Bit_test:","Val: "+bitRead(test,0)+"("+Integer.toHexString(test)+")");
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override

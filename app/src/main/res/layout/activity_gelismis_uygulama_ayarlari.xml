@@ -192,23 +192,24 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="90dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView29"
+        app:layout_constraintTop_toBottomOf="@+id/eslesmebtn"
         app:srcCompat="@drawable/bluetooth" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/eslesmetext"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsbold"
         android:gravity="center|start"
         android:text="478208"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView29"
+        app:layout_constraintEnd_toStartOf="@+id/eslesmebtn"
         app:layout_constraintTop_toTopOf="@+id/linearLayout19" />
 
     <ImageView
-        android:id="@+id/imageView29"
+        android:id="@+id/eslesmebtn"
         android:layout_width="37dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"

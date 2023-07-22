@@ -7,35 +7,58 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 
 import com.caravan.huntercaravantabletuygulamasii.HomeScreen;
 import com.caravan.huntercaravantabletuygulamasii.R;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
+
 public class GelismisUygulamaAyarlari extends AppCompatActivity {
     ImageView diagnostikbtn;
-    ImageView backbutton;
-    Toolbar toolbar;
+    ImageView eslesmebtn;
+    TextView eslesmeText;
     BluetoothAdapter myBluetoothAdapter;
     Intent btEnablingIntent;
     int requestCodeForeEnable;
     BluetoothDevice[] btArray;
     private Switch switchView;
+    ListView pairedlist;
+    ArrayList<String> list =new ArrayList<String>();
+    ArrayList<String> list1 =new ArrayList<String>();
+    private Set<BluetoothDevice> pairedDevice;
+    private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +84,8 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
         diagnostikbtn = findViewById(R.id.diagnostikbtn);
         switchView = findViewById(R.id.bluetooth);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        eslesmebtn = findViewById(R.id.eslesmebtn);
+        eslesmeText = findViewById(R.id.eslesmetext);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -69,6 +94,8 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
         myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         btEnablingIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
         requestCodeForeEnable = 1;
+
+
         diagnostikbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,9 +105,33 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
             }
         });
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
 
 
-        switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            pairedDevice = myBluetoothAdapter.getBondedDevices();
+
+
+            if (pairedDevice.size() > 0) {
+                // There are paired devices. Get the name and address of each paired device.
+                for (BluetoothDevice bt : pairedDevice) {
+                    String deviceName = bt.getName();
+                    Log.e("BT", "GELENN" + deviceName + "\n" + bt.getAddress());
+                    list.add(bt.getName());
+                    list1.add(bt.getAddress());
+
+                }
+            }
+        }
+
+
+            switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // on below line we are checking
@@ -120,14 +171,76 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "kapat", Toast.LENGTH_LONG).show();
 
 
-
-
                     // on below line we are setting text
                     // if switch is unchecked.
 
                 }
             }
         });
+
+
+
+        SharedPreferences prefs = getSharedPreferences("Bluetoothcihazi",MODE_PRIVATE);
+        String cihazid = prefs.getString("cihazId","");
+        eslesmeText.setText(cihazid);
+        eslesmebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+             listDevice();
+
+
+
+            }
+        });
+
+    }
+
+
+    private void listDevice() {
+
+
+
+            AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+            mBuilder.setTitle("Choose Language");
+
+            mBuilder.setItems(list.toArray(new String[0]), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Log.e("clickk", "clickkk"+ list1.get(i) );
+                    SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazi",MODE_PRIVATE).edit();
+                    editor.putString("cihazId",list1.get(i));
+                    editor.apply();
+
+                }
+            });
+            AlertDialog  mDialog= mBuilder.create();
+            mDialog.show();
+
+
+
+
+
+        }
+
+
+
+
+
+
+    private void        showChangeLanguageDialog() {
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        mBuilder.setTitle("Choose Language");
+
+       mBuilder.setItems(list.toArray(new String[0]), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog  mDialog= mBuilder.create();
+        mDialog.show();
     }
     @Override
     public boolean onSupportNavigateUp() {
