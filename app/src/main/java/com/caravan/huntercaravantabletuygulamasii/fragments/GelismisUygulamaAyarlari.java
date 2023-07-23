@@ -225,17 +225,17 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
 
 if(myBluetoothAdapter.isEnabled()) {
     AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-    mBuilder.setTitle("Choose Language");
+    mBuilder.setTitle("Choose Device");
 
     mBuilder.setItems(list.toArray(new String[0]), new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
-
-
             SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE).edit();
             editor.putString("cihazId", list1.get(i));
-
             editor.apply();
+            SharedPreferences.Editor editor1 = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE).edit();
+            editor1.putString("cihazadi", list1.get(i));
+            editor1.apply();
 
 
             SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);

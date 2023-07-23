@@ -121,13 +121,17 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(context, "Bluetooth not available.", Toast.LENGTH_LONG).show(); // Replace context with your context instance.
             finish();
         }
+       SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
+        String cihazid = prefs.getString("cihazId","");
+        Log.d("MAC:",""+cihazid);
         Collection<BluetoothDevice> pairedDevices = bluetoothManager.getPairedDevices();
         for (BluetoothDevice device : pairedDevices) {
-            if(device.getName().equals("Menar IO Module"))
+            Log.d("MAC:",""+device.getAddress());
+            if(device.getAddress().equals(cihazid))
             {
                 my_device_mac=device.getAddress();
                 my_device_exist=true;
-                Log.d("BT","My device found:" +my_device_mac);
+                Log.d("Device","My device found:" +my_device_mac);
             }
         }
         if(my_device_exist)
