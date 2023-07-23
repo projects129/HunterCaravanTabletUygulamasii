@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/re" />
 
     <TextView
@@ -37,9 +37,10 @@
     <ImageView
         android:id="@+id/imageView28"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView27"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/imageView27"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
         app:srcCompat="@drawable/line" />
@@ -48,13 +49,13 @@
         android:id="@+id/bluetooth"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_marginStart="104dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="32dp"
         android:checked="false"
         android:fontFamily="@font/poppinsbold"
         android:text="@string/cihazi_etkinlestir"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:thumb="@drawable/ellipse1"
         android:track="@drawable/kompresorswitch"
         app:layout_constraintEnd_toStartOf="@+id/imageView28"
@@ -65,12 +66,12 @@
         android:id="@+id/switch2"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_marginStart="104dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppinsbold"
         android:text="@string/kirlisugostergesi"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:thumb="@drawable/ellipse1"
         android:track="@drawable/kompresorswitch"
         app:layout_constraintEnd_toStartOf="@+id/imageView28"
@@ -81,12 +82,12 @@
         android:id="@+id/switch4"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_marginStart="104dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppinsbold"
         android:text="@string/denge_sistemi"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:thumb="@drawable/ellipse1"
         android:track="@drawable/kompresorswitch"
         app:layout_constraintEnd_toStartOf="@+id/imageView28"
@@ -97,7 +98,7 @@
         android:id="@+id/button"
         android:layout_width="148dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="13dp"
         android:background="@drawable/ayargirisbtn"
         android:fontFamily="@font/poppinsbold"
         android:text="@string/kaydett"
@@ -121,7 +122,7 @@
         android:id="@+id/linearLayout19"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@+id/imageView28"
@@ -135,7 +136,7 @@
             android:gravity="center|start"
             android:text="@string/bluetootheslestirme"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -143,7 +144,7 @@
         android:id="@+id/linearLayout20"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@+id/imageView28"
@@ -158,7 +159,7 @@
             android:gravity="center|start"
             android:text="@string/diagnostikmenuu"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -166,7 +167,7 @@
         android:id="@+id/linearLayout21"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toEndOf="@+id/imageView28"
@@ -181,7 +182,7 @@
             android:gravity="center|start"
             android:text="@string/kontrol_akimi_karti"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -229,7 +230,7 @@
         android:gravity="center"
         android:text="2A"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/diagnostikbtn" />
 
@@ -237,8 +238,8 @@
         android:id="@+id/toolbar2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
         android:minHeight="?attr/actionBarSize"

@@ -109,5 +109,6 @@
     <string name="aray_z_d_l">SPRACHE</string>
     <string name="kullanici_ayar">BENUTZEREINSTELLUNGEN</string>
     <string name="s_stem_saat">SYSTEM UHR</string>
+    <string name="otomat_k_ayarla">AUTOMATİSCH  EINGESTELLT</string>
 
 </resources>

@@ -113,5 +113,6 @@
     <string name="kullanici_ayar">RETURN TO USER SETTINGS</string>
     <string name="kompresor">COMPRESSOR</string>
     <string name="s_stem_saat">SYSTEM CLOCK</string>
+    <string name="otomat_k_ayarla">AUTO SET</string>
 
 </resources>

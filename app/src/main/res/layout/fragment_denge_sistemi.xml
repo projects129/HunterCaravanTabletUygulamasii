@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/otomatik"
+        android:background="@drawable/otomaticrectangle"
         app:layout_constraintEnd_toEndOf="@+id/imageView24"
         app:layout_constraintStart_toStartOf="@+id/imageView15"
         app:layout_constraintTop_toTopOf="parent" />
@@ -179,5 +179,20 @@
         app:layout_constraintHorizontal_bias="0.413"
         app:layout_constraintStart_toStartOf="@+id/linearLayout7"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <TextView
+        android:id="@+id/otomatictext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsbold"
+        android:text="@string/otomat_k_ayarla"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

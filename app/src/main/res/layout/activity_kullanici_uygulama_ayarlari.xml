@@ -63,7 +63,7 @@
             android:gravity="center"
             android:text="@string/tarih"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -86,7 +86,7 @@
             android:gravity="center|start"
             android:text="@string/s_stem_saat"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -110,7 +110,7 @@
             android:gravity="center|start"
             android:text="@string/aray_z_d_l"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -133,7 +133,7 @@
             android:gravity="center|start"
             android:text="@string/uyku_modunu_ayarla"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -156,7 +156,7 @@
             android:gravity="center|start"
             android:text="@string/nem_set_n_ayarla"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -179,7 +179,7 @@
             android:gravity="center|start"
             android:text="@string/gel_m_ayarlar"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
