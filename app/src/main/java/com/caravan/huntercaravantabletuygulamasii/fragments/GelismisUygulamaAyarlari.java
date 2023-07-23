@@ -41,6 +41,7 @@ import com.caravan.huntercaravantabletuygulamasii.HomeScreen;
 import com.caravan.huntercaravantabletuygulamasii.R;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -55,8 +56,9 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
     BluetoothDevice[] btArray;
     private Switch switchView;
     ListView pairedlist;
-    ArrayList<String> list =new ArrayList<String>();
-    ArrayList<String> list1 =new ArrayList<String>();
+    Set<String> list = new HashSet<String>();
+
+    ArrayList<String> list1 = new ArrayList<String>();
     private Set<BluetoothDevice> pairedDevice;
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
@@ -105,33 +107,8 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
             }
         });
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
 
-
-            pairedDevice = myBluetoothAdapter.getBondedDevices();
-
-
-            if (pairedDevice.size() > 0) {
-                // There are paired devices. Get the name and address of each paired device.
-                for (BluetoothDevice bt : pairedDevice) {
-                    String deviceName = bt.getName();
-                    Log.e("BT", "GELENN" + deviceName + "\n" + bt.getAddress());
-                    list.add(bt.getName());
-                    list1.add(bt.getAddress());
-
-                }
-            }
-        }
-
-
-            switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // on below line we are checking
@@ -149,7 +126,12 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
 
                             startActivityForResult(btEnablingIntent, requestCodeForeEnable);
 
+
                         }
+
+
+
+
 
                     }
                 } else {
@@ -178,14 +160,24 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
             }
         });
 
-
-
         SharedPreferences prefs = getSharedPreferences("Bluetoothcihazi",MODE_PRIVATE);
         String cihazid = prefs.getString("cihazId","");
         eslesmeText.setText(cihazid);
+
+        SharedPreferences pre = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE);
+        String cihazadi = pre.getString("cihazadi", "");
+
+
+
+
+
+
+       // @string/bluetootheslestirme
+
         eslesmebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
              listDevice();
 
 
@@ -195,32 +187,69 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
 
     }
 
-
     private void listDevice() {
 
+       if(myBluetoothAdapter.isEnabled()){
 
-
-            AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-            mBuilder.setTitle("Choose Language");
-
-            mBuilder.setItems(list.toArray(new String[0]), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-
-                    Log.e("clickk", "clickkk"+ list1.get(i) );
-                    SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazi",MODE_PRIVATE).edit();
-                    editor.putString("cihazId",list1.get(i));
-                    editor.apply();
-
-                }
-            });
-            AlertDialog  mDialog= mBuilder.create();
-            mDialog.show();
+          if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
 
 
 
+                pairedDevice = myBluetoothAdapter.getBondedDevices();
 
 
+        if (pairedDevice.size() > 0) {
+            // There are paired devices. Get the name and address of each paired device.
+            for (BluetoothDevice bt : pairedDevice) {
+                String deviceName = bt.getName();
+                Log.e("BT", "GELENN" + deviceName + "\n" + bt.getAddress());
+                list.add(bt.getName());
+                list1.add(bt.getAddress());
+
+
+                SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE).edit();
+                editor.putString("cihazadi", String.valueOf(list));
+
+                editor.apply();
+
+
+            }
+        } else {
+            Toast.makeText(this, "Eşleşmiş cihaz yok", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+}
+
+
+if(myBluetoothAdapter.isEnabled()) {
+    AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+    mBuilder.setTitle("Choose Language");
+
+    mBuilder.setItems(list.toArray(new String[0]), new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+
+
+            SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazi", MODE_PRIVATE).edit();
+            editor.putString("cihazId", list1.get(i));
+
+            editor.apply();
+
+
+            SharedPreferences prefs = getSharedPreferences("Bluetoothcihazi", MODE_PRIVATE);
+            String cihazid = prefs.getString("cihazId", "");
+            eslesmeText.setText(cihazid);
+
+
+        }
+    });
+    AlertDialog mDialog = mBuilder.create();
+    mDialog.show();
+}else {
+    Toast.makeText(this,"Bluetooth not connect",Toast.LENGTH_SHORT).show();
+}
         }
 
 
@@ -228,20 +257,11 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
 
 
 
-    private void        showChangeLanguageDialog() {
 
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-        mBuilder.setTitle("Choose Language");
 
-       mBuilder.setItems(list.toArray(new String[0]), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
 
-            }
-        });
-        AlertDialog  mDialog= mBuilder.create();
-        mDialog.show();
-    }
+
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

@@ -133,7 +133,6 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
-            android:text="@string/bluetootheslestirme"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
