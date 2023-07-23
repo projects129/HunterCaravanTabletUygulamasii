@@ -160,7 +160,7 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
             }
         });
 
-        SharedPreferences prefs = getSharedPreferences("Bluetoothcihazi",MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii",MODE_PRIVATE);
         String cihazid = prefs.getString("cihazId","");
         eslesmeText.setText(cihazid);
 
@@ -232,13 +232,13 @@ if(myBluetoothAdapter.isEnabled()) {
         public void onClick(DialogInterface dialogInterface, int i) {
 
 
-            SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazi", MODE_PRIVATE).edit();
+            SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE).edit();
             editor.putString("cihazId", list1.get(i));
 
             editor.apply();
 
 
-            SharedPreferences prefs = getSharedPreferences("Bluetoothcihazi", MODE_PRIVATE);
+            SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
             String cihazid = prefs.getString("cihazId", "");
             eslesmeText.setText(cihazid);
 
