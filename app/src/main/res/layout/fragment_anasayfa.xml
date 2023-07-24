@@ -42,7 +42,6 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/poppinsmedium"
-        android:text="27 "
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/ay"
@@ -93,13 +92,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
     <TextView
-        android:id="@+id/textView46"
+        android:id="@+id/guntext"
         android:layout_width="190dp"
         android:layout_height="26dp"
         android:gravity="center"
         android:text="@string/gun"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/dk"
         app:layout_constraintStart_toStartOf="@+id/saat"
         app:layout_constraintTop_toBottomOf="@+id/saat" />
@@ -136,9 +135,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:src="@drawable/termometre"
-        app:layout_constraintEnd_toEndOf="@+id/textView46"
-        app:layout_constraintStart_toStartOf="@+id/textView46"
-        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+        app:layout_constraintEnd_toEndOf="@+id/guntext"
+        app:layout_constraintStart_toStartOf="@+id/guntext"
+        app:layout_constraintTop_toBottomOf="@+id/guntext" />
 
     <TextView
         android:id="@+id/textView49"
@@ -152,7 +151,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView45"
-        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+        app:layout_constraintTop_toBottomOf="@+id/guntext" />
 
     <TextView
         android:id="@+id/textView50"
@@ -166,7 +165,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView45"
-        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+        app:layout_constraintTop_toBottomOf="@+id/guntext" />
 
     <ImageView
         android:id="@+id/imageView46"
@@ -414,7 +413,7 @@
 
     <TextView
         android:id="@+id/ay"
-        android:layout_width="71dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsmedium"
@@ -423,9 +422,8 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView34"
-        app:layout_constraintEnd_toEndOf="@+id/dk"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="@+id/saat"
+        app:layout_constraintEnd_toStartOf="@+id/imageView44"
+        app:layout_constraintStart_toEndOf="@+id/akudolum"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -436,7 +434,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsmedium"
-        android:text="@string/yil"
+        android:text=""
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/ay"
