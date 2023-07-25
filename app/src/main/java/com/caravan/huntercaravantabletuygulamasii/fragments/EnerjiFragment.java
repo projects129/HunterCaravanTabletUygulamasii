@@ -69,13 +69,20 @@ public class EnerjiFragment extends Fragment {
             }
         }
     }
+    long map(long x, long in_min, long in_max, long out_min, long out_max) {
+        if (((in_max - in_min) + out_min) != 0) {
+            return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+        } else return 0;
+    }
     public void set_input_views()
     {
         handler.post(new Runnable() {
             public void run() {
-
-                drawable.setLevel((int)(MainActivity.v_batt*0.694444444f));
-                vbatt_perc_txt.setText(""+(int)(MainActivity.v_batt*0.694444444f/100));
+                long vbatt_perc_val=map(MainActivity.v_batt,10700,13800,0,100);
+                if (vbatt_perc_val>100)vbatt_perc_val=100;
+                if (vbatt_perc_val<0)vbatt_perc_val=0;
+                drawable.setLevel((int)(vbatt_perc_val*100));
+                vbatt_perc_txt.setText(""+(int)(vbatt_perc_val));
                 String s = String.format("%.1f", (float)MainActivity.v_batt/1000);
                 vbatt_txt.setText(s);
                 s = String.format("%.1f", (float)MainActivity.v_solar/100);
