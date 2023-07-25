@@ -129,8 +129,10 @@ public class MainActivity extends AppCompatActivity {
         Collection<BluetoothDevice> pairedDevices = bluetoothManager.getPairedDevices();
         Log.d("Devices_size",""+pairedDevices.size());
         for (BluetoothDevice device : pairedDevices) {
-            Log.d("Founded_BT",device.getName());
-            if (device.getAddress().equals(my_device_mac)) {
+            String founded_device_addr= "["+device.getAddress()+"]";
+            String founded_device_name= "["+device.getName()+"]";
+            Log.d("Founded_BT",founded_device_name+" >> "+founded_device_addr);
+            if (founded_device_addr.equals(my_device_mac)) {
                 my_device_exist = true;
                 Log.d("Device", "My device found:" + my_device_mac);
             }
