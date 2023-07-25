@@ -133,7 +133,7 @@
             android:layout_weight="1"
             android:background="@drawable/acikbtngri"
             android:fontFamily="@font/poppinsbold"
-            android:text="AÇIK"
+            android:text="@string/acik"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -144,7 +144,7 @@
             android:layout_weight="1"
             android:background="@drawable/kapalikirmizibtn"
             android:fontFamily="@font/poppinsbold"
-            android:text="KAPALI"
+            android:text="@string/kapali"
             android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
