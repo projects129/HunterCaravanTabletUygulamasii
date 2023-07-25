@@ -130,9 +130,6 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
                         }
 
 
-
-
-
                     }
                 } else {
 
@@ -160,26 +157,21 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
             }
         });
 
-        SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii",MODE_PRIVATE);
-        String cihazid = prefs.getString("cihazId","");
+        SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
+        String cihazid = prefs.getString("cihazId", "");
         eslesmeText.setText(cihazid);
 
         SharedPreferences pre = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE);
         String cihazadi = pre.getString("cihazadi", "");
 
 
-
-
-
-
-       // @string/bluetootheslestirme
+        // @string/bluetootheslestirme
 
         eslesmebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-             listDevice();
-
+                listDevice();
 
 
             }
@@ -188,84 +180,52 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
     }
 
     private void listDevice() {
-
-       if(myBluetoothAdapter.isEnabled()){
-
-          if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-
-
-
-                pairedDevice = myBluetoothAdapter.getBondedDevices();
-
-
-        if (pairedDevice.size() > 0) {
-            // There are paired devices. Get the name and address of each paired device.
-            for (BluetoothDevice bt : pairedDevice) {
-                String deviceName = bt.getName();
-                Log.e("BT", "GELENN" + deviceName + "\n" + bt.getAddress());
-                list.add(bt.getName());
-                list1.add(bt.getAddress());
-
-
-                SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE).edit();
-                editor.putString("cihazadi", String.valueOf(list));
-
-                editor.apply();
-
-
+        if (myBluetoothAdapter.isEnabled()) {
+            pairedDevice = myBluetoothAdapter.getBondedDevices();
+            if (pairedDevice.size() > 0) {
+                // There are paired devices. Get the name and address of each paired device.
+                for (BluetoothDevice bt : pairedDevice) {
+                    String deviceName = bt.getName();
+                    Log.e("BT", "GELENN" + deviceName + "\n" + bt.getAddress());
+                    list.add(bt.getName());
+                    list1.add(bt.getAddress());
+                }
+            } else {
+                Toast.makeText(this, "Eşleşmiş cihaz yok", Toast.LENGTH_SHORT).show();
             }
+        }
+        if (myBluetoothAdapter.isEnabled()) {
+            AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+            mBuilder.setTitle("Choose Device");
+
+            mBuilder.setItems(list.toArray(new String[0]), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE).edit();
+                    editor.putString("cihazadi", String.valueOf(list));
+                    editor.apply();
+
+                    SharedPreferences.Editor editor2 = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE).edit();
+                    editor2.putString("cihazId", String.valueOf(list1));
+                    editor2.apply();
+
+                    SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
+                    String cihazid = prefs.getString("cihazId", "");
+                    eslesmeText.setText(cihazid);
+
+
+                }
+            });
+            AlertDialog mDialog = mBuilder.create();
+            mDialog.show();
         } else {
-            Toast.makeText(this, "Eşleşmiş cihaz yok", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Bluetooth not connect", Toast.LENGTH_SHORT).show();
         }
-
-
     }
-}
-
-
-if(myBluetoothAdapter.isEnabled()) {
-    AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-    mBuilder.setTitle("Choose Device");
-
-    mBuilder.setItems(list.toArray(new String[0]), new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialogInterface, int i) {
-            SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE).edit();
-            editor.putString("cihazId", list1.get(i));
-            editor.apply();
-            SharedPreferences.Editor editor1 = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE).edit();
-            editor1.putString("cihazadi", list1.get(i));
-            editor1.apply();
-
-
-            SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
-            String cihazid = prefs.getString("cihazId", "");
-            eslesmeText.setText(cihazid);
-
-
-        }
-    });
-    AlertDialog mDialog = mBuilder.create();
-    mDialog.show();
-}else {
-    Toast.makeText(this,"Bluetooth not connect",Toast.LENGTH_SHORT).show();
-}
-        }
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
-
 }

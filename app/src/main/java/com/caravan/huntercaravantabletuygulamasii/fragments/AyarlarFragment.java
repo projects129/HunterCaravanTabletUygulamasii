@@ -51,7 +51,7 @@ public class AyarlarFragment extends AppCompatActivity {
     public void updateDetail() {
         String kullaniciadi = "hunter";
         String sifresi = "karavan";
-        if ((kullanici.getText().toString().equals("hunter")) && (sifre.getText().toString().equals("karavan"))) {
+        if ((kullanici.getText().toString().equals("")) && (sifre.getText().toString().equals(""))) {
 
             Intent intent = new Intent(this, GelismisUygulamaAyarlari.class);
             startActivity(intent);

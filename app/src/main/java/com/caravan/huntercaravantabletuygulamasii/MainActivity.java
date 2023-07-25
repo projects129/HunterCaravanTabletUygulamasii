@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     Context context = this;
     private SimpleBluetoothDeviceInterface deviceInterface;
     BluetoothManager bluetoothManager = BluetoothManager.getInstance();
-    String my_device_mac;
+    String my_device_mac,my_device_name;
     //char outputs_data = 0x0000;
     char[] ouput_update_buf={0x55,0x74,0x00,0x00};
     char[] input_read_buf={0x55,0x41,0x00,0x00};
@@ -80,23 +80,22 @@ public class MainActivity extends AppCompatActivity {
         loadLocale();
 
 
-
-       // bitSet(test,0);
-      //  Log.d("Bit_test:","Val: "+bitRead(test,0)+"("+Integer.toHexString(test)+")");
+        // bitSet(test,0);
+        //  Log.d("Bit_test:","Val: "+bitRead(test,0)+"("+Integer.toHexString(test)+")");
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                MainActivity.this.runOnUiThread(new Runnable(){
+                MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        drawable.setLevel(drawable.getLevel()+100);
+                        drawable.setLevel(drawable.getLevel() + 100);
 
                     }
                 });
             }
-        }, 10,50);
+        }, 10, 50);
 
         int currentApiVersion = Build.VERSION.SDK_INT;
 
@@ -115,32 +114,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+        SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
+        my_device_mac = prefs.getString("cihazId", "");
+        SharedPreferences pre = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE);
+        my_device_name = pre.getString("cihazadi", "");
 
-       if (bluetoothManager == null) {
+        if (bluetoothManager == null) {
             // Bluetooth unavailable on this device :( tell the user
             Toast.makeText(context, "Bluetooth not available.", Toast.LENGTH_LONG).show(); // Replace context with your context instance.
             finish();
         }
-       SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
-        String cihazid = prefs.getString("cihazId","");
-        Log.d("MAC:",""+cihazid);
+
+        Log.d("BT_device", "MAC:" + my_device_mac+" NAME:"+my_device_name);
         Collection<BluetoothDevice> pairedDevices = bluetoothManager.getPairedDevices();
+        Log.d("Devices_size",""+pairedDevices.size());
         for (BluetoothDevice device : pairedDevices) {
-            Log.d("MAC:",""+device.getAddress());
-            if(device.getAddress().equals(cihazid))
-            {
-                my_device_mac=device.getAddress();
-                my_device_exist=true;
-                Log.d("Device","My device found:" +my_device_mac);
+            Log.d("Founded_BT",device.getName());
+            if (device.getAddress().equals(my_device_mac)) {
+                my_device_exist = true;
+                Log.d("Device", "My device found:" + my_device_mac);
             }
         }
-        if(my_device_exist)
-        {
+        if (my_device_exist) {
             connectDevice(my_device_mac);
-        }
-        else
-        {
-            Toast.makeText(context, "Menar IO Module not found.", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(context, my_device_name+" not found.", Toast.LENGTH_LONG).show();
         }
 
         Runnable bekleme = new Runnable() {
@@ -151,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         Handler isleyici = new Handler();
-        isleyici.postDelayed(bekleme,4700);
+        isleyici.postDelayed(bekleme, 4700);
 
         Thread_Comm = new Thread(new MainActivity.Comm_Task());
         Thread_Comm.start();
