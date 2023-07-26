@@ -114,5 +114,7 @@
     <string name="kompresor">COMPRESSOR</string>
     <string name="s_stem_saat">SYSTEM CLOCK</string>
     <string name="otomat_k_ayarla">AUTO SET</string>
+    <string name="dakika">Minute</string>
+    <string name="Kaydedildi">Saved</string>
 
 </resources>

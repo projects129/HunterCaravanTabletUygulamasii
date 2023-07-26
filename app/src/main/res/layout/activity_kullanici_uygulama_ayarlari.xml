@@ -51,13 +51,12 @@
         android:layout_marginStart="144dp"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/dateText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30">
 
         <TextView
             android:id="@+id/textView31"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
@@ -74,14 +73,13 @@
         android:layout_marginStart="144dp"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/timeText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout13">
 
         <TextView
             android:id="@+id/textView33"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center|start"
             android:text="@string/s_stem_saat"
@@ -187,7 +185,7 @@
         android:id="@+id/kaydetbtn"
         android:layout_width="148dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/ayargirisbtn"
         android:text="@string/kaydettt"
         android:textColor="@color/white"
@@ -212,7 +210,6 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center|start"
-        android:text="29 MAYIS CUMARTESİ"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/datepicker"
@@ -229,14 +226,14 @@
         app:srcCompat="@drawable/bluetooth" />
 
     <TextView
-        android:id="@+id/timeText"
+        android:id="@+id/dakikaText"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center|start"
-        android:text="22:38"
+        android:text="38"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/timepicker"
@@ -260,7 +257,7 @@
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
         app:layout_constraintEnd_toStartOf="@+id/diltext"
-        app:layout_constraintTop_toBottomOf="@+id/timeText"
+        app:layout_constraintTop_toBottomOf="@+id/dakikaText"
         app:srcCompat="@drawable/turkiye" />
 
     <TextView
@@ -276,7 +273,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/dil"
-        app:layout_constraintTop_toBottomOf="@+id/timeText" />
+        app:layout_constraintTop_toBottomOf="@+id/dakikaText" />
 
     <ImageView
         android:id="@+id/dil"
@@ -290,13 +287,14 @@
         app:srcCompat="@drawable/bluetooth" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/sleepmode"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppinsregular"
         android:gravity="center|end"
-        android:text="10 DAKİKA"
+        android:text="@string/dakika"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView40"
@@ -326,7 +324,7 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView41"
-        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+        app:layout_constraintTop_toBottomOf="@+id/sleepmode" />
 
     <ImageView
         android:id="@+id/imageView41"
@@ -347,5 +345,72 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView41"
         app:srcCompat="@drawable/kirmiziayar" />
+
+    <TextView
+        android:id="@+id/kullaniciay"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center|right"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/dateText"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <TextView
+        android:id="@+id/kullanicigun"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center|right"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/kullaniciay"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center|right"
+        android:text="10"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/sleepmode"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="3dp"
+        android:gravity="clip_horizontal|center|center_vertical"
+        android:text=":"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/dakikaText"
+        app:layout_constraintTop_toBottomOf="@+id/kullanicigun" />
+
+    <TextView
+        android:id="@+id/saatText"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="3dp"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center|right"
+        android:text="2"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/kullanicigun" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

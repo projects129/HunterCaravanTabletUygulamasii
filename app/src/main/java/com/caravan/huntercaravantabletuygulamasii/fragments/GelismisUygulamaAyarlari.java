@@ -57,7 +57,7 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
     private Switch switchView;
     ListView pairedlist;
     Set<String> list = new HashSet<String>();
-
+Button kaydet;
     ArrayList<String> list1 = new ArrayList<String>();
     private Set<BluetoothDevice> pairedDevice;
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
@@ -89,6 +89,8 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
         eslesmebtn = findViewById(R.id.eslesmebtn);
         eslesmeText = findViewById(R.id.eslesmetext);
 
+        kaydet = findViewById(R.id.button);
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -96,7 +98,13 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
         myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         btEnablingIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
         requestCodeForeEnable = 1;
+kaydet.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Toast.makeText(view.getContext(),R.string.Kaydedildi,Toast.LENGTH_SHORT).show();
 
+    }
+});
 
         diagnostikbtn.setOnClickListener(new View.OnClickListener() {
             @Override

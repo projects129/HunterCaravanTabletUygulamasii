@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,18 +23,18 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.caravan.huntercaravantabletuygulamasii.R;
 
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Locale;
-import java.util.Objects;
 
 public class KullaniciUygulamaAyarlari extends Fragment {
     ImageView gelismisbtn;
     ImageView dilbuton;
-    TextView dateText,timeText,diltext;
+    TextView dateText,timeText,diltext,gunsayi,ay,saatText,dakikaText;
     ImageView dateButton, timeButton,dilimage;
 
     Button kaydetbtn;
@@ -46,6 +47,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
     String Yil;
 
     String dayss;
+    String tr_ay,tr_gun,tr_gunsayi;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,14 +76,17 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         gelismisbtn = view.findViewById(R.id.gelismisayarlar);
         dateButton = view.findViewById(R.id.datepicker);
         timeButton = view.findViewById(R.id.timepicker);
-        dateText = view.findViewById(R.id.dateText);
-        timeText = view.findViewById(R.id.timeText);
+
+        timeText = view.findViewById(R.id.dakikaText);
         kaydetbtn = view.findViewById(R.id.kaydetbtn);
         dilbuton = view.findViewById(R.id.dil);
         diltext = view.findViewById(R.id.diltext);
         dilimage = view.findViewById(R.id.dilimage);
-
-
+        dateText = view.findViewById(R.id.dateText);
+        gunsayi = view.findViewById(R.id.kullanicigun);
+        ay = view.findViewById(R.id.kullaniciay);
+        saatText = view.findViewById(R.id.saatText);
+        dakikaText = view.findViewById(R.id.dakikaText);
         dilbuton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,20 +123,14 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         kaydetbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sharedPref = getActivity().getSharedPreferences("Time",MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("time", Time);
-                editor.putString("dk",Dk);
-
-
-                editor.putString("gun",Gun);
-                editor.putString("yil",Yil);
-                editor.putString("ay",Ay);
-                editor.apply();
+                Toast.makeText(requireContext(),R.string.Kaydedildi,Toast.LENGTH_SHORT).show();
             }
 
 
         });
+        SharedPreferences preftime = getActivity().getSharedPreferences("Time",MODE_PRIVATE);
+       saatText.setText(preftime.getString("hour",""));
+        dakikaText.setText(preftime.getString("minute",""));
 
     }
 
@@ -176,17 +175,40 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         SharedPreferences.Editor editor = requireActivity().getSharedPreferences("setting",MODE_PRIVATE).edit();
         editor.putString("my lang",s);
         editor.putString("languagetext",s);
+
+        SharedPreferences prefs = getActivity().getSharedPreferences("enDate",MODE_PRIVATE);
+        SharedPreferences prefs1 = getActivity().getSharedPreferences("trDate",MODE_PRIVATE);
+        SharedPreferences prefs2 = getActivity().getSharedPreferences("deDate",MODE_PRIVATE);
+
+
         if(s.equals("en")){
             editor.putInt("image", R.drawable.ingilizce);
+            tr_ay = prefs.getString("ay","");
+            tr_gun = prefs.getString("gun","");
 
+            dateText.setText(tr_gun);
+            gunsayi.setText(tr_ay);
         }
         else if(s.equals("tr")){
             editor.putInt("image", R.drawable.turkiye);
+            tr_gunsayi = prefs1.getString("gunsayi","");
+            tr_ay = prefs1.getString("ay","");
+            tr_gun = prefs1.getString("gun","");
+            dateText.setText(tr_gun);
+            gunsayi.setText(tr_ay);//temmuz
+            ay.setText(tr_gunsayi);//26
 
+            Log.e("gelndateee",""+ tr_gunsayi);
         }
         else {
 
             editor.putInt("image", R.drawable.almanca);
+            tr_gunsayi = prefs2.getString("gunsayi","");
+            tr_ay = prefs2.getString("ay","");
+            tr_gun = prefs2.getString("gun","");
+            dateText.setText(tr_gun);
+            gunsayi.setText(tr_ay);//temmuz
+            ay.setText(tr_gunsayi);//26
 
 
         }
@@ -266,7 +288,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
 
                 calender1.set(Calendar.DATE,Day);
                 String dataCharSequence = DateFormat.getDateInstance(DateFormat.DEFAULT).format(calender1.getTime());
-                dateText.setText(dataCharSequence);
+              //  dateText.setText(dataCharSequence);
             }
 
         },DAY,MONTH,YEAR);

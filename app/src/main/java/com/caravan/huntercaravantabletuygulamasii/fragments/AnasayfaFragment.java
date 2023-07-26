@@ -138,63 +138,133 @@ public class AnasayfaFragment extends Fragment {
         SharedPreferences.Editor editor = getActivity().getSharedPreferences("setting",MODE_PRIVATE).edit();
         editor.putString("my lang",s);
         editor.putString("languagetext",s);
+
         if(s.equals("en")){
+            SharedPreferences sharedPref = getActivity().getSharedPreferences("enDate",MODE_PRIVATE);
+            SharedPreferences.Editor editor1 = sharedPref.edit();
+
+            SharedPreferences sharedtime = getActivity().getSharedPreferences("Time",MODE_PRIVATE);
+            SharedPreferences.Editor editortime = sharedtime.edit();
+            //**************************************
             editor.putInt("image", R.drawable.ingilizce);
             Date curentTime = Calendar.getInstance().getTime();
             String formattedDate =   DateFormat.getDateInstance(DateFormat.FULL).format(curentTime);
             splitDate = formattedDate.split(",");
-           String[] splitDate1 = formattedDate.split("\\s+");
+            String[] splitDate1 = formattedDate.split("\\s+");
+            //*************************
             Ay.setText(splitDate[1]);
-           Gun.setText("");
-
-             Yil.setText(splitDate[2]);
+            Gun.setText("");
+            Yil.setText(splitDate[2]);
             guntext.setText(splitDate[0]);
-
+            //*********************
             DateFormat dateFormat1 = DateFormat.getTimeInstance(DateFormat.DEFAULT, locale);
             String date = dateFormat1.format(new Date());
             String[]  splittime = date.split(":");
             saat.setText(splittime[0].trim());
             dakika.setText(splittime[1].trim());
-            Log.e("saaaat",splittime[0].trim());
+
+            String hour = saat.getText().toString();
+            String minute = dakika.getText().toString();
+            editortime.putString("hour",hour);
+            editortime.putString("minute",minute);
+            editortime.apply();
+            //***************************************
+
+            String ayy = Ay.getText().toString();
+            String gunn =    Gun.getText().toString();
+            Yil.setText(splitDate[2].trim());
+            String guntexttt=  guntext.getText().toString();
+            editor1.putString("ay",ayy);
+            editor1.putString("gun",guntexttt);
+
+            editor1.apply();
+         //**********************************
+
+
         }
         else if(s.equals("tr")){
+
+            SharedPreferences sharedPref1 = getActivity().getSharedPreferences("trDate",MODE_PRIVATE);
+            SharedPreferences.Editor editor2 = sharedPref1.edit();
+
+            SharedPreferences sharedtime = getActivity().getSharedPreferences("Time",MODE_PRIVATE);
+            SharedPreferences.Editor editortime = sharedtime.edit();
+            //********************************************
             editor.putInt("image", R.drawable.turkiye);
             Date curentTime = Calendar.getInstance().getTime();
             String formattedDate =   DateFormat.getDateInstance(DateFormat.FULL).format(curentTime);
             splitDate = formattedDate.split("\\s+");
+            //**********************************
             Ay.setText(splitDate[1].trim());
             Gun.setText(splitDate[0].trim());
             Yil.setText(splitDate[2].trim());
             guntext.setText(splitDate[3].trim());
-
+           //**********************************
             DateFormat dateFormat1 = DateFormat.getTimeInstance(DateFormat.DEFAULT, locale);
             String date = dateFormat1.format(new Date());
             String[]  splittime = date.split(":");
             saat.setText(splittime[0].trim());
             dakika.setText(splittime[1].trim());
-            Log.e("saaaat",splittime[0].trim());
 
+            String hour = saat.getText().toString();
+            String minute = dakika.getText().toString();
+            editortime.putString("hour",hour);
+            editortime.putString("minute",minute);
+            editortime.apply();
+      //**********************************
+            String ayy = Ay.getText().toString();
+        String gunn = Gun.getText().toString();
+        Yil.setText(splitDate[2].trim());
+        String guntexttt=  guntext.getText().toString();
+
+         editor2.putString("gunsayi",ayy);
+         editor2.putString("ay",gunn);
+         editor2.putString("gun",guntexttt);
+
+            editor2.apply();
+        //**********************************
 
         }
         else {
+            SharedPreferences sharedPref2 = getActivity().getSharedPreferences("deDate",MODE_PRIVATE);
+            SharedPreferences.Editor editor3 = sharedPref2.edit();
 
+            SharedPreferences sharedtime = getActivity().getSharedPreferences("Time",MODE_PRIVATE);
+            SharedPreferences.Editor editortime = sharedtime.edit();
+            //************************************
             editor.putInt("image", R.drawable.almanca);
             Date curentTime = Calendar.getInstance().getTime();
             String formattedDate =   DateFormat.getDateInstance(DateFormat.FULL).format(curentTime);
             splitDate = formattedDate.split(",");
             String[] splitDate1 = formattedDate.split("\\s+");
+            //***********************
             Ay.setText(splitDate1[2]);
             Gun.setText(splitDate1[1]);
-
-           Yil.setText(splitDate1[3]);
+            Yil.setText(splitDate1[3]);
             guntext.setText(splitDate[0]);
-
+           //***************
             DateFormat dateFormat1 = DateFormat.getTimeInstance(DateFormat.DEFAULT, locale);
             String date = dateFormat1.format(new Date());
             String[]  splittime = date.split(":");
             saat.setText(splittime[0].trim());
             dakika.setText(splittime[1].trim());
-            Log.e("saaaat",splittime[0].trim());
+
+            String hour = saat.getText().toString();
+            String minute = dakika.getText().toString();
+            editortime.putString("hour",hour);
+            editortime.putString("minute",minute);
+            editortime.apply();
+           //************************
+            String ayy = Ay.getText().toString();
+            String gunn =    Gun.getText().toString();
+          //  Yil.setText(splitDate[2].trim());
+            String guntexttt=  guntext.getText().toString();
+            editor3.putString("gunsayi",gunn);
+            editor3.putString("ay",ayy);
+            editor3.putString("gun",guntexttt);
+
+            editor3.apply();
+
 
         }
         editor.apply();
