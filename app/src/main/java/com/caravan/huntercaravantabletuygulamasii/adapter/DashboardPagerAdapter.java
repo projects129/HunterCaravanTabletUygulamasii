@@ -43,7 +43,6 @@ public class DashboardPagerAdapter extends FragmentStateAdapter {
                 return new KontrollerFragment();
             case 5:
                 return new DengeSistemiFragment();
-
             case 6: return new KullaniciUygulamaAyarlari();
 
 

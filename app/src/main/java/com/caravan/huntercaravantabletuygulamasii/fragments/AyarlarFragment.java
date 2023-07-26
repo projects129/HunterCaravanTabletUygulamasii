@@ -20,8 +20,8 @@ import com.caravan.huntercaravantabletuygulamasii.R;
 
 public class AyarlarFragment extends AppCompatActivity {
 
-       EditText kullanici;
-       EditText sifre;
+    EditText kullanici;
+    EditText sifre;
     Button button;
 
     @Override

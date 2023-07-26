@@ -9,22 +9,26 @@ import androidx.fragment.app.Fragment;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.caravan.huntercaravantabletuygulamasii.MainActivity;
 import com.caravan.huntercaravantabletuygulamasii.R;
 
 import java.text.DateFormat;
@@ -32,9 +36,9 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class KullaniciUygulamaAyarlari extends Fragment {
-    ImageView gelismisbtn;
+    ImageView gelismisbtn,humidtysetbtn;
     ImageView dilbuton;
-    TextView dateText,timeText,diltext,gunsayi,ay,saatText,dakikaText;
+    TextView dateText,timeText,diltext,gunsayi,ay,saatText,dakikaText,humText;
     ImageView dateButton, timeButton,dilimage;
 
     Button kaydetbtn;
@@ -48,7 +52,10 @@ public class KullaniciUygulamaAyarlari extends Fragment {
 
     String dayss;
     String tr_ay,tr_gun,tr_gunsayi;
-
+    SharedPreferences.Editor editor;
+    SharedPreferences set_prefs;
+    Context ctx;
+    EditText txthum;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,12 +77,15 @@ public class KullaniciUygulamaAyarlari extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-
+        ctx=this.getContext();
+        set_prefs = ctx.getSharedPreferences("set_values", MODE_PRIVATE);
+        editor = ctx.getSharedPreferences("set_values", MODE_PRIVATE).edit();
 
 
         gelismisbtn = view.findViewById(R.id.gelismisayarlar);
         dateButton = view.findViewById(R.id.datepicker);
         timeButton = view.findViewById(R.id.timepicker);
+        humText = view.findViewById(R.id.textView40);
 
         timeText = view.findViewById(R.id.dakikaText);
         kaydetbtn = view.findViewById(R.id.kaydetbtn);
@@ -87,6 +97,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         ay = view.findViewById(R.id.kullaniciay);
         saatText = view.findViewById(R.id.saatText);
         dakikaText = view.findViewById(R.id.dakikaText);
+        humidtysetbtn = view.findViewById(R.id.humidty_set_button);
         dilbuton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,6 +117,34 @@ public class KullaniciUygulamaAyarlari extends Fragment {
 
 
 
+        humidtysetbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txthum = new EditText(ctx);
+                txthum.setInputType(InputType.TYPE_CLASS_NUMBER);
+                txthum.setHint("0-100");
+
+                new AlertDialog.Builder(ctx)
+                        .setTitle("Humidity Set")
+                        .setView(txthum)
+                        .setPositiveButton("Kaydet", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                int hum_set = Integer.parseInt(txthum.getText().toString());
+                                humText.setText(hum_set+"%");
+                                editor.putInt("humidty_set", hum_set);
+                                editor.apply();
+                                MainActivity.humidty_set_update=true;
+                                Log.d("Hum_set",""+hum_set);
+                            }
+                        })
+                        .setNegativeButton("İptal", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                            }
+                        })
+                        .show();
+            }
+        });
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,6 +170,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         SharedPreferences preftime = getActivity().getSharedPreferences("Time",MODE_PRIVATE);
        saatText.setText(preftime.getString("hour",""));
         dakikaText.setText(preftime.getString("minute",""));
+        humText.setText(set_prefs.getInt("humidty_set",55)+"%");
 
     }
 

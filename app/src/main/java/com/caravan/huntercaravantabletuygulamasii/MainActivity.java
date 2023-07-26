@@ -40,7 +40,7 @@ import io.reactivex.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity {
 
     public static char outputs_data;
-    public static boolean output_update;
+    public static boolean output_update,humidty_set_update=false;
     AnimationDrawable drawableAnimation;
  // After completion of 2000 ms, the next activity will get started.
 
@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     //char outputs_data = 0x0000;
     char[] ouput_update_buf={0x55,0x74,0x00,0x00};
     char[] input_read_buf={0x55,0x41,0x00,0x00};
+
+    char[] humidity_set_update_buf={0x55,0x53,0x00,0x00};
     boolean my_device_exist=false;
     //boolean output_update=false;
     Thread Thread_Comm = null;
@@ -116,8 +118,12 @@ public class MainActivity extends AppCompatActivity {
         }
         SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
         my_device_mac = prefs.getString("cihazId", "");
+        my_device_mac=my_device_mac.replace("[","");
+        my_device_mac=my_device_mac.replace("]","");
         SharedPreferences pre = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE);
         my_device_name = pre.getString("cihazadi", "");
+        my_device_name=my_device_name.replace("[","");
+        my_device_name=my_device_name.replace("]","");
 
         if (bluetoothManager == null) {
             // Bluetooth unavailable on this device :( tell the user
@@ -129,10 +135,8 @@ public class MainActivity extends AppCompatActivity {
         Collection<BluetoothDevice> pairedDevices = bluetoothManager.getPairedDevices();
         Log.d("Devices_size",""+pairedDevices.size());
         for (BluetoothDevice device : pairedDevices) {
-            String founded_device_addr= "["+device.getAddress()+"]";
-            String founded_device_name= "["+device.getName()+"]";
-            Log.d("Founded_BT",founded_device_name+" >> "+founded_device_addr);
-            if (founded_device_addr.equals(my_device_mac)) {
+            Log.d("Founded_BT",device.getName()+" >> "+device.getAddress());
+            if (device.getAddress().equals(my_device_mac)) {
                 my_device_exist = true;
                 Log.d("Device", "My device found:" + my_device_mac);
             }
@@ -199,7 +203,15 @@ public class MainActivity extends AppCompatActivity {
                         ouput_update_buf[3] = (char) ((outputs_data & 0xFF00) >> 8);
                         ouput_update_buf[2] = (char) (outputs_data & 0x00FF);
                         message = new String(ouput_update_buf);
-                    } else {
+                    }
+                    else if(humidty_set_update)
+                    {
+                        SharedPreferences set_prefs = getSharedPreferences("set_values", MODE_PRIVATE);
+                        humidity_set_update_buf[2]=(char)set_prefs.getInt("humidty_set",55);
+                        message = new String(humidity_set_update_buf);
+                        humidty_set_update=false;
+                    }
+                    else {
                         message = new String(input_read_buf);
 
                     }
