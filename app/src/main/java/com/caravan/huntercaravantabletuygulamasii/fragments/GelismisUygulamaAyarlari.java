@@ -56,8 +56,8 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
     BluetoothDevice[] btArray;
     private Switch switchView;
     ListView pairedlist;
-    Set<String> list = new HashSet<String>();
-Button kaydet;
+    ArrayList<String> list = new ArrayList<String>();
+    Button kaydet;
     ArrayList<String> list1 = new ArrayList<String>();
     private Set<BluetoothDevice> pairedDevice;
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
@@ -188,6 +188,8 @@ kaydet.setOnClickListener(new View.OnClickListener() {
     }
 
     private void listDevice() {
+        list.clear();
+        list1.clear();
         if (myBluetoothAdapter.isEnabled()) {
             pairedDevice = myBluetoothAdapter.getBondedDevices();
             if (pairedDevice.size() > 0) {
@@ -211,11 +213,11 @@ kaydet.setOnClickListener(new View.OnClickListener() {
                 public void onClick(DialogInterface dialogInterface, int i) {
 
                     SharedPreferences.Editor editor = getSharedPreferences("Bluetoothcihazadi", MODE_PRIVATE).edit();
-                    editor.putString("cihazadi", String.valueOf(list));
+                    editor.putString("cihazadi", String.valueOf(list.get(i)));
                     editor.apply();
 
                     SharedPreferences.Editor editor2 = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE).edit();
-                    editor2.putString("cihazId", String.valueOf(list1));
+                    editor2.putString("cihazId", String.valueOf(list1.get(i)));
                     editor2.apply();
 
                     SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
