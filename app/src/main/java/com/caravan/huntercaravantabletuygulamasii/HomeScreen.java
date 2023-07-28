@@ -27,6 +27,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.caravan.huntercaravantabletuygulamasii.adapter.DashboardPagerAdapter;
+import com.caravan.huntercaravantabletuygulamasii.fragments.AnasayfaFragment;
+import com.caravan.huntercaravantabletuygulamasii.fragments.GostergelerFragment;
 import com.caravan.huntercaravantabletuygulamasii.fragments.KullaniciUygulamaAyarlari;
 import com.google.android.material.tabs.TabLayout;
 
@@ -148,15 +150,28 @@ private DashboardPagerAdapter  adapter;
             }
         });
 
+        SharedPreferences shared_dt_w = getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
+        String kirlisu_enable = shared_dt_w.getString("kirlisu","");
+        if(kirlisu_enable.equals("N/A"))
+        {
+            Log.d("Kirli_su","disabled");
+            GostergelerFragment.enable_dt_view=false;
+            AnasayfaFragment.enable_dt_view=false;
+        }
+        else {
+            Log.d("Kirli_su","enabled");
+            GostergelerFragment.enable_dt_view=true;
+            AnasayfaFragment.enable_dt_view=true;
+        }
+
         SharedPreferences shared = getSharedPreferences("dengesistemi",MODE_PRIVATE);
         String deger = shared.getString("dengesistemi","");
-        Log.e("deger",""+deger);
-        if(deger.equals("true")){
+        if(deger.equals("false")){
 
-            tabLayout.getTabAt(4).view.setVisibility(View.GONE);
+            tabLayout.getTabAt(5).view.setVisibility(View.GONE);
 
-        }else if(deger.equals("false")){
-            tabLayout.getTabAt(4).view.setVisibility(View.VISIBLE);
+        }else if(deger.equals("true")){
+            tabLayout.getTabAt(5).view.setVisibility(View.VISIBLE);
         }
 
 
@@ -169,12 +184,26 @@ private DashboardPagerAdapter  adapter;
         SharedPreferences shared = getSharedPreferences("dengesistemi",MODE_PRIVATE);
         String deger = shared.getString("dengesistemi","");
         Log.e("deger",""+deger);
-        if(deger.equals("true")){
+        if(deger.equals("false")){
 
             tabLayout.getTabAt(5).view.setVisibility(View.GONE);
 
-        }else if(deger.equals("false")){
+        }else if(deger.equals("true")){
             tabLayout.getTabAt(5).view.setVisibility(View.VISIBLE);
+        }
+
+        SharedPreferences shared_dt_w = getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
+        String kirlisu_enable = shared_dt_w.getString("kirlisu","");
+        if(kirlisu_enable.equals("N/A"))
+        {
+            Log.d("Kirli_su","disabled");
+            GostergelerFragment.enable_dt_view=false;
+            AnasayfaFragment.enable_dt_view=false;
+        }
+        else {
+            Log.d("Kirli_su","enabled");
+            GostergelerFragment.enable_dt_view=true;
+            AnasayfaFragment.enable_dt_view=true;
         }
     }
 

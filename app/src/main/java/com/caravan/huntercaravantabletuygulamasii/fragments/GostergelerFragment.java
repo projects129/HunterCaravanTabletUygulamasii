@@ -1,5 +1,6 @@
 package com.caravan.huntercaravantabletuygulamasii.fragments;
 
+import android.content.SharedPreferences;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Bundle;
 
@@ -20,6 +21,7 @@ import com.caravan.huntercaravantabletuygulamasii.R;
 
 public class GostergelerFragment extends Fragment {
     private Handler handler = new Handler();
+    public static boolean enable_dt_view;
     Thread Thread_refresh = null;
     ClipDrawable drawable,drawable1;
     TextView cl_water_txt,dt_water_txt,tin_txt, tout_txt,humidity_txt;
@@ -51,7 +53,6 @@ public class GostergelerFragment extends Fragment {
         drawable1.setLevel(0);
         Thread_refresh = new Thread(new GostergelerFragment.refresh_Task());
         Thread_refresh.start();
-
     }
 
 
@@ -72,9 +73,15 @@ public class GostergelerFragment extends Fragment {
         handler.post(new Runnable() {
             public void run() {
                 drawable.setLevel(MainActivity.cl_water_lvl*100);
-                drawable1.setLevel(MainActivity.dt_water_lvl*100);
                 cl_water_txt.setText(""+MainActivity.cl_water_lvl);
-                dt_water_txt.setText(""+MainActivity.dt_water_lvl);
+                if(enable_dt_view) {
+                    drawable1.setLevel(MainActivity.dt_water_lvl * 100);
+                    dt_water_txt.setText("" + MainActivity.dt_water_lvl);
+                }
+                else {
+                    drawable1.setLevel(0 * 100);
+                    dt_water_txt.setText("N/A");
+                }
                 String s = String.format("%.0f", (float)MainActivity.dht_temp/10);
                 tin_txt.setText(s);
                 s = String.format("%.0f", (float)MainActivity.t_out/100);

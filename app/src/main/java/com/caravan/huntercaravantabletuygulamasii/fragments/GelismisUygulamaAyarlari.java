@@ -104,13 +104,13 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
         myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         btEnablingIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
         requestCodeForeEnable = 1;
-kaydet.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Toast.makeText(view.getContext(),R.string.Kaydedildi,Toast.LENGTH_SHORT).show();
+        kaydet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(),R.string.Kaydedildi,Toast.LENGTH_SHORT).show();
 
-    }
-});
+            }
+        });
 
 
         diagnostikbtn.setOnClickListener(new View.OnClickListener() {
@@ -177,14 +177,16 @@ kaydet.setOnClickListener(new View.OnClickListener() {
                 if (isChecked) {
                     SharedPreferences shared = getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
                     SharedPreferences.Editor editor = shared.edit();
-                 editor.putString("kirlisu","N/A");
-                 editor.apply();
+                     editor.putString("kirlisu","");
+                     editor.apply();
+                     Log.d("Kirli_su","enabled");
 
                 }else {
                     SharedPreferences shared = getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
                     SharedPreferences.Editor editor = shared.edit();
-                     editor.putString("kirlisu"," ");
+                     editor.putString("kirlisu","N/A");
                      editor.apply();
+                    Log.d("Kirli_su","disabled");
                 }
             }
         });
@@ -192,7 +194,10 @@ kaydet.setOnClickListener(new View.OnClickListener() {
        deger = shared.getString("dengesistemi","");
 
       dengesistemiswitch.setChecked(Boolean.parseBoolean(deger));
-
+        SharedPreferences shared_dt_w = getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
+        String kirlisu_enable = shared_dt_w.getString("kirlisu","");
+        if(kirlisu_enable.equals("N/A")) kirlisuswitch.setChecked(false);
+        else kirlisuswitch.setChecked(true);
 
         dengesistemiswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
