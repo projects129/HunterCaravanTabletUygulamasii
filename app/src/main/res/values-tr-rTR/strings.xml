@@ -41,7 +41,7 @@
     <string name="led_06">LED 06</string>
     <string name="led_12">LED 12</string>
     <string name="kaydet">KAYDET</string>
-    <string name="gel_m_uygulama_ayarlari">GELİŞMİŞ UYGULAMA AYARLARI</string>
+    <string name="gel_m_uygulama_ayarlari">YÖNETİCİ AYARLARI</string>
     <string name="cihazi_etkinlestir">CİHAZI ETKİNLEŞTİR</string>
     <string name="kirlisugostergesi">KİRLİ SU GÖSTERGESİ</string>
     <string name="denge_sistemi">DENGE SİSTEMİ</string>
@@ -57,7 +57,7 @@
     <string name="aku">AKÜ</string>
     <string name="temiz_su">TEMİZ SU</string>
     <string name="gun">CUMARTESİ</string>
-    <string name="aku_gerilim">AKÜ GERİLİMİ</string>
+    <string name="aku_gerilim">AKÜ VOLTAJI</string>
     <string name="atik_su">ATIK SU</string>
     <string name="sicaklik">İÇ SICAKLIK</string>
     <string name="dis_sicaklik">DIŞ SICAKLIK</string>
@@ -87,8 +87,8 @@
     <string name="sol">SOL</string>
     <string name="akuu">AKÜ</string>
     <string name="gunes_paneli">GÜNEŞ PANELİ</string>
-    <string name="aku_gerilimi">AKÜ GERİLİMİ</string>
-    <string name="panel_gerilimi">PANEL GERİLİMİ</string>
+    <string name="aku_gerilimi">AKÜ VOLTAJI</string>
+    <string name="panel_gerilimi">PANEL VOLTAJI</string>
     <string name="temiz_suu">TEMİZ SU</string>
     <string name="atik_suu">ATIK SU</string>
     <string name="sicaklik_ve_nem">SICAKLIK VE NEM</string>
@@ -100,10 +100,10 @@
     <string name="acik">AÇIK</string>
     <string name="kapali">KAPALI</string>
     <string name="gostergeler">Göstergeler</string>
-    <string name="kontroller">Kontroller</string>
+    <string name="kontroller">Aygıt Kontrol</string>
     <string name="uyku_modunu_ayarla">UYKU MODUNU AYARLA</string>
     <string name="nem_set_n_ayarla">NEM SETİNİ AYARLA</string>
-    <string name="gel_m_ayarlar">GELİŞMİŞ AYARLAR</string>
+    <string name="gel_m_ayarlar">YÖNETİCİ AYARLARI</string>
     <string name="kaydettt">KAYDET</string>
     <string name="aray_z_d_l">DİL</string>
     <string name="kullanici_ayar">KULLANICI AYARLARINA GERİ GÖN</string>

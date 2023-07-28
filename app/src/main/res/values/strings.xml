@@ -45,7 +45,7 @@
     <string name="led_06">LED 06</string>
     <string name="led_12">LED 12</string>
     <string name="kaydet">SAVE</string>
-    <string name="gel_m_uygulama_ayarlari">ADVANCED APPLICATION SETTINGS</string>
+    <string name="gel_m_uygulama_ayarlari">ADMIN SETTINGS</string>
     <string name="cihazi_etkinlestir">ACTIVATE THE DEVICE</string>
     <string name="kirlisugostergesi">GREY WATER INDICATOR</string>
     <string name="denge_sistemi">BALANCE SYSTEM</string>
@@ -107,7 +107,7 @@
     <string name="dis_aydinlatmalar">EXTERIOR LIGHTS</string>
     <string name="uyku_modunu_ayarla">SET SLEEP MODE</string>
     <string name="nem_set_n_ayarla">HUMIDITY SET</string>
-    <string name="gel_m_ayarlar">ADVANCED SETTINGS</string>
+    <string name="gel_m_ayarlar">ADMIN SETTINGS</string>
     <string name="kaydettt">SAVE</string>
     <string name="aray_z_d_l">LANGUAGE</string>
     <string name="kullanici_ayar">RETURN TO USER SETTINGS</string>
