@@ -136,7 +136,6 @@ public class AnasayfaFragment extends Fragment {
 
         SharedPreferences pref = requireActivity().getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
         String kirlisu = pref.getString("kirlisu","");
-        Toast.makeText(requireContext(),""+kirlisu,Toast.LENGTH_SHORT).show();
 
         //  saat.setText(time);
         // dakika.setText(dk);
