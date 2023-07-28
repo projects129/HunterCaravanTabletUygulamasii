@@ -2,6 +2,7 @@ package com.caravan.huntercaravantabletuygulamasii;
 
 import static java.lang.Math.round;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
@@ -35,10 +36,10 @@ import java.util.Set;
 import java.util.UUID;
 
 public class HomeScreen extends AppCompatActivity {
-private TabLayout tabLayout;
+ TabLayout tabLayout;
 private ViewPager2 viewPager2;
 
-private ImageView bluetooth;
+private ImageView homeimage;
 
 
     int brightnessValue = 255;
@@ -94,7 +95,7 @@ private DashboardPagerAdapter  adapter;
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewPager);
-
+      homeimage = findViewById(R.id.homeimage);
 
         tabLayout.addTab(tabLayout.newTab().setCustomView(R.layout.anasayfabutton));
         tabLayout.addTab(tabLayout.newTab().setCustomView(R.layout.aydinlatmabutton));
@@ -112,7 +113,8 @@ private DashboardPagerAdapter  adapter;
         FragmentManager  fragmentmanager = getSupportFragmentManager();
         adapter = new DashboardPagerAdapter(fragmentmanager,getLifecycle());
         viewPager2.setAdapter(adapter);
-
+        tabLayout.setVisibility(View.VISIBLE);
+        homeimage.setImageResource(R.drawable.re);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -121,6 +123,9 @@ private DashboardPagerAdapter  adapter;
                 switch (position) {
                     case 7:
                         Brightness();
+
+                        tabLayout.setVisibility(View.INVISIBLE);
+                        homeimage.setImageResource(R.color.black);
                        Log.e("basılsı","basıldı");
                         break;
 
@@ -188,19 +193,17 @@ private DashboardPagerAdapter  adapter;
         // If do not have then open the Can modify system settings panel.
         if (!hasWritePermission(context)) {
             changeWritePermission();
-        } else {  Integer brightnessValue = 255;
+        } else {  int brightnessValue = 255;
             // brightness cannot be less than 0 and every click decreases the brightness
             // by a value of 10
-            if (brightnessValue >= 11) {
-                brightnessValue -= 255;
-                changeBrightness(context, brightnessValue);
+            brightnessValue -= 255;
+            changeBrightness(context, brightnessValue);
 
-                // Brightness value (1-255) to percentage and output as a Toast
+            // Brightness value (1-255) to percentage and output as a Toast
 
-            }
         }
     }
-
+    @RequiresApi(Build.VERSION_CODES.M)
     private void changeBrightness(Context context, int i) {
         Settings.System.putInt(
                 context.getContentResolver(),
@@ -223,7 +226,7 @@ private DashboardPagerAdapter  adapter;
     }
 
     private boolean hasWritePermission(Context context) {
-        Boolean ret = true;
+        boolean ret = true;
         // Get the result from below code.
         ret = Settings.System.canWrite(context);
         return ret;

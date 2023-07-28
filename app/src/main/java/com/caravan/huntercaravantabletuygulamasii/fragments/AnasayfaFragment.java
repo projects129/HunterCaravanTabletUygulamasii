@@ -85,14 +85,7 @@ public class AnasayfaFragment extends Fragment {
 
 
         //**************************************************
-         layout.setOnTouchListener(new View.OnTouchListener() {
-             @Override
-             public boolean onTouch(View view, MotionEvent motionEvent) {
-                 Intent intent = new Intent(getActivity(), MainActivity.class);
-                 startActivity(intent);
-                 return false;
-             }
-         });
+
 
 
 
