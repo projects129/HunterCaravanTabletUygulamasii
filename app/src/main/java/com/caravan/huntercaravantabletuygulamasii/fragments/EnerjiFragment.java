@@ -78,7 +78,7 @@ public class EnerjiFragment extends Fragment {
     {
         handler.post(new Runnable() {
             public void run() {
-                long vbatt_perc_val=map(MainActivity.v_batt,10700,13800,0,100);
+                long vbatt_perc_val=map(MainActivity.v_batt,11000,12600,0,100);
                 if (vbatt_perc_val>100)vbatt_perc_val=100;
                 if (vbatt_perc_val<0)vbatt_perc_val=0;
                 drawable.setLevel((int)(vbatt_perc_val*100));
