@@ -1,5 +1,7 @@
 package com.caravan.huntercaravantabletuygulamasii;
 
+import static java.lang.Math.round;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -17,6 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -168,9 +171,55 @@ public class MainActivity extends AppCompatActivity {
                 finish(); // the current activity will get finished.
             }
         }, SPLASH_SCREEN_TIME_OUT);
+
+
+        Context context = getApplication();
+
+        // Check whether has the write settings permission or not.
+
+        // If do not have then open the Can modify system settings panel.
+        if (!hasWritePermission(context)) {
+            changeWritePermission();
+        } else {  Integer brightnessValue = 255;
+            // brightness cannot be less than 0 and every click decreases the brightness
+            // by a value of 10
+            if (brightnessValue >= 25) {
+                brightnessValue += 255;
+                changeBrightness(context, brightnessValue);
+
+                // Brightness value (1-255) to percentage and output as a Toast
+
+            }
+        }
     }
 
+    private void changeBrightness(Context context, int i) {
+        Settings.System.putInt(
+                context.getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS_MODE,
+                Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL
+        );
+        // Apply the screen brightness value to the system, this will change
+        // the value in Settings ---> Display ---> Brightness level.
+        // It will also change the screen brightness for the device.
+        Settings.System.putInt(
+                context.getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS, i
+        );
+    }
 
+    private void changeWritePermission() {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
+        startActivity(intent);
+
+    }
+
+    private boolean hasWritePermission(Context context) {
+        Boolean ret = true;
+        // Get the result from below code.
+        ret = Settings.System.canWrite(context);
+        return ret;
+    }
 
 
 

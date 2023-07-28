@@ -3,6 +3,7 @@ package com.caravan.huntercaravantabletuygulamasii.fragments;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.drawable.ClipDrawable;
@@ -10,16 +11,20 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 
 import android.os.Handler;
-import android.util.Log;
+import android.provider.Settings;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.window.SplashScreen;
 
 import com.caravan.huntercaravantabletuygulamasii.MainActivity;
 import com.caravan.huntercaravantabletuygulamasii.R;
@@ -28,8 +33,6 @@ import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 public class AnasayfaFragment extends Fragment {
@@ -46,7 +49,7 @@ public class AnasayfaFragment extends Fragment {
     TextView dakika;
     TextView Gun,guntext;
     TextView Ay;
-    TextView Yil;
+    TextView Yil,atiksuanasayfa;
     String[] splitDate;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,29 +67,13 @@ public class AnasayfaFragment extends Fragment {
 
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        SharedPreferences Timee = getActivity().getSharedPreferences("Time",MODE_PRIVATE);
-        String time = Timee.getString("time","00");
-        String dk = Timee.getString("dk","00");
 
-
-        String day = Timee.getString("gun","00");
-        String ay = Timee.getString("ay","00");
-        String yil = Timee.getString("yil","00");
-      //  saat.setText(time);
-       // dakika.setText(dk);
-      //  Gun.setText(day);
-     //   Ay.setText(ay);
-       // Yil.setText(yil);
-
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ConstraintLayout layout = view.findViewById(R.id.layoutscreen);
         ImageView akuimage =  view.findViewById(R.id.akudolum);
         ImageView temizsuimage = view.findViewById(R.id.temizsudolum);
         saat = view.findViewById(R.id.saat);
@@ -96,8 +83,16 @@ public class AnasayfaFragment extends Fragment {
         Yil = view.findViewById(R.id.yil);
         guntext = view.findViewById(R.id.guntext);
 
-        //**************************************************
 
+        //**************************************************
+         layout.setOnTouchListener(new View.OnTouchListener() {
+             @Override
+             public boolean onTouch(View view, MotionEvent motionEvent) {
+                 Intent intent = new Intent(getActivity(), MainActivity.class);
+                 startActivity(intent);
+                 return false;
+             }
+         });
 
 
 
@@ -106,7 +101,7 @@ public class AnasayfaFragment extends Fragment {
        //**********************************************
 
         cl_water_txt=(TextView)view.findViewById(R.id.textView67);
-        dt_water_txt=(TextView)view.findViewById(R.id.textView63);
+        dt_water_txt=(TextView)view.findViewById(R.id.atiksuanasayfa);
         vbatt_txt=(TextView)view.findViewById(R.id.textView57);
         vbatt_perc_txt=(TextView)view.findViewById(R.id.textView32);
         tin_txt=(TextView)view.findViewById(R.id.textView51);
@@ -127,6 +122,31 @@ public class AnasayfaFragment extends Fragment {
 
         loadLocale();
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences Timee = getActivity().getSharedPreferences("Time",MODE_PRIVATE);
+        String time = Timee.getString("time","00");
+        String dk = Timee.getString("dk","00");
+
+
+        String day = Timee.getString("gun","00");
+        String ay = Timee.getString("ay","00");
+        String yil = Timee.getString("yil","00");
+
+        SharedPreferences pref = requireActivity().getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
+        String kirlisu = pref.getString("kirlisu","");
+        Toast.makeText(requireContext(),""+kirlisu,Toast.LENGTH_SHORT).show();
+
+        //  saat.setText(time);
+        // dakika.setText(dk);
+        //  Gun.setText(day);
+        //   Ay.setText(ay);
+        // Yil.setText(yil);
+
+    }
+
+
 
 
     private void setLocale(String s) {

@@ -116,5 +116,7 @@
     <string name="otomat_k_ayarla">AUTO SET</string>
     <string name="dakika">Minute</string>
     <string name="Kaydedildi">Saved</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

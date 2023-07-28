@@ -58,10 +58,14 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
     ListView pairedlist;
     ArrayList<String> list = new ArrayList<String>();
     Button kaydet;
+
+
+    String deger;
     ArrayList<String> list1 = new ArrayList<String>();
     private Set<BluetoothDevice> pairedDevice;
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
+    Switch kirlisuswitch,dengesistemiswitch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +94,8 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
         eslesmeText = findViewById(R.id.eslesmetext);
 
         kaydet = findViewById(R.id.button);
+        kirlisuswitch = findViewById(R.id.kirlisugostergesiswitch);
+        dengesistemiswitch = findViewById(R.id.dengesistemiswitch);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -105,6 +111,7 @@ kaydet.setOnClickListener(new View.OnClickListener() {
 
     }
 });
+
 
         diagnostikbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,6 +171,48 @@ kaydet.setOnClickListener(new View.OnClickListener() {
                 }
             }
         });
+        kirlisuswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    SharedPreferences shared = getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = shared.edit();
+                 editor.putString("kirlisu","N/A");
+                 editor.apply();
+
+                }else {
+                    SharedPreferences shared = getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = shared.edit();
+                     editor.putString("kirlisu"," ");
+                     editor.apply();
+                }
+            }
+        });
+        SharedPreferences shared = getSharedPreferences("dengesistemi",MODE_PRIVATE);
+       deger = shared.getString("dengesistemi","");
+
+      dengesistemiswitch.setChecked(Boolean.parseBoolean(deger));
+
+
+        dengesistemiswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    SharedPreferences shared = getSharedPreferences("dengesistemi",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = shared.edit();
+                     editor.putString("dengesistemi","true");
+                     editor.apply();
+
+                }else {
+                    SharedPreferences shared = getSharedPreferences("dengesistemi",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = shared.edit();
+
+                      editor.putString("dengesistemi", "false");
+                     editor.apply();
+                }
+            }
+        });
+
 
         SharedPreferences prefs = getSharedPreferences("Bluetoothcihazii", MODE_PRIVATE);
         String cihazid = prefs.getString("cihazId", "");

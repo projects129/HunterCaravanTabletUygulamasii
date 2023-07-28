@@ -46,7 +46,7 @@ public class DashboardPagerAdapter extends FragmentStateAdapter {
             case 6: return new KullaniciUygulamaAyarlari();
 
 
-            default: return  new KullaniciUygulamaAyarlari();
+            default: return  new AnasayfaFragment();
 
 
         }

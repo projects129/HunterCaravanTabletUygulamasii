@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,6 @@ import android.widget.TextView;
 
 import com.caravan.huntercaravantabletuygulamasii.MainActivity;
 import com.caravan.huntercaravantabletuygulamasii.R;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 public class GostergelerFragment extends Fragment {
@@ -41,7 +37,7 @@ public class GostergelerFragment extends Fragment {
         ImageView atiksuimage = view.findViewById(R.id.atiksudolum);
 
         cl_water_txt=(TextView)view.findViewById(R.id.textView79);
-        dt_water_txt=(TextView)view.findViewById(R.id.textView80);
+        dt_water_txt=(TextView)view.findViewById(R.id.atıiksugosterge);
         tin_txt=(TextView)view.findViewById(R.id.textView72);
         tout_txt=(TextView)view.findViewById(R.id.textView74);
         humidity_txt=(TextView)view.findViewById(R.id.textView77);
