@@ -131,7 +131,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
             public void onClick(View view) {
                 txthum = new EditText(ctx);
                 txthum.setInputType(InputType.TYPE_CLASS_NUMBER);
-                txthum.setHint("0-100");
+                txthum.setHint("0-100%");
 
                 new AlertDialog.Builder(ctx)
                         .setTitle(getString(R.string.nem_set_n_ayarla))
@@ -139,6 +139,8 @@ public class KullaniciUygulamaAyarlari extends Fragment {
                         .setPositiveButton(getString(R.string.kaydett), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 int hum_set = Integer.parseInt(txthum.getText().toString());
+                                if(hum_set>100)hum_set=100;
+                                if(hum_set<0)hum_set=0;
                                 humText.setText(hum_set+"%");
                                 editor.putInt("humidty_set", hum_set);
                                 editor.apply();
