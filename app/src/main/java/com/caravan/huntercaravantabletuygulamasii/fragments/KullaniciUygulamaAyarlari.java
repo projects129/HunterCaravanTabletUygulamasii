@@ -37,8 +37,8 @@ import java.util.Locale;
 
 public class KullaniciUygulamaAyarlari extends Fragment {
     ImageView gelismisbtn,humidtysetbtn;
-    ImageView dilbuton;
-    TextView dateText,timeText,diltext,gunsayi,ay,saatText,dakikaText,humText;
+    ImageView dilbuton,sleepbutton;
+    TextView dateText,timeText,diltext,gunsayi,ay,saatText,dakikaText,humText,sleep_mode_view;
     ImageView dateButton, timeButton,dilimage;
 
     Button kaydetbtn;
@@ -86,10 +86,11 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         dateButton = view.findViewById(R.id.datepicker);
         timeButton = view.findViewById(R.id.timepicker);
         humText = view.findViewById(R.id.textView40);
-
+        sleep_mode_view = view.findViewById(R.id.sleepmode);
         timeText = view.findViewById(R.id.dakikaText);
         kaydetbtn = view.findViewById(R.id.kaydetbtn);
         dilbuton = view.findViewById(R.id.dil);
+        sleepbutton = view.findViewById(R.id.imageView40);
         diltext = view.findViewById(R.id.diltext);
         dilimage = view.findViewById(R.id.dilimage);
         dateText = view.findViewById(R.id.dateText);
@@ -105,6 +106,14 @@ public class KullaniciUygulamaAyarlari extends Fragment {
 
             }
         });
+
+        sleepbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showChangeTimeoutDialog();
+            }
+        });
+        loadtimeout();
         loadLocale();
 
         gelismisbtn.setOnClickListener(new View.OnClickListener() {
@@ -173,7 +182,48 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         humText.setText(set_prefs.getInt("humidty_set",55)+"%");
 
     }
+    private void showChangeTimeoutDialog() {
+        String list[] ={"Hiç Bir Zaman","1 Dakika","2 Dakika" ,"5 Dakika","10 Dakika","30 Dakika"};
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(requireActivity());
+        mBuilder.setTitle("Choose Sleep Timeout");
+        mBuilder.setSingleChoiceItems(list, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                int timeout;
+                if(i == 0){
+                    timeout=0;
+                }
+                else if(i == 1){
+                    timeout=1;
+                }
+                else if(i == 2){
+                    timeout=2;
+                }
+                else if(i == 3){
+                    timeout=5;
+                }
+                else if(i == 4){
+                    timeout=10;
+                }
+                else if(i == 5){
+                    timeout=30;
+                }
+                else {
+                    timeout=0;
+                }
 
+                SharedPreferences shared = getActivity().getSharedPreferences("Timeout",MODE_PRIVATE);
+                SharedPreferences.Editor editor = shared.edit();
+                editor.putInt("timeout",timeout);
+                editor.apply();
+                loadtimeout();
+                dialogInterface.dismiss();
+
+            }
+        });
+        AlertDialog  mDialog= mBuilder.create();
+        mDialog.show();
+    }
     private void showChangeLanguageDialog() {
         String list[] ={"English","Turkish","German" };
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(requireActivity());
@@ -197,7 +247,6 @@ public class KullaniciUygulamaAyarlari extends Fragment {
 
 
                 }
-
                 dialogInterface.dismiss();
 
             }
@@ -263,8 +312,12 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         Integer languageimage = prefs.getInt("image",0);
         diltext.setText(languagetext);
         dilimage.setImageResource(languageimage);
-
-
+    }
+    public void loadtimeout(){
+        SharedPreferences prefs = requireActivity().getSharedPreferences("Timeout",MODE_PRIVATE);
+        int timeout_val = prefs.getInt("timeout", 0);
+        if(timeout_val==0)sleep_mode_view.setText("Hiç Bir Zaman");
+        else sleep_mode_view.setText(timeout_val+" Dakika");
     }
 
 
