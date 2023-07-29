@@ -77,13 +77,6 @@ HomeScreen screen;
         Intent intent = new Intent(getActivity(), MainActivity.class);
         startActivity(intent);
 
-        layout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                return false;
-            }
-        });
-
 
 }
 

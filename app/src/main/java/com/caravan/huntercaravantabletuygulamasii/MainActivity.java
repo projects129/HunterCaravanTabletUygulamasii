@@ -2,6 +2,7 @@ package com.caravan.huntercaravantabletuygulamasii;
 
 import static java.lang.Math.round;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -35,6 +36,7 @@ import com.harrysoft.androidbluetoothserial.BluetoothManager;
 import com.harrysoft.androidbluetoothserial.BluetoothSerialDevice;
 import com.harrysoft.androidbluetoothserial.SimpleBluetoothDeviceInterface;
 
+import java.sql.Time;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.Timer;
@@ -74,19 +76,30 @@ public class MainActivity extends AppCompatActivity {
     public static int t_out;
     public static int dht_temp;
     public static int dht_humidty;
-    private static final int SPLASH_SCREEN_TIME_OUT = 6600; // After completion of 2000 ms, the next activity will get started.
-
-
+    private static final int SPLASH_SCREEN_TIME_OUT = 1900; // After completion of 2000 ms, the next activity will get started.
+    ImageView black;
+    ClipDrawable drawable;
     private  boolean start_loading=false;
+    Handler isleyici1 = new Handler();
+    Handler isleyici2 = new Handler();
+    private boolean handle_release=true;
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
         if (event.getAction() == MotionEvent.ACTION_DOWN)
         {
+            black.setVisibility(View.INVISIBLE);
+            start_loading=true;
             Log.d("Touch", "press");
+            changeBrightness(context,255);
         }
-        if (event.getAction() == MotionEvent.ACTION_UP)
+        if ((event.getAction() == MotionEvent.ACTION_UP)&&handle_release)
         {
+
+            start_loading=false;
+            black.setVisibility(View.VISIBLE);
+            drawable.setLevel(0);
+            Brightness();
             Log.d("Touch", "release");
         }
 
@@ -98,30 +111,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView image = (ImageView) findViewById(R.id.progressBar);
-        ImageView black= (ImageView) findViewById(R.id.black_screen);
-        ClipDrawable drawable = (ClipDrawable) image.getDrawable();
+        black= (ImageView) findViewById(R.id.black_screen);
+        drawable = (ClipDrawable) image.getDrawable();
         drawable.setLevel(0);
         loadLocale();
-
+        if (!hasWritePermission(context))
+        {
+            changeWritePermission(context);
+        }
         if(KapatmabuttonFragment.from_power_off)
         {
             black.setVisibility(View.VISIBLE);
+            Brightness();
             start_loading=false;
         }
         else
         {
+            changeBrightness(context,255);
             black.setVisibility(View.INVISIBLE);
             start_loading=true;
         }
-        Handler isleyici = new Handler();
-        Runnable bekleme = new Runnable() {
-            @Override
-            public void run() {
-                nextActivity();
-            }
-        };
-        isleyici.postDelayed(bekleme, 4700);
-        new Handler().postDelayed(new Runnable() {
+        Runnable bekleme2 = new Runnable() {
             @Override
             public void run() {
                 // Intent is used to switch from one activity to another.
@@ -129,7 +139,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i); // invoke the SecondActivity.
                 finish(); // the current activity will get finished.
             }
-        }, SPLASH_SCREEN_TIME_OUT);
+        };
+        Runnable bekleme1 = new Runnable() {
+            @Override
+            public void run() {
+                nextActivity();
+                isleyici2.postDelayed(bekleme2, SPLASH_SCREEN_TIME_OUT);
+            }
+        };
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -137,17 +154,18 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if(start_loading)
-                        {
+                        if(start_loading) {
                             drawable.setLevel(drawable.getLevel() + 100);
-                            if(drawable.getLevel()>10000);
-
+                            if (drawable.getLevel() == 10000)
+                            {
+                                handle_release=false;
+                                isleyici1.postDelayed(bekleme1, 0);
+                            }
                         }
-
                     }
                 });
             }
-        }, 10, 50);
+        }, 10, 15);
 
         int currentApiVersion = Build.VERSION.SDK_INT;
 
@@ -204,41 +222,45 @@ public class MainActivity extends AppCompatActivity {
 
         Thread_Comm = new Thread(new MainActivity.Comm_Task());
         Thread_Comm.start();
-        Context context = getApplication();
-        if (!hasWritePermission(context))
-        {
-            changeWritePermission();
-        }
-        else
-        {
-            Integer brightnessValue = 255;
-            if (brightnessValue >= 25) {
-                brightnessValue += 255;
-                changeBrightness(context, brightnessValue);
-            }
+
+    }
+    private void Brightness() {
+
+        // Check whether has the write settings permission or not.
+        boolean settingsCanWrite = hasWritePermission(context);
+
+        // If do not have then open they Can modify system settings panel.
+        if (!settingsCanWrite) {
+            changeWritePermission(context);
+        } else {
+            changeBrightness(context, 1);
         }
     }
 
     private void changeBrightness(Context context, int i) {
+        // Change the screen brightness change mode to manual.
         Settings.System.putInt(
                 context.getContentResolver(),
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL
         );
+        // Apply the screen brightness value to the system, this will change
+        // the value in Settings ---> Display ---> Brightness level.
+        // It will also change the screen brightness for the device.
         Settings.System.putInt(
                 context.getContentResolver(),
                 Settings.System.SCREEN_BRIGHTNESS, i
         );
     }
 
-    private void changeWritePermission() {
+    private void changeWritePermission(Context context) {
         Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
         startActivity(intent);
 
     }
-
+    @RequiresApi(Build.VERSION_CODES.M)
     private boolean hasWritePermission(Context context) {
-        Boolean ret = true;
+        boolean ret = true;
         // Get the result from below code.
         ret = Settings.System.canWrite(context);
         return ret;
@@ -308,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
     private void onConnected(BluetoothSerialDevice connectedDevice) {
         deviceInterface = connectedDevice.toSimpleDeviceInterface();
         deviceInterface.setListeners(this::onMessageReceived, this::onMessageSent, this::onError);
-        Toast.makeText(context, "Menar IO Module Connected.", Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, "Menar IO Module Connected.", Toast.LENGTH_LONG).show();
         bluetooth_connected=true;
     }
 
