@@ -1,9 +1,11 @@
 package com.caravan.huntercaravantabletuygulamasii;
 
+import static android.view.View.VISIBLE;
 import static java.lang.Math.round;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -22,6 +24,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -29,6 +32,7 @@ import android.widget.Toast;
 
 import com.caravan.huntercaravantabletuygulamasii.adapter.DashboardPagerAdapter;
 import com.caravan.huntercaravantabletuygulamasii.fragments.AnasayfaFragment;
+import com.caravan.huntercaravantabletuygulamasii.fragments.DengeSistemiFragment;
 import com.caravan.huntercaravantabletuygulamasii.fragments.GostergelerFragment;
 import com.caravan.huntercaravantabletuygulamasii.fragments.KullaniciUygulamaAyarlari;
 import com.google.android.material.tabs.TabLayout;
@@ -99,6 +103,7 @@ private DashboardPagerAdapter  adapter;
         viewPager2 = findViewById(R.id.viewPager);
       homeimage = findViewById(R.id.homeimage);
 
+
         tabLayout.addTab(tabLayout.newTab().setCustomView(R.layout.anasayfabutton));
         tabLayout.addTab(tabLayout.newTab().setCustomView(R.layout.aydinlatmabutton));
         tabLayout.addTab(tabLayout.newTab().setCustomView(R.layout.enerjibutton));
@@ -115,7 +120,8 @@ private DashboardPagerAdapter  adapter;
         FragmentManager  fragmentmanager = getSupportFragmentManager();
         adapter = new DashboardPagerAdapter(fragmentmanager,getLifecycle());
         viewPager2.setAdapter(adapter);
-        tabLayout.setVisibility(View.VISIBLE);
+
+        tabLayout.setVisibility(VISIBLE);
         homeimage.setImageResource(R.drawable.re);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -130,6 +136,8 @@ private DashboardPagerAdapter  adapter;
                         homeimage.setImageResource(R.color.black);
 
                         break;
+
+
 
 
                 }
@@ -154,7 +162,7 @@ private DashboardPagerAdapter  adapter;
               tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
-
+        viewPager2.setUserInputEnabled(false);
         SharedPreferences shared_dt_w = getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
         String kirlisu_enable = shared_dt_w.getString("kirlisu","");
         if(kirlisu_enable.equals("N/A"))
@@ -175,8 +183,11 @@ private DashboardPagerAdapter  adapter;
 
             tabLayout.getTabAt(5).view.setVisibility(View.GONE);
 
+
         }else if(deger.equals("true")){
-            tabLayout.getTabAt(5).view.setVisibility(View.VISIBLE);
+            tabLayout.getTabAt(5).view.setVisibility(VISIBLE);
+
+
         }
 
 
@@ -193,8 +204,13 @@ private DashboardPagerAdapter  adapter;
 
             tabLayout.getTabAt(5).view.setVisibility(View.GONE);
 
+
         }else if(deger.equals("true")){
-            tabLayout.getTabAt(5).view.setVisibility(View.VISIBLE);
+            tabLayout.getTabAt(5).view.setVisibility(VISIBLE);
+
+
+
+
         }
 
         SharedPreferences shared_dt_w = getSharedPreferences("KirlisuSwitch",MODE_PRIVATE);
