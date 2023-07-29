@@ -236,21 +236,16 @@ public class KullaniciUygulamaAyarlari extends Fragment {
                 if(i == 0){
                     setLocale("en");
                    requireActivity().recreate();
-
                 }
                 else if(i == 1){
                     setLocale("tr");
                     requireActivity().recreate();
-
                 }
                 else {
                     setLocale("de");
                     requireActivity().recreate();
-
-
                 }
                 dialogInterface.dismiss();
-
             }
         });
         AlertDialog  mDialog= mBuilder.create();
@@ -276,7 +271,6 @@ public class KullaniciUygulamaAyarlari extends Fragment {
             editor.putInt("image", R.drawable.ingilizce);
             tr_ay = prefs.getString("ay","");
             tr_gun = prefs.getString("gun","");
-
             dateText.setText(tr_gun);
             gunsayi.setText(tr_ay);
         }
@@ -288,7 +282,6 @@ public class KullaniciUygulamaAyarlari extends Fragment {
             dateText.setText(tr_gun);
             gunsayi.setText(tr_ay);//temmuz
             ay.setText(tr_gunsayi);//26
-
             Log.e("gelndateee",""+ tr_gunsayi);
         }
         else {
@@ -300,8 +293,6 @@ public class KullaniciUygulamaAyarlari extends Fragment {
             dateText.setText(tr_gun);
             gunsayi.setText(tr_ay);//temmuz
             ay.setText(tr_gunsayi);//26
-
-
         }
         editor.apply();
 
