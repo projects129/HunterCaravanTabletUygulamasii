@@ -27,6 +27,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class KapatmabuttonFragment extends Fragment {
 
+    public static boolean from_power_off=false;
     private TabLayout tabLayout;
 
     public KapatmabuttonFragment() {
@@ -72,11 +73,13 @@ HomeScreen screen;
                 }
             });
         }
+        from_power_off=true;
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
+
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
                 return false;
             }
         });
