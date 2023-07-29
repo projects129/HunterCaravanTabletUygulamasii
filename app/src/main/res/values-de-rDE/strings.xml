@@ -4,7 +4,7 @@
 
 
     <string name="tarih">DATUM</string>
-    <string name="kullanici_uygulama_ayarlari">BENUTZERANWENDUNGSEINSTELLUNGEN</string>
+    <string name="kullanici_uygulama_ayarlari">EINSTELLUNGEN</string>
     <string name="diagnostikmenu">DIAGNOSEMENÜ</string>
     <string name="buton01">BUTON 01</string>
     <string name="buton07">BUTON 07</string>
@@ -101,14 +101,14 @@
     <string name="kapali">AUS</string>
     <string name="gostergeler">Indikatoren</string>
     <string name="dis_aydinlatmalar">AUSSENBELEUCHTUNG</string>
-    <string name="uyku_modunu_ayarla">RUHEMODUS EINSTELLEN</string>
-    <string name="nem_set_n_ayarla">FEUCHTIGKEIT EINSTELLEN</string>
+    <string name="uyku_modunu_ayarla">RUHEMODUS</string>
+    <string name="nem_set_n_ayarla">FEUCHTIGKEIT</string>
 
     <string name="gel_m_ayarlar">ERWEITERTE EINSTELLUNGEN</string>
     <string name="kaydettt">SPEICHERN</string>
     <string name="aray_z_d_l">SPRACHE</string>
     <string name="kullanici_ayar">EINSTELLUNGEN</string>
-    <string name="s_stem_saat">SYSTEM UHR</string>
+    <string name="s_stem_saat">UHR</string>
     <string name="otomat_k_ayarla">AUTOMATİSCH  EINGESTELLT</string>
     <string name="dakika">Minuten</string>
     <string name="Kaydedildi">Aufgezeichnet</string>
