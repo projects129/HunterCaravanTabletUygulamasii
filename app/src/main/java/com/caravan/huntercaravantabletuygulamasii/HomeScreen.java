@@ -68,7 +68,7 @@ public class HomeScreen extends AppCompatActivity {
     int requestCodeForeEnable;
 
     BluetoothDevice[] btArray;
-
+    Timer timer;
     ListView pairedlist;
     public static int time_out_cnt = 0;
     private Set<BluetoothDevice> pairedDevice;
@@ -107,7 +107,7 @@ public class HomeScreen extends AppCompatActivity {
         SharedPreferences shared_time_out = getSharedPreferences("Timeout", MODE_PRIVATE);
         time_out = shared_time_out.getInt("timeout", 0);
         Log.d("Timeout", "" + time_out);
-        Timer timer = new Timer();
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -332,5 +332,22 @@ public class HomeScreen extends AppCompatActivity {
         String language = prefs.getString("my lang", "");
         setLocale(language);
     }
+    // Timer'ı durdurma işlemi.
+    private void stopTimer() {
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+    }
 
+    @Override
+    protected void onDestroy() {
+        stopTimer();
+        super.onDestroy();
+    }
+    @Override
+    protected void onPause() {
+        stopTimer();
+        super.onPause();
+    }
 }
