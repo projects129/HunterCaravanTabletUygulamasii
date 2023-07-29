@@ -2,15 +2,18 @@ package com.caravan.huntercaravantabletuygulamasii.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -78,4 +81,58 @@ HomeScreen screen;
             }
         });
 
-}}
+
+}
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Brightness();
+    }
+
+
+    private void Brightness() {
+        Context context = getContext();
+
+        // Check whether has the write settings permission or not.
+        boolean settingsCanWrite = hasWritePermission(context);
+
+        // If do not have then open they Can modify system settings panel.
+        if (!settingsCanWrite) {
+            changeWritePermission(context);
+        } else {
+            changeBrightness(context, 1);
+        }
+    }
+
+    private void changeBrightness(Context context, int i) {
+        // Change the screen brightness change mode to manual.
+        Settings.System.putInt(
+                context.getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS_MODE,
+                Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL
+        );
+        // Apply the screen brightness value to the system, this will change
+        // the value in Settings ---> Display ---> Brightness level.
+        // It will also change the screen brightness for the device.
+        Settings.System.putInt(
+                context.getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS, i
+        );
+    }
+
+    private void changeWritePermission(Context context) {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
+        startActivity(intent);
+
+    }
+    @RequiresApi(Build.VERSION_CODES.M)
+    private boolean hasWritePermission(Context context) {
+        boolean ret = true;
+        // Get the result from below code.
+        ret = Settings.System.canWrite(context);
+        return ret;
+    }
+
+
+}

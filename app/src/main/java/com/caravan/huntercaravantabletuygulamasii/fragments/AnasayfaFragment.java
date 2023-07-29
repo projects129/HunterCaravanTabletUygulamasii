@@ -37,6 +37,7 @@ import java.util.Locale;
 
 public class AnasayfaFragment extends Fragment {
     private Handler handler = new Handler();
+    public static boolean enable_dt_view;
     Thread Thread_refresh = null;
     TextView cl_water_txt,dt_water_txt,vbatt_txt,vbatt_perc_txt,tin_txt, tout_txt;
     KullaniciUygulamaAyarlari kullaniciUygulamaAyarlari;
@@ -310,8 +311,14 @@ public class AnasayfaFragment extends Fragment {
             public void run() {
                 drawable1.setLevel(MainActivity.cl_water_lvl*100);
                 cl_water_txt.setText(""+MainActivity.cl_water_lvl);
-                dt_water_txt.setText(""+MainActivity.dt_water_lvl);
-                long vbatt_perc_val=map(MainActivity.v_batt,10700,13800,0,100);
+
+                if(enable_dt_view) {
+                    dt_water_txt.setText("" + MainActivity.dt_water_lvl);
+                }
+                else {
+                    dt_water_txt.setText("N/A");
+                }
+                long vbatt_perc_val=map(MainActivity.v_batt,11000,12600,0,100);
                 if (vbatt_perc_val>100)vbatt_perc_val=100;
                 if (vbatt_perc_val<0)vbatt_perc_val=0;
                 drawable.setLevel((int)(vbatt_perc_val*100));
