@@ -118,4 +118,6 @@
     <string name="Kaydedildi">Saved</string>
     <!-- TODO: Remove or change this placeholder text -->
 <string name="panelakimi">PANEL CURRENT </string>
+    <string name="never">Never</string>
+    <string name="iptal">CANCEL</string>
 </resources>

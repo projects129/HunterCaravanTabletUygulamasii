@@ -113,6 +113,8 @@
     <string name="dakika">Minuten</string>
     <string name="Kaydedildi">Aufgezeichnet</string>
     <string name="panelakimi">PANEL STROM </string>
+    <string name="never">Niemals</string>
+    <string name="iptal">STORNIEREN</string>
 
 
 </resources>

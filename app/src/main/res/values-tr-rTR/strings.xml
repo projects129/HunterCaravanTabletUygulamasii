@@ -112,4 +112,6 @@
     <string name="dakika">Dakika</string>
     <string name="Kaydedildi">Kaydedildi</string>
     <string name="panelakimi">PANEL AKIMI </string>
+    <string name="never">Hiçbir zaman</string>
+    <string name="iptal">İPTAL</string>
 </resources>

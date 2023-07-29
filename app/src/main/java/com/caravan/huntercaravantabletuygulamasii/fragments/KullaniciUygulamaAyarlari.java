@@ -134,9 +134,9 @@ public class KullaniciUygulamaAyarlari extends Fragment {
                 txthum.setHint("0-100");
 
                 new AlertDialog.Builder(ctx)
-                        .setTitle("Humidity Set")
+                        .setTitle(getString(R.string.nem_set_n_ayarla))
                         .setView(txthum)
-                        .setPositiveButton("Kaydet", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(getString(R.string.kaydett), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 int hum_set = Integer.parseInt(txthum.getText().toString());
                                 humText.setText(hum_set+"%");
@@ -146,7 +146,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
                                 Log.d("Hum_set",""+hum_set);
                             }
                         })
-                        .setNegativeButton("İptal", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.iptal), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
 
                             }
@@ -183,7 +183,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
 
     }
     private void showChangeTimeoutDialog() {
-        String list[] ={"Hiç Bir Zaman","1 Dakika","2 Dakika" ,"5 Dakika","10 Dakika","30 Dakika"};
+        String list[] ={getString(R.string.never),"1 "+getString(R.string.dakika),"2 "+getString(R.string.dakika) ,"5 "+getString(R.string.dakika),"10 "+getString(R.string.dakika),"30 "+getString(R.string.dakika)};
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(requireActivity());
         mBuilder.setTitle("Choose Sleep Timeout");
         mBuilder.setSingleChoiceItems(list, -1, new DialogInterface.OnClickListener() {
@@ -316,8 +316,8 @@ public class KullaniciUygulamaAyarlari extends Fragment {
     public void loadtimeout(){
         SharedPreferences prefs = requireActivity().getSharedPreferences("Timeout",MODE_PRIVATE);
         int timeout_val = prefs.getInt("timeout", 0);
-        if(timeout_val==0)sleep_mode_view.setText("Hiç Bir Zaman");
-        else sleep_mode_view.setText(timeout_val+" Dakika");
+        if(timeout_val==0)sleep_mode_view.setText(getString(R.string.never));
+        else sleep_mode_view.setText(timeout_val+" "+getString(R.string.dakika));
     }
 
 
