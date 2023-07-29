@@ -316,7 +316,7 @@ public class MainActivity extends AppCompatActivity {
                 t_in=(int)((in_buf[13]<<8)|in_buf[12]);
                 t_out=(int)((in_buf[15]<<8)|in_buf[14]);
                 dht_temp=(int)((in_buf[17]<<8)|in_buf[16]);
-                dht_temp-=40;
+                dht_temp-=30;
                 dht_humidty=(int)((in_buf[19]<<8)|in_buf[18]);
                 if(inputsdat!=old_inputsdat)
                 {
