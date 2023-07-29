@@ -105,7 +105,7 @@
     <string name="kontroller">Controller</string>
 
     <string name="dis_aydinlatmalar">EXTERIOR LIGHTS</string>
-    <string name="uyku_modunu_ayarla">SET SLEEP MODE</string>
+    <string name="uyku_modunu_ayarla">SCREEN TIMEOUT</string>
     <string name="nem_set_n_ayarla">HUMIDITY SET</string>
     <string name="gel_m_ayarlar">ADMIN SETTINGS</string>
     <string name="kaydettt">SAVE</string>

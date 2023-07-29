@@ -187,7 +187,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
     private void showChangeTimeoutDialog() {
         String list[] ={getString(R.string.never),"1 "+getString(R.string.dakika),"2 "+getString(R.string.dakika) ,"5 "+getString(R.string.dakika),"10 "+getString(R.string.dakika),"30 "+getString(R.string.dakika)};
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(requireActivity());
-        mBuilder.setTitle("Choose Sleep Timeout");
+        mBuilder.setTitle(getString(R.string.uyku_modunu_ayarla));
         mBuilder.setSingleChoiceItems(list, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

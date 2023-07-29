@@ -101,7 +101,7 @@
     <string name="kapali">AUS</string>
     <string name="gostergeler">Indikatoren</string>
     <string name="dis_aydinlatmalar">AUSSENBELEUCHTUNG</string>
-    <string name="uyku_modunu_ayarla">RUHEMODUS</string>
+    <string name="uyku_modunu_ayarla">BILDSCHIRM-TIMEOUT</string>
     <string name="nem_set_n_ayarla">FEUCHTIGKEIT</string>
 
     <string name="gel_m_ayarlar">ERWEITERTE EINSTELLUNGEN</string>
