@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
     public static int t_out;
     public static int dht_temp;
     public static int dht_humidty;
+
+    public static int batt_curr;
+
+    public static int solar_curr;
     private static final int SPLASH_SCREEN_TIME_OUT = 1900; // After completion of 2000 ms, the next activity will get started.
     ImageView black;
     ClipDrawable drawable;
@@ -341,9 +345,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void onMessageReceived(String message) {
         char[] in_buf=message.toCharArray();
-        if(in_buf[20]==0x55)
+        if(in_buf[24]==0x55)
         {
-            if(in_buf[21]==0x42)
+            if(in_buf[25]==0x42)
             {
                 Log.d("BT_length", "Input buffer length:"+in_buf.length);
                 //Log.d("BT_buffer:",""+Integer.toHexString(in_buf[0])+"-"+Integer.toHexString(in_buf[1])+"-"+Integer.toHexString(in_buf[2])+"-"+Integer.toHexString(in_buf[3])+"-"+Integer.toHexString(in_buf[4])+"-"+Integer.toHexString(in_buf[5])+"-"+Integer.toHexString(in_buf[6])+"-"+Integer.toHexString(in_buf[7])+
@@ -361,13 +365,15 @@ public class MainActivity extends AppCompatActivity {
                 dht_temp=(int)((in_buf[17]<<8)|in_buf[16]);
                 dht_temp-=30;
                 dht_humidty=(int)((in_buf[19]<<8)|in_buf[18]);
+                batt_curr=(int)((in_buf[21]<<8)|in_buf[20]);
+                solar_curr=(int)((in_buf[23]<<8)|in_buf[22]);
                 if(inputsdat!=old_inputsdat)
                 {
                     outputs_data=inputsdat;
                     old_inputsdat=inputsdat;
                 }
 
-                //Log.d("Reading","Outputs:"+Integer.toHexString(inputsdat)+" Vbatt:"+v_batt+" v_solar:"+v_solar+" cl_water_lvl:"+cl_water_lvl+" dt_water_lvl:"+dt_water_lvl+" t_in:"+t_in+" t_out:"+t_out+" dht_temp:"+dht_temp+" dht_humidty:"+dht_humidty);
+                Log.d("Reading","Outputs:"+Integer.toHexString(inputsdat)+" Vbatt:"+v_batt+" v_solar:"+v_solar+" cl_water_lvl:"+cl_water_lvl+" dt_water_lvl:"+dt_water_lvl+" t_in:"+t_in+" t_out:"+t_out+" dht_temp:"+dht_temp+" dht_humidty:"+dht_humidty+" batt_curr:"+batt_curr+" solar_curr:"+solar_curr);
             }
         }
     }

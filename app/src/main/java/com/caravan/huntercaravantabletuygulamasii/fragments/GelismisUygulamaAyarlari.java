@@ -20,6 +20,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import com.caravan.huntercaravantabletuygulamasii.HomeScreen;
+import com.caravan.huntercaravantabletuygulamasii.MainActivity;
 import com.caravan.huntercaravantabletuygulamasii.R;
 
 import java.util.ArrayList;
@@ -47,9 +49,12 @@ import java.util.Set;
 import java.util.UUID;
 
 public class GelismisUygulamaAyarlari extends AppCompatActivity {
+
+    private Handler handler = new Handler();
+    Thread Thread_refresh = null;
     ImageView diagnostikbtn;
     ImageView eslesmebtn;
-    TextView eslesmeText;
+    TextView eslesmeText,batt_curr_txt;
     BluetoothAdapter myBluetoothAdapter;
     Intent btEnablingIntent;
     int requestCodeForeEnable;
@@ -92,6 +97,7 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         eslesmebtn = findViewById(R.id.eslesmebtn);
         eslesmeText = findViewById(R.id.eslesmetext);
+        batt_curr_txt = findViewById(R.id.textView27);
 
         kaydet = findViewById(R.id.button);
         kirlisuswitch = findViewById(R.id.kirlisugostergesiswitch);
@@ -238,6 +244,8 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
 
             }
         });
+        Thread_refresh = new Thread(new GelismisUygulamaAyarlari.refresh_Task());
+        Thread_refresh.start();
 
     }
 
@@ -291,5 +299,26 @@ public class GelismisUygulamaAyarlari extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+    class refresh_Task implements Runnable {
+        public void run() {
+            while(true) {
+                set_input_views();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+    public void set_input_views()
+    {
+        handler.post(new Runnable() {
+            public void run() {
+                String s = String.format("%.1f", (float)MainActivity.batt_curr/1000);
+                batt_curr_txt.setText(s+"A");
+            }
+        });
     }
 }

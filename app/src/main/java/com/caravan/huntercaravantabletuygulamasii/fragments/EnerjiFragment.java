@@ -25,7 +25,7 @@ public class EnerjiFragment extends Fragment {
     ClipDrawable drawable;
     private Handler handler = new Handler();
     Thread Thread_refresh = null;
-    TextView vbatt_txt,vbatt_perc_txt,vsolar_txt;
+    TextView vbatt_txt,vbatt_perc_txt,vsolar_txt,curr_solar_txt;
 
 
 
@@ -50,6 +50,7 @@ public class EnerjiFragment extends Fragment {
         vbatt_txt=(TextView)view.findViewById(R.id.textView18);
         vbatt_perc_txt=(TextView)view.findViewById(R.id.textView59);
         vsolar_txt=(TextView)view.findViewById(R.id.textView21);
+        curr_solar_txt = (TextView) view.findViewById(R.id.textView36);
 
 
         drawable = (ClipDrawable) akuimage.getDrawable();
@@ -87,6 +88,8 @@ public class EnerjiFragment extends Fragment {
                 vbatt_txt.setText(s);
                 s = String.format("%.1f", (float)MainActivity.v_solar/100);
                 vsolar_txt.setText(s);
+                s = String.format("%.1f", (float)MainActivity.solar_curr/1000);
+                curr_solar_txt.setText(s);
             }
         });
     }
