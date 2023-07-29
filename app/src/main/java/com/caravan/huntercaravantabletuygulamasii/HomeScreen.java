@@ -70,6 +70,7 @@ public class HomeScreen extends AppCompatActivity {
     BluetoothDevice[] btArray;
     Timer timer;
     ListView pairedlist;
+    SharedPreferences shared_time_out;
     public static int time_out_cnt = 0;
     private Set<BluetoothDevice> pairedDevice;
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
@@ -104,10 +105,10 @@ public class HomeScreen extends AppCompatActivity {
                 }
             });
         }
-        SharedPreferences shared_time_out = getSharedPreferences("Timeout", MODE_PRIVATE);
+        shared_time_out = getSharedPreferences("Timeout", MODE_PRIVATE);
         time_out = shared_time_out.getInt("timeout", 0);
         Log.d("Timeout", "" + time_out);
-        timer = new Timer();
+        /*timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -127,7 +128,7 @@ public class HomeScreen extends AppCompatActivity {
                     }
                 });
             }
-        }, 0, 1000);
+        }, 0, 1000);*/
 
         myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -229,6 +230,28 @@ public class HomeScreen extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                HomeScreen.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        time_out = shared_time_out.getInt("timeout", 0);
+                        if (time_out > 0) {
+                            time_out_cnt++;
+                            Log.d("Timeout", "val:" + time_out_cnt);
+                            if (time_out_cnt > (time_out*60)) {
+                                KapatmabuttonFragment.from_power_off=true;
+                                Intent intent = new Intent(HomeScreen.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                    }
+                });
+            }
+        }, 0, 1000);
         SharedPreferences shared = getSharedPreferences("dengesistemi", MODE_PRIVATE);
         String deger = shared.getString("dengesistemi", "");
         Log.e("deger", "" + deger);
