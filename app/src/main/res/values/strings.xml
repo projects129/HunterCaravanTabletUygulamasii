@@ -8,7 +8,7 @@
     </string-array>
 
     <string name="tarih">DATE</string>
-    <string name="kullanici_uygulama_ayarlari">USER APPLICATION SETTİNGS</string>
+    <string name="kullanici_uygulama_ayarlari">USER APPLICATION SETTINGS</string>
     <string name="diagnostikmenu">DIAGNOSTIC MENU</string>
     <string name="buton01">BUTTON 01</string>
     <string name="buton07">BUTTON 07</string>
@@ -53,7 +53,7 @@
     <string name="bluetootheslestirme">" BLUETOOTH PAIRING"</string>
     <string name="diagnostikmenuu">DIAGNOSTIC MENU</string>
     <string name="kontrol_akimi_karti">CURRENT CONTROL CARD</string>
-    <string name="ana_sayfa">Main Page</string>
+    <string name="ana_sayfa">Home</string>
     <string name="ayarlar">Settings</string>
     <string name="aydinlatma">Lighting</string>
     <string name="denge_sistemii">Balance System</string>
@@ -72,32 +72,32 @@
     <string name="kullanici_adi">User Name</string>
     <string name="sifre">Password</string>
     <string name="giris_yap">LOG IN</string>
-    <string name="yatak_odasi_isiklari_2">BEDROOM LIGHTS (2)</string>
-    <string name="oturma_alani_isiklarilari">SEATING AREA LIGHTS L/R</string>
-    <string name="mutfak_tavan_isiklari">KITCHEN CEILING LIGHTS</string>
-    <string name="yatak_odasi_isiklari_1">BEDROOM LIGHTS (1)</string>
-    <string name="oturma_alani_isiklari_m">SEATING AREA LIGHTS (M)</string>
+    <string name="yatak_odasi_isiklari_2">BEDROOM (2)</string>
+    <string name="oturma_alani_isiklarilari">SEATING AREA L/R</string>
+    <string name="mutfak_tavan_isiklari">KITCHEN CEILING</string>
+    <string name="yatak_odasi_isiklari_1">BEDROOM (1)</string>
+    <string name="oturma_alani_isiklari_m">SEATING AREA (M)</string>
     <string name="ic_aydinlatmalar">INTERIOR LIGHTS</string>
-    <string name="mutfak_isiklari">KITCHEN LIGHTS</string>
-    <string name="dis_isiklar_sol">EXTERIOR LIGHTS (LEFT)</string>
-    <string name="dis_isiklari_on">EXTERIOR LIGHTS (FRONT)</string>
-    <string name="park_isiklari_sag">PARKING LIGHTS (RIGHT)</string>
-    <string name="dis_isiklar_sag">EXTERIOR LIGHTS (RIGHT)</string>
-    <string name="dis_isiklar_arka">EXTERIOR LIGHTS (BACK)</string>
-    <string name="park_isiklari_sol">EXTERIOR LIGHTS (LEFT)</string>
+    <string name="mutfak_isiklari">KITCHEN</string>
+    <string name="dis_isiklar_sol">LEFT</string>
+    <string name="dis_isiklari_on">FRONT</string>
+    <string name="park_isiklari_sag">PARKING (RIGHT)</string>
+    <string name="dis_isiklar_sag">RIGHT</string>
+    <string name="dis_isiklar_arka">BACK</string>
+    <string name="park_isiklari_sol">PARKING (LEFT)</string>
     <string name="sag">RIGHT</string>
     <string name="sol">LEFT</string>
     <string name="akuu">BATTERY</string>
     <string name="gunes_paneli">SOLAR PANEL</string>
-    <string name="aku_gerilimi">BATTERY VOLTAGE</string>
-    <string name="panel_gerilimi">PANEL VOLTAGE</string>
+    <string name="aku_gerilimi">VOLTAGE</string>
+    <string name="panel_gerilimi">VOLTAGE</string>
     <string name="temiz_suu">FRESH WATER</string>
     <string name="atik_suu">GREY WATER</string>
     <string name="sicaklik_ve_nem">TEMPERATURE AND HUMIDITY</string>
     <string name="ic_sicaklik">ROOM TEMPERATURE</string>
     <string name="diss_sicaklik">AMBIENT TEMPERATURE</string>
     <string name="ic_nem">ROOM HUMIDITY</string>
-    <string name="usb_kullanimi">USB USE</string>
+    <string name="usb_kullanimi">USB</string>
     <string name="hidrofor">WATER BOOSTER</string>
     <string name="acik">SWITCHED ON</string>
     <string name="kapali">SWITCHED OFF</string>
@@ -117,7 +117,7 @@
     <string name="dakika">Minute</string>
     <string name="Kaydedildi">Saved</string>
     <!-- TODO: Remove or change this placeholder text -->
-<string name="panelakimi">PANEL CURRENT </string>
+<string name="panelakimi">"CURRENT "</string>
     <string name="never">Never</string>
     <string name="iptal">CANCEL</string>
 </resources>

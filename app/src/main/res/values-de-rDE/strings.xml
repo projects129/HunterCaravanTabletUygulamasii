@@ -78,10 +78,10 @@
     <string name="mutfak_isiklari">KÜCHE</string>
     <string name="dis_isiklar_sol">LINKS</string>
     <string name="dis_isiklari_on">VORNE</string>
-    <string name="park_isiklari_sag">RECHTS</string>
-    <string name="dis_isiklar_sag">AUSSENLEUCHTEN (RECHTS)</string>
+    <string name="park_isiklari_sag">PARKLICHT (RECHTS)</string>
+    <string name="dis_isiklar_sag">RECHTS</string>
     <string name="dis_isiklar_arka">HINTEN</string>
-    <string name="park_isiklari_sol">AUSSENLEUCHTEN (LINKS)</string>
+    <string name="park_isiklari_sol">PARKLICHT (LINKS)</string>
     <string name="kompresor">KOMPRESSOR</string>
     <string name="sag">RECHTS</string>
     <string name="sol">LINKS</string>
@@ -95,13 +95,13 @@
     <string name="ic_sicaklik">INNERTEMPERATUR</string>
     <string name="diss_sicaklik">AUSSENTEMPERATUR</string>
     <string name="ic_nem">RAUMFEUCHTIGKEIT</string>
-    <string name="usb_kullanimi">USB-NUTZUNG</string>
+    <string name="usb_kullanimi">USB</string>
     <string name="hidrofor">WASSERPUMPE</string>
     <string name="acik">EIN</string>
     <string name="kapali">AUS</string>
     <string name="gostergeler">Indikatoren</string>
     <string name="dis_aydinlatmalar">AUSSENBELEUCHTUNG</string>
-    <string name="uyku_modunu_ayarla">BILDSCHIRM-TIMEOUT</string>
+    <string name="uyku_modunu_ayarla">RUHEMODUS</string>
     <string name="nem_set_n_ayarla">FEUCHTIGKEIT</string>
 
     <string name="gel_m_ayarlar">ERWEITERTE EINSTELLUNGEN</string>
@@ -112,7 +112,7 @@
     <string name="otomat_k_ayarla">AUTOMATİSCH  EINGESTELLT</string>
     <string name="dakika">Minuten</string>
     <string name="Kaydedildi">Aufgezeichnet</string>
-    <string name="panelakimi">PANEL STROM </string>
+    <string name="panelakimi">"STROM "</string>
     <string name="never">Niemals</string>
     <string name="iptal">STORNIEREN</string>
 

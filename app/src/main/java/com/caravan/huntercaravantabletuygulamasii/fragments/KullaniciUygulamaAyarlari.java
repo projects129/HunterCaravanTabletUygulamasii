@@ -227,7 +227,7 @@ public class KullaniciUygulamaAyarlari extends Fragment {
         mDialog.show();
     }
     private void showChangeLanguageDialog() {
-        String list[] ={"English","Turkish","German" };
+        String list[] ={"EN","TR","DE" };
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(requireActivity());
         mBuilder.setTitle("Choose Language");
         mBuilder.setSingleChoiceItems(list, -1, new DialogInterface.OnClickListener() {
