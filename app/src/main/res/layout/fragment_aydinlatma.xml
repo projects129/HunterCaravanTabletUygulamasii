@@ -326,12 +326,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/poppinsbold"
-            android:text="@string/park_isiklari_sag"
+            android:text="@string/park_isiklari_sol"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
         <Switch
-            android:id="@+id/parkisiklarisag"
+            android:id="@+id/parkisiklarisol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -423,12 +423,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
-            android:text="@string/park_isiklari_sol"
+            android:text="@string/park_isiklari_sag"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
         <Switch
-            android:id="@+id/parkisiklarisol"
+            android:id="@+id/parkisiklarisag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
