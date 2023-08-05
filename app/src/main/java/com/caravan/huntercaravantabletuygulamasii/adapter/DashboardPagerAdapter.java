@@ -11,8 +11,11 @@ import com.caravan.huntercaravantabletuygulamasii.fragments.AyarlarFragment;
 import com.caravan.huntercaravantabletuygulamasii.fragments.AydinlatmaFragment;
 import com.caravan.huntercaravantabletuygulamasii.fragments.DengeSistemiFragment;
 import com.caravan.huntercaravantabletuygulamasii.fragments.EnerjiFragment;
+import com.caravan.huntercaravantabletuygulamasii.fragments.GelismisUygulamaAyarlari;
 import com.caravan.huntercaravantabletuygulamasii.fragments.GostergelerFragment;
+import com.caravan.huntercaravantabletuygulamasii.fragments.KapatmabuttonFragment;
 import com.caravan.huntercaravantabletuygulamasii.fragments.KontrollerFragment;
+import com.caravan.huntercaravantabletuygulamasii.fragments.KullaniciUygulamaAyarlari;
 
 public class DashboardPagerAdapter extends FragmentStateAdapter {
 
@@ -41,10 +44,10 @@ public class DashboardPagerAdapter extends FragmentStateAdapter {
                 return new KontrollerFragment();
             case 5:
                 return new DengeSistemiFragment();
+            case 6: return new KullaniciUygulamaAyarlari();
 
-            case 6: return new AyarlarFragment();
 
-            default: return  new AnasayfaFragment();
+            default: return  new KapatmabuttonFragment();
 
 
         }

@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:keepScreenOn="true"
     tools:context=".MainActivity">
 
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
 
@@ -22,15 +23,16 @@
         app:srcCompat="@drawable/re" />
 
     <ImageView
-        android:id="@+id/msk"
+        android:id="@+id/maske"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
+
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/vector" />
 
     <ImageView
         android:id="@+id/hunter"
@@ -38,10 +40,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/msk"
+        app:layout_constraintTop_toBottomOf="@+id/maske"
+        app:layout_constraintVertical_bias="0.203"
         app:srcCompat="@drawable/hunter" />
 
     <ImageView
@@ -50,10 +53,33 @@
         android:layout_height="300dp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/hunter"
-        app:layout_constraintEnd_toEndOf="@+id/msk"
+        app:layout_constraintEnd_toEndOf="@+id/maske"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/msk"
-        app:layout_constraintTop_toTopOf="@+id/msk"
+        app:layout_constraintStart_toStartOf="@+id/maske"
+        app:layout_constraintTop_toTopOf="@+id/maske"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/mask" />
+
+    <ImageView
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/maske"
+        app:layout_constraintStart_toStartOf="@+id/maske"
+        app:layout_constraintTop_toTopOf="@+id/maske"
+        app:srcCompat="@drawable/empty_vector" />
+
+    <ImageView
+        android:id="@+id/black_screen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/black" />
 </androidx.constraintlayout.widget.ConstraintLayout>

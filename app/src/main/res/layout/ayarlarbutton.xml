@@ -9,31 +9,32 @@
 
 <LinearLayout
     android:id="@+id/ayarlar"
-    android:layout_width="75dp"
+    android:layout_width="70dp"
     android:layout_gravity="center"
-    android:layout_height="75dp"
+    android:layout_height="70dp"
+    android:gravity="center"
     android:background="@drawable/rectangle6">
 
 
     <ImageView
 
         android:layout_width="wrap_content"
-        android:layout_height="84dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_weight="1"
         app:srcCompat="@drawable/ayarlar" />
 
 </LinearLayout>
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:fontFamily="@font/poppinsmedium"
-    android:gravity="center"
-    android:text="Ayarlar"
-    android:textColor="@color/white"
-    android:textSize="16sp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppinsmedium"
+        android:gravity="center"
+        android:text="@string/ayarlar"
+        android:textColor="@color/white"
+        android:textSize="14sp">
 
-</TextView>
+    </TextView>
 </LinearLayout>

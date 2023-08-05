@@ -5,53 +5,63 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.caravan.huntercaravantabletuygulamasii.R;
 
-public class AyarlarFragment extends Fragment {
+public class AyarlarFragment extends AppCompatActivity {
 
-
-    public AyarlarFragment() {
-        // Required empty public constructor
-    }
+    EditText kullanici;
+    EditText sifre;
+    Button button;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_ayarlar);
+        {
 
-    }
+            button = (Button) findViewById(R.id.kaydet);
+            kullanici = findViewById(R.id.kullanici);
+            sifre = findViewById(R.id.sifre);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ayarlar, container, false);
+                    updateDetail();
+                }
+            });
 
 
-    }
+        }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Button button = (Button) view.findViewById(R.id.kaydet);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateDetail();
-            }
-        });
+
 
     }
 
     public void updateDetail() {
-        Intent intent = new Intent(getActivity(), KullaniciUygulamaAyarlari.class);
-        startActivity(intent);
-    }
+        String kullaniciadi = "hunter";
+        String sifresi = "karavan";
+        if ((kullanici.getText().toString().equals("hunter")) && (sifre.getText().toString().equals("karavan"))) {
 
-}
+            Intent intent = new Intent(this, GelismisUygulamaAyarlari.class);
+            startActivity(intent);
+            finish();
+
+        } else {
+            Toast.makeText(this,"Yanlıs Bilgi Girdiniz.",Toast
+                    .LENGTH_SHORT).show();
+        }
+
+    }
+        }
+

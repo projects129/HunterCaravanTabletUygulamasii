@@ -11,10 +11,10 @@
         android:id="@+id/yatakodasıışık"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@+id/yatakodasi"
+        app:layout_constraintEnd_toEndOf="@+id/oturmaalaniisik"
+        app:layout_constraintStart_toStartOf="@+id/oturmaalaniisik"
         app:layout_constraintTop_toBottomOf="@+id/oturmaalaniisik">
 
         <TextView
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="YATAK ODASI IŞIKLARI (2)"
+            android:text="@string/yatak_odasi_isiklari_2"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -44,10 +44,10 @@
         android:id="@+id/oturmaalaniisik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="50dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@+id/oturmaalani"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/mutfaktavan">
 
         <TextView
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="OTURMA ALANI IŞIKLARI"
+            android:text="@string/oturma_alani_isiklarilari"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -76,10 +76,10 @@
         android:id="@+id/mutfaktavan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@+id/mutfakisik"
+        app:layout_constraintEnd_toEndOf="@+id/oturmaalaniisik"
+        app:layout_constraintStart_toStartOf="@+id/oturmaalaniisik"
         app:layout_constraintTop_toBottomOf="@+id/disaydinlatma">
 
         <TextView
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="MUTFAK TAVAN IŞIKLARI"
+            android:text="@string/mutfak_tavan_isiklari"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -109,10 +109,10 @@
         android:id="@+id/yatakodasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/oturmaalani"
+        app:layout_constraintStart_toStartOf="@+id/oturmaalani"
         app:layout_constraintTop_toBottomOf="@+id/oturmaalani">
 
         <TextView
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="YATAK ODASI IŞIKLARI (1)"
+            android:text="@string/yatak_odasi_isiklari_1"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -142,9 +142,10 @@
         android:id="@+id/oturmaalani"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/oturmaalaniisik"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mutfakisik">
 
@@ -152,9 +153,10 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="OTURMA ALANI IŞIKLARI (M)"
+            android:text="@string/oturma_alani_isiklari_m"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -171,52 +173,53 @@
 
     </LinearLayout>
 
+
     <TextView
         android:id="@+id/icaydinlatma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="140dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsbold"
-        android:text="İÇ AYDINLATMALAR"
+        android:text="@string/dis_aydinlatmalar"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/disaydinlatma"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:layout_constraintHorizontal_bias="0.632"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/disaydinlatma"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/poppinsbold"
-        android:text="DIŞ AYDINLATMALAR"
+        android:text="@string/ic_aydinlatmalar"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/oturmaalaniisik"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="@+id/oturmaalani"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <LinearLayout
         android:id="@+id/mutfakisik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/oturmaalani"
+        app:layout_constraintStart_toStartOf="@+id/oturmaalani"
         app:layout_constraintTop_toBottomOf="@+id/disaydinlatma">
 
         <TextView
             android:id="@+id/mutfakisiklaritext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="MUTFAK IŞIKLARI"
+            android:text="@string/mutfak_isiklari"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -236,9 +239,10 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="240dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="112dp"
         android:src="@drawable/line"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -246,19 +250,20 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/icaydinlatma">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="DIŞ IŞIKLAR (SOL)"
+            android:text="@string/dis_isiklar_sol"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -278,18 +283,19 @@
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="90dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/poppinsbold"
-            android:text="DIŞ IŞIKLARI (ÖN)"
+            android:text="@string/dis_isiklari_on"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -308,23 +314,24 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/poppinsbold"
-            android:text=" PARK IŞIKLARI (SAĞ)"
+            android:text="@string/park_isiklari_sol"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
         <Switch
-            android:id="@+id/parkisiklarisag"
+            android:id="@+id/parkisiklarisol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -339,10 +346,10 @@
         android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="29dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
         app:layout_constraintTop_toBottomOf="@+id/icaydinlatma">
 
         <TextView
@@ -351,7 +358,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
-            android:text="DIŞ IŞIKLAR (SAĞ)"
+            android:text="@string/dis_isiklar_sag"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -371,18 +378,21 @@
         android:id="@+id/linearLayout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/poppinsbold"
-            android:text="DIŞ IŞIKLAR (ARKA)"
+            android:text="@string/dis_isiklar_arka"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -402,10 +412,10 @@
         android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <TextView
@@ -413,12 +423,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsbold"
-            android:text="PARK IŞIKLARI (SOL)"
+            android:text="@string/park_isiklari_sag"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
         <Switch
-            android:id="@+id/parkisiklarisol"
+            android:id="@+id/parkisiklarisag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -431,13 +441,12 @@
 
     <ImageView
         android:id="@+id/imageView26"
-        android:layout_width="481dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="448dp"
+        android:layout_height="100dp"
         android:src="@drawable/huntercunter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

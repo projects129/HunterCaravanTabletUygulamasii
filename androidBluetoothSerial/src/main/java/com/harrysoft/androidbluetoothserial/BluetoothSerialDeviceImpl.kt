@@ -2,6 +2,7 @@ package com.harrysoft.androidbluetoothserial
 
 import android.bluetooth.BluetoothSocket
 import android.text.TextUtils
+import android.util.Log
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Completable
 import io.reactivex.Flowable
@@ -42,7 +43,9 @@ internal class BluetoothSerialDeviceImpl constructor(
             while (!emitter.isCancelled && !closed.get()) {
                 synchronized(inputStream) {
                     try {
-                        val receivedString = reader.readLine()
+                        var str : CharArray = CharArray(26)
+                        reader.read(str,0,26)
+                        val receivedString=String(str)
                         if (!TextUtils.isEmpty(receivedString)) {
                             emitter.onNext(receivedString)
                         }
