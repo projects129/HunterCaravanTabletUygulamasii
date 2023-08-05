@@ -45,6 +45,8 @@ public class AydinlatmaFragment extends Fragment {
 
     Switch parkisiklarisol;
 
+
+
         // Required empty public constructor
 
 
